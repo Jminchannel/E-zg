@@ -16,19 +16,24 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="验证码">
+    <meta name="description" content="验证码工具类Hutool 12345&lt;dependency&gt;    &lt;groupId&gt;cn.hutool&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;hutool-all&lt;&#x2F;artifactId&gt;    &lt;version&gt;5.7.20&lt;&#x2F;version&gt;&lt;&#x2F;dependency&gt;    12345">
+<meta property="og:type" content="article">
+<meta property="og:title" content="验证码工具类">
 <meta property="og:url" content="http://example.com/2023/09/01/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/8_%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B7%A5%E5%85%B7%E7%B1%BB/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="验证码工具类Hutool 12345&lt;dependency&gt;    &lt;groupId&gt;cn.hutool&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;hutool-all&lt;&#x2F;artifactId&gt;    &lt;version&gt;5.7.20&lt;&#x2F;version&gt;&lt;&#x2F;dependency&gt;    12345">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/assets/image-20230903171309340.png">
+<meta property="og:image" content="http://example.com/assets/image-20230903171314981.png">
 <meta property="article:published_time" content="2023-09-01T14:53:43.000Z">
-<meta property="article:modified_time" content="2023-09-03T05:48:00.146Z">
+<meta property="article:modified_time" content="2023-09-03T09:14:57.769Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/assets/image-20230903171309340.png">
   
   
   
-  <title>验证码 - Hexo</title>
+  <title>验证码工具类 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -194,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="验证码"></span>
+            <span id="subtitle" data-typed-text="验证码工具类"></span>
           
         </div>
 
@@ -217,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          611 字
         
       </span>
     
@@ -228,7 +233,7 @@
         
         
         
-          1 分钟
+          6 分钟
         
       </span>
     
@@ -265,12 +270,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">验证码</h1>
+            <h1 id="seo-header">验证码工具类</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id><a href="#" class="headerlink" title></a></h1>
+                <h1 id="验证码工具类"><a href="#验证码工具类" class="headerlink" title="验证码工具类"></a>验证码工具类</h1><p>Hutool</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.hutool<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>hutool-all<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.7.20<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> FileNotFoundException &#123;<br>        <span class="hljs-type">LineCaptcha</span> <span class="hljs-variable">lineCaptcha</span> <span class="hljs-operator">=</span> CaptchaUtil.createLineCaptcha(<span class="hljs-number">100</span>, <span class="hljs-number">30</span>, <span class="hljs-number">4</span>, <span class="hljs-number">25</span>);<br>        lineCaptcha.write(<span class="hljs-string">&quot;D:\\Employment_Readiness\\黑马-WEB\\CookieDemo\\src\\main\\resources\\x.png&quot;</span>);<br><span class="hljs-comment">//        or</span><br>        lineCaptcha.write(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileOutputStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">File</span>(<span class="hljs-string">&quot;D:\\Employment_Readiness\\黑马-WEB\\CookieDemo\\src\\main\\resources\\x1.jpg&quot;</span>)));<br>        System.out.println(lineCaptcha.getCode());<br>    &#125;<br></code></pre></td></tr></table></figure>
+<p><img src="/assets/image-20230903171309340.png" srcset="/img/loading.gif" lazyload alt="image-20230903171309340"></p>
+<p><img src="/assets/image-20230903171314981.png" srcset="/img/loading.gif" lazyload alt="image-20230903171314981"></p>
+
                 
               </div>
             
@@ -308,7 +321,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>验证码</div>
+      <div>验证码工具类</div>
       <div>http://example.com/2023/09/01/黑马-Web核心/8_验证码工具类/</div>
     </div>
     <div class="license-meta">
@@ -363,8 +376,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/13_%E7%BA%A6%E6%9D%9F/%E7%BA%A6%E6%9D%9F/" title="约束Constraint">
-                        <span class="hidden-mobile">约束Constraint</span>
+                      <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/10_%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86%E8%A1%A8/%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%AE%A1%E7%90%86%E8%A1%A8/" title="创建和管理表">
+                        <span class="hidden-mobile">创建和管理表</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
