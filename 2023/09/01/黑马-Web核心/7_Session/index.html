@@ -16,24 +16,26 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="帅是一种态度HANDSOMEBOY FREEDOMBOY FASHIONBOY">
+    <meta name="description" content="Session 服务端会话跟踪技术，将数据保存到服务端 JavaEE提供了HttpSession接口，来实现一次会话的多次请求间数据共享功能。  12345678@WebServlet(&quot;&#x2F;session1&quot;)public class demo1 extends HttpServlet &amp;#123;    @Override    protected void doGet(Ht">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2023/09/03/%E5%87%AF%E7%A5%9E%E9%99%8D%E4%B8%B4/kaiGod/index.html">
+<meta property="og:title" content="Session">
+<meta property="og:url" content="http://example.com/2023/09/01/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/7_Session/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="帅是一种态度HANDSOMEBOY FREEDOMBOY FASHIONBOY">
+<meta property="og:description" content="Session 服务端会话跟踪技术，将数据保存到服务端 JavaEE提供了HttpSession接口，来实现一次会话的多次请求间数据共享功能。  12345678@WebServlet(&quot;&#x2F;session1&quot;)public class demo1 extends HttpServlet &amp;#123;    @Override    protected void doGet(Ht">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/assets/image-20230903094856925.png">
-<meta property="og:image" content="http://example.com/assets/image-20230903094907233.png">
-<meta property="article:published_time" content="2023-09-03T01:00:58.612Z">
-<meta property="article:modified_time" content="2023-09-03T02:23:29.612Z">
+<meta property="og:image" content="http://example.com/assets/image-20230903123025455.png">
+<meta property="og:image" content="http://example.com/assets/image-20230903131306044.png">
+<meta property="og:image" content="http://example.com/assets/image-20230903131929014.png">
+<meta property="og:image" content="http://example.com/assets/image-20230903132357992.png">
+<meta property="article:published_time" content="2023-09-01T14:53:43.000Z">
+<meta property="article:modified_time" content="2023-09-03T05:47:35.759Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/assets/image-20230903094856925.png">
+<meta name="twitter:image" content="http://example.com/assets/image-20230903123025455.png">
   
   
   
-  <title>Hexo</title>
+  <title>Session - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="Session"></span>
           
         </div>
 
@@ -210,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-03 09:00" pubdate>
-          2023年9月3日 上午
+        <time datetime="2023-09-01 22:53" pubdate>
+          2023年9月1日 晚上
         </time>
       </span>
     
@@ -222,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          37 字
+          1.3k 字
         
       </span>
     
@@ -233,7 +235,7 @@
         
         
         
-          1 分钟
+          11 分钟
         
       </span>
     
@@ -270,20 +272,82 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">Session</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="帅是一种态度"><a href="#帅是一种态度" class="headerlink" title="帅是一种态度"></a>帅是一种态度</h1><h1 id="HANDSOMEBOY"><a href="#HANDSOMEBOY" class="headerlink" title="HANDSOMEBOY"></a>HANDSOMEBOY</h1><p><img src="/assets/image-20230903094856925.png" srcset="/img/loading.gif" lazyload alt="image-20230903094856925"></p>
-<h1 id="FREEDOMBOY"><a href="#FREEDOMBOY" class="headerlink" title="FREEDOMBOY"></a>FREEDOMBOY</h1><p><img src="/assets/image-20230903094907233.png" srcset="/img/loading.gif" lazyload alt="image-20230903094907233"></p>
-<h1 id="FASHIONBOY"><a href="#FASHIONBOY" class="headerlink" title="FASHIONBOY"></a>FASHIONBOY</h1>
+                <h1 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h1><ul>
+<li>服务端会话跟踪技术，将数据保存到服务端</li>
+<li>JavaEE提供了HttpSession接口，来实现一次会话的多次请求间数据共享功能。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@WebServlet(&quot;/session1&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">demo1</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">HttpServlet</span> &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException &#123;<br>        <span class="hljs-type">HttpSession</span> <span class="hljs-variable">session</span> <span class="hljs-operator">=</span> req.getSession();<br>        session.setAttribute(<span class="hljs-string">&quot;SessionUsername&quot;</span>,<span class="hljs-string">&quot;LiHua&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@WebServlet(&quot;/session2&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">demo2</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">HttpServlet</span> &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException &#123;<br>        <span class="hljs-type">HttpSession</span> <span class="hljs-variable">session</span> <span class="hljs-operator">=</span> req.getSession();<br>        System.out.println(session.getAttribute(<span class="hljs-string">&quot;SessionUsername&quot;</span>).toString());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Session原理"><a href="#Session原理" class="headerlink" title="Session原理"></a>Session原理</h2><ul>
+<li>Session是基于Cookie实现的</li>
+<li><img src="/assets/image-20230903123025455.png" srcset="/img/loading.gif" lazyload alt="image-20230903123025455"></li>
+</ul>
+<p>我的理解：</p>
+<blockquote>
+<p>客户端浏览器访问&#x2F;demo1请求获取服务端的session，服务端收到请求后，服务端创建了一个session对象，并且该对象拥有唯一的标识id，&#x2F;demo1的数据存放到该session对象中，服务器向客户端浏览器响应，将session标识id作为Cookie发送给客户端浏览器，即set-cookie:JSESSIONID，客户端浏览器将这个Cookie存放到浏览器内存中。当该客户端浏览器再一次访问服务端时携带JSESSIONID，服务端获取到cookie值也就是JSESSIONID，服务端将在内存中查找是否存在匹配的Session对象，如果有则使用，否则创建新的Session对象</p>
+</blockquote>
+<h2 id="Session的使用细节"><a href="#Session的使用细节" class="headerlink" title="Session的使用细节"></a>Session的使用细节</h2><ul>
+<li><p>Session钝化，活化</p>
+<ul>
+<li><p>服务器重启后，Session中的数据是否存在？</p>
+<ul>
+<li><p>钝化：服务器正常关闭后，Tomcat会自动将Session数据写入硬盘的文件中。</p>
+<p><img src="/assets/image-20230903131306044.png" srcset="/img/loading.gif" lazyload alt="image-20230903131306044"></p>
+</li>
+<li><p>活化：再次启动服务器后，从文件中加载数据到Session中</p>
+</li>
+<li><p>当浏览器关闭后，浏览器的从服务端响应到的Cookie消失，但服务端对应的Session对象仍保留</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Session销毁</p>
+<ul>
+<li><p>默认情况下，session对象最后一次调用的30分钟自动销毁</p>
+<p><img src="/assets/image-20230903131929014.png" srcset="/img/loading.gif" lazyload alt="image-20230903131929014"></p>
+</li>
+<li><p>调用Session对象的invalidate()方法</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/assets/image-20230903132357992.png" srcset="/img/loading.gif" lazyload alt="image-20230903132357992"></p>
+
                 
               </div>
             
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JavaWeb%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/" class="category-chain-item">JavaWeb核心技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>
@@ -294,8 +358,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>http://example.com/2023/09/03/凯神降临/kaiGod/</div>
+      <div>Session</div>
+      <div>http://example.com/2023/09/01/黑马-Web核心/7_Session/</div>
     </div>
     <div class="license-meta">
       
@@ -307,7 +371,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月3日</div>
+          <div>2023年9月1日</div>
         </div>
       
       
@@ -339,12 +403,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2023/09/01/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/5_%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/" title="会话跟踪">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">会话跟踪</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/03/1_%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2023/09/01/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/8_%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B7%A5%E5%85%B7%E7%B1%BB/" title="验证码">
+                        <span class="hidden-mobile">验证码</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -16,26 +16,44 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="CookieCookie基本使用数据保存在客户端，每次请求都携带Cookie数据进行访问  1234protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &amp;#123;    Cookie cookie &#x3D; new Cookie(&amp;quot">
+    <meta name="description" content="Tomcat简介 概念：Tomcat是Apache软件基金会一个核心项目，是一个开源免费的轻量级Web服务器，支持Servlet&#x2F;JSP少量JavaEE规范。  JavaEE：Java Enterprise Edition Java企业版。包含13项技术规范： JDBC,JNDI,EJB,JSP,Servlet,XML,JMS,JAVA IDL,JTS,JTA,JavaMail,JAF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2023/09/03/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/6_Cookie/index.html">
+<meta property="og:title" content="Tomcat">
+<meta property="og:url" content="http://example.com/2023/09/01/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/2_Apache_Tomcat/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="CookieCookie基本使用数据保存在客户端，每次请求都携带Cookie数据进行访问  1234protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &amp;#123;    Cookie cookie &#x3D; new Cookie(&amp;quot">
+<meta property="og:description" content="Tomcat简介 概念：Tomcat是Apache软件基金会一个核心项目，是一个开源免费的轻量级Web服务器，支持Servlet&#x2F;JSP少量JavaEE规范。  JavaEE：Java Enterprise Edition Java企业版。包含13项技术规范： JDBC,JNDI,EJB,JSP,Servlet,XML,JMS,JAVA IDL,JTS,JTA,JavaMail,JAF">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/assets/image-20230902211121274.png">
-<meta property="og:image" content="http://example.com/assets/image-20230902212437077.png">
-<meta property="og:image" content="http://example.com/assets/image-20230902212721661.png">
-<meta property="og:image" content="http://example.com/assets/image-20230902215325907.png">
-<meta property="article:published_time" content="2023-09-03T02:10:06.312Z">
-<meta property="article:modified_time" content="2023-09-02T14:18:18.948Z">
+<meta property="og:image" content="http://example.com/assets/image-20230901080720741.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901080943294.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901081342172.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901081241009.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901081725216.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901081833397.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901082046824.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901082210477.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901082426150.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901082532643.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901082834307.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901082934444.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901083425622.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901083706828.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901083746740.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901084500747.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901084614107.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901084633362.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901084652060.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901084959883.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901085453488.png">
+<meta property="og:image" content="http://example.com/assets/image-20230901085429942.png">
+<meta property="article:published_time" content="2023-09-01T14:53:43.000Z">
+<meta property="article:modified_time" content="2023-09-03T05:46:19.898Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/assets/image-20230902211121274.png">
+<meta name="twitter:image" content="http://example.com/assets/image-20230901080720741.png">
   
   
   
-  <title>Hexo</title>
+  <title>Tomcat - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +219,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="Tomcat"></span>
           
         </div>
 
@@ -212,8 +230,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-03 10:10" pubdate>
-          2023年9月3日 上午
+        <time datetime="2023-09-01 22:53" pubdate>
+          2023年9月1日 晚上
         </time>
       </span>
     
@@ -224,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          618 字
         
       </span>
     
@@ -235,7 +253,7 @@
         
         
         
-          11 分钟
+          6 分钟
         
       </span>
     
@@ -272,58 +290,55 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">Tomcat</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><h2 id="Cookie基本使用"><a href="#Cookie基本使用" class="headerlink" title="Cookie基本使用"></a>Cookie基本使用</h2><p>数据保存在<strong>客户端</strong>，每次请求都携带Cookie数据进行访问</p>
-<p><img src="/assets/image-20230902211121274.png" srcset="/img/loading.gif" lazyload alt="image-20230902211121274"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException &#123;<br>    <span class="hljs-type">Cookie</span> <span class="hljs-variable">cookie</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cookie</span>(<span class="hljs-string">&quot;username&quot;</span>, <span class="hljs-string">&quot;zhansan&quot;</span>);<br>    resp.addCookie(cookie);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<p><img src="/assets/image-20230902212437077.png" srcset="/img/loading.gif" lazyload alt="image-20230902212437077"></p>
-<p><img src="/assets/image-20230902212721661.png" srcset="/img/loading.gif" lazyload alt="image-20230902212721661"></p>
-<blockquote>
-<p>为什么服务端只能在客户端获取从服务端发送的cookie，而不能获取非服务端发送的其他cookie呢</p>
-</blockquote>
-<p>服务端只能获取从服务端发送的Cookie，以及客户端将这些Cookie随后发送回服务器的Cookie，是由于浏览器的安全性和隐私保护机制所决定的。这个限制有以下原因：</p>
-<ol>
-<li>同源策略：浏览器实施了同源策略（Same-Origin Policy），这是一种安全措施，限制了一个网站（或域）的JavaScript代码只能访问与其来源相同的资源。这意味着，JavaScript代码只能访问与网站的域名相同的Cookie。这是为了防止恶意网站访问用户在其他网站上的Cookie数据。</li>
-<li>安全性：Cookie中包含了敏感信息，如用户身份验证令牌。如果服务端可以直接获取所有Cookie，那么恶意的服务端可以轻松地窃取用户在其他网站上的Cookie信息，导致安全问题。</li>
-<li>隐私保护：Cookie中可能包含用户的隐私信息，如浏览历史、偏好设置等。浏览器将这些信息视为用户的隐私，并严格限制对其访问，以保护用户的隐私。</li>
+                <h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li><p>概念：Tomcat是Apache软件基金会一个核心项目，是一个开源免费的<strong>轻量级Web服务器</strong>，支持Servlet&#x2F;JSP少量JavaEE规范。</p>
+</li>
+<li><p>JavaEE：Java Enterprise Edition Java企业版。包含13项技术规范：</p>
+<p>JDBC,JNDI,EJB,JSP,Servlet,XML,JMS,JAVA IDL,JTS,JTA,JavaMail,JAF</p>
+</li>
+</ul>
+<h2 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h2><ol>
+<li>Web服务器的作用？封装HTTP协议操作，简化开发。可将web项目部署到服务器，对外提供网上浏览服务。</li>
+<li>Tomcat是一个轻量级的web服务器，支持Servlet&#x2F;JSP少量JavaEE规范，也称Web容器，Servlet容器。</li>
 </ol>
-<p>虽然服务端不能直接获取非服务端发送的其他网站的Cookie，但可以通过合法的手段，如用户授权或者跳转到其他网站来获取特定Cookie信息。例如，OAuth授权流程允许服务端通过重定向用户到第三方认证提供者的页面，获得用户授权后，获取特定的令牌信息。但这些操作通常需要用户的明示同意和合法的授权机制，以确保隐私和安全。</p>
-<h2 id="Cookie原理"><a href="#Cookie原理" class="headerlink" title="Cookie原理"></a>Cookie原理</h2><ul>
-<li>Cookie的实现是基于HTTP协议的<ul>
-<li>响应头：set-cookie</li>
-<li>请求头：cookie</li>
-</ul>
-</li>
-</ul>
-<p><img src="/assets/image-20230902215325907.png" srcset="/img/loading.gif" lazyload alt="image-20230902215325907"></p>
-<h2 id="Cookie使用细节"><a href="#Cookie使用细节" class="headerlink" title="Cookie使用细节"></a>Cookie使用细节</h2><ul>
-<li><p>Cookie的存活时间</p>
-<ul>
-<li>默认情况下，Cookie存储在浏览器内存中，当浏览器关闭，内存释放，则Cookie被销毁</li>
-<li>持久化修改：setMaxAge(int seconds)<ol>
-<li>正数：将Cookie写入浏览器所在电脑的硬盘，持久化存储。到时间自动删除</li>
-<li>负数：默认值，Cookie在当前浏览器内存中，当浏览器关闭，则Cookie被销毁</li>
-<li>零：删除对应Cookie</li>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>官网</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><img src="/assets/image-20230901080720741.png" srcset="/img/loading.gif" lazyload alt="image-20230901080720741"><img src="/assets/image-20230901080943294.png" srcset="/img/loading.gif" lazyload alt="image-20230901080943294"></p>
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>直接删除目录即可</p>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>双击bin\startup.bat</p>
+<p><img src="/assets/image-20230901081342172.png" srcset="/img/loading.gif" lazyload alt="image-20230901081342172"></p>
+<p><img src="/assets/image-20230901081241009.png" srcset="/img/loading.gif" lazyload alt="image-20230901081241009"></p>
+<p>解决乱码问题:在conf&#x2F;logging.properties</p>
+<p><img src="/assets/image-20230901081725216.png" srcset="/img/loading.gif" lazyload alt="image-20230901081725216"><img src="/assets/image-20230901081833397.png" srcset="/img/loading.gif" lazyload alt="image-20230901081833397"></p>
+<h3 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h3><ol>
+<li>直接×掉运行窗口：强制关闭</li>
+<li>bin\shutdown.bat:正常关闭</li>
+<li>Ctrl+C:正常关闭</li>
 </ol>
-</li>
-</ul>
-</li>
-<li><p>Cookie存储中文</p>
-<ul>
-<li><p>Cookie不能直接存储中文</p>
-</li>
-<li><p>存储方法：转码，URL编码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">value</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;张三&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">encode</span> <span class="hljs-operator">=</span> URLEncoder.encode(value, <span class="hljs-string">&quot;UTF-8&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;存储数据&quot;</span> + encode);<br><span class="hljs-type">Cookie</span> <span class="hljs-variable">cookie</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cookie</span>(<span class="hljs-string">&quot;username&quot;</span>, encode);<br></code></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>修改端口号：conf&#x2F;server.xml</p>
+<p><img src="/assets/image-20230901082046824.png" srcset="/img/loading.gif" lazyload alt="image-20230901082046824"></p>
+<p><img src="/assets/image-20230901082210477.png" srcset="/img/loading.gif" lazyload alt="image-20230901082210477"></p>
+<p>HTTP默认端口号为80</p>
+<h3 id="部署项目"><a href="#部署项目" class="headerlink" title="部署项目"></a>部署项目</h3><p><img src="/assets/image-20230901082426150.png" srcset="/img/loading.gif" lazyload alt="image-20230901082426150"></p>
+<p><img src="/assets/image-20230901082532643.png" srcset="/img/loading.gif" lazyload alt="image-20230901082532643"></p>
+<h2 id="IDEA创建Maven-web项目"><a href="#IDEA创建Maven-web项目" class="headerlink" title="IDEA创建Maven web项目"></a>IDEA创建Maven web项目</h2><p><img src="/assets/image-20230901082834307.png" srcset="/img/loading.gif" lazyload alt="image-20230901082834307"></p>
+<p>war打包之后就会在target目录中生成，如下</p>
+<p><img src="/assets/image-20230901082934444.png" srcset="/img/loading.gif" lazyload alt="image-20230901082934444"></p>
+<p><img src="/assets/image-20230901083425622.png" srcset="/img/loading.gif" lazyload alt="image-20230901083425622"></p>
+<p>编译后的java字节码文件和resource的资源文件放到WEB-INF的classes目录中，pom.xml依赖坐标对应的jar包会放入WEB-INF的lib目录中</p>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p><img src="/assets/image-20230901083706828.png" srcset="/img/loading.gif" lazyload alt="image-20230901083706828"></p>
+<p><img src="/assets/image-20230901083746740.png" srcset="/img/loading.gif" lazyload alt="image-20230901083746740"></p>
+<p><img src="/assets/image-20230901084500747.png" srcset="/img/loading.gif" lazyload alt="image-20230901084500747"></p>
+<p><img src="/assets/image-20230901084614107.png" srcset="/img/loading.gif" lazyload alt="image-20230901084614107"></p>
+<p><img src="/assets/image-20230901084633362.png" srcset="/img/loading.gif" lazyload alt="image-20230901084633362"></p>
+<p><img src="/assets/image-20230901084652060.png" srcset="/img/loading.gif" lazyload alt="image-20230901084652060"></p>
+<h2 id="IDEA集成本地Tomcat"><a href="#IDEA集成本地Tomcat" class="headerlink" title="IDEA集成本地Tomcat"></a>IDEA集成本地Tomcat</h2><p><img src="/assets/image-20230901084959883.png" srcset="/img/loading.gif" lazyload alt="image-20230901084959883"></p>
+<p><img src="/assets/image-20230901085453488.png" srcset="/img/loading.gif" lazyload alt="image-20230901085453488"></p>
+<p><img src="/assets/image-20230901085429942.png" srcset="/img/loading.gif" lazyload alt="image-20230901085429942"></p>
 
                 
               </div>
@@ -331,6 +346,27 @@
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JavaWeb%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/" class="category-chain-item">JavaWeb核心技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>
@@ -341,8 +377,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>http://example.com/2023/09/03/黑马-Web核心/6_Cookie/</div>
+      <div>Tomcat</div>
+      <div>http://example.com/2023/09/01/黑马-Web核心/2_Apache_Tomcat/</div>
     </div>
     <div class="license-meta">
       
@@ -354,7 +390,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月3日</div>
+          <div>2023年9月1日</div>
         </div>
       
       
@@ -386,9 +422,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/03/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/7_Session/" title="">
+                      <a href="/2023/09/01/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/3_Servlet/" title="Servlet">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">Servlet</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -396,8 +432,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/03/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/5_%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2023/09/01/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/4_Request&amp;Response/" title="Request&amp;&amp;Response">
+                        <span class="hidden-mobile">Request&amp;&amp;Response</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -16,26 +16,26 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Session 服务端会话跟踪技术，将数据保存到服务端 JavaEE提供了HttpSession接口，来实现一次会话的多次请求间数据共享功能。  12345678@WebServlet(&quot;&#x2F;session1&quot;)public class demo1 extends HttpServlet &amp;#123;    @Override    protected void doGet(Ht">
+    <meta name="description" content="CookieCookie基本使用数据保存在客户端，每次请求都携带Cookie数据进行访问  1234protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &amp;#123;    Cookie cookie &#x3D; new Cookie(&amp;quot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2023/09/03/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/7_Session/index.html">
+<meta property="og:title" content="Cookie">
+<meta property="og:url" content="http://example.com/2023/09/01/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/6_Cookie/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Session 服务端会话跟踪技术，将数据保存到服务端 JavaEE提供了HttpSession接口，来实现一次会话的多次请求间数据共享功能。  12345678@WebServlet(&quot;&#x2F;session1&quot;)public class demo1 extends HttpServlet &amp;#123;    @Override    protected void doGet(Ht">
+<meta property="og:description" content="CookieCookie基本使用数据保存在客户端，每次请求都携带Cookie数据进行访问  1234protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &amp;#123;    Cookie cookie &#x3D; new Cookie(&amp;quot">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/assets/image-20230903123025455.png">
-<meta property="og:image" content="http://example.com/assets/image-20230903131306044.png">
-<meta property="og:image" content="http://example.com/assets/image-20230903131929014.png">
-<meta property="og:image" content="http://example.com/assets/image-20230903132357992.png">
-<meta property="article:published_time" content="2023-09-03T02:10:06.315Z">
-<meta property="article:modified_time" content="2023-09-03T05:35:36.569Z">
+<meta property="og:image" content="http://example.com/assets/image-20230902211121274.png">
+<meta property="og:image" content="http://example.com/assets/image-20230902212437077.png">
+<meta property="og:image" content="http://example.com/assets/image-20230902212721661.png">
+<meta property="og:image" content="http://example.com/assets/image-20230902215325907.png">
+<meta property="article:published_time" content="2023-09-01T14:53:43.000Z">
+<meta property="article:modified_time" content="2023-09-03T05:47:24.167Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/assets/image-20230903123025455.png">
+<meta name="twitter:image" content="http://example.com/assets/image-20230902211121274.png">
   
   
   
-  <title>Hexo</title>
+  <title>Cookie - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="Cookie"></span>
           
         </div>
 
@@ -212,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-03 10:10" pubdate>
-          2023年9月3日 上午
+        <time datetime="2023-09-01 22:53" pubdate>
+          2023年9月1日 晚上
         </time>
       </span>
     
@@ -272,54 +272,58 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">Cookie</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h1><ul>
-<li>服务端会话跟踪技术，将数据保存到服务端</li>
-<li>JavaEE提供了HttpSession接口，来实现一次会话的多次请求间数据共享功能。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@WebServlet(&quot;/session1&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">demo1</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">HttpServlet</span> &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException &#123;<br>        <span class="hljs-type">HttpSession</span> <span class="hljs-variable">session</span> <span class="hljs-operator">=</span> req.getSession();<br>        session.setAttribute(<span class="hljs-string">&quot;SessionUsername&quot;</span>,<span class="hljs-string">&quot;LiHua&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><h2 id="Cookie基本使用"><a href="#Cookie基本使用" class="headerlink" title="Cookie基本使用"></a>Cookie基本使用</h2><p>数据保存在<strong>客户端</strong>，每次请求都携带Cookie数据进行访问</p>
+<p><img src="/assets/image-20230902211121274.png" srcset="/img/loading.gif" lazyload alt="image-20230902211121274"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException &#123;<br>    <span class="hljs-type">Cookie</span> <span class="hljs-variable">cookie</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cookie</span>(<span class="hljs-string">&quot;username&quot;</span>, <span class="hljs-string">&quot;zhansan&quot;</span>);<br>    resp.addCookie(cookie);<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@WebServlet(&quot;/session2&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">demo2</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">HttpServlet</span> &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException &#123;<br>        <span class="hljs-type">HttpSession</span> <span class="hljs-variable">session</span> <span class="hljs-operator">=</span> req.getSession();<br>        System.out.println(session.getAttribute(<span class="hljs-string">&quot;SessionUsername&quot;</span>).toString());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="Session原理"><a href="#Session原理" class="headerlink" title="Session原理"></a>Session原理</h2><ul>
-<li>Session是基于Cookie实现的</li>
-<li><img src="/assets/image-20230903123025455.png" srcset="/img/loading.gif" lazyload alt="image-20230903123025455"></li>
-</ul>
-<p>我的理解：</p>
+
+<p><img src="/assets/image-20230902212437077.png" srcset="/img/loading.gif" lazyload alt="image-20230902212437077"></p>
+<p><img src="/assets/image-20230902212721661.png" srcset="/img/loading.gif" lazyload alt="image-20230902212721661"></p>
 <blockquote>
-<p>客户端浏览器访问&#x2F;demo1请求获取服务端的session，服务端收到请求后，服务端创建了一个session对象，并且该对象拥有唯一的标识id，&#x2F;demo1的数据存放到该session对象中，服务器向客户端浏览器响应，将session标识id作为Cookie发送给客户端浏览器，即set-cookie:JSESSIONID，客户端浏览器将这个Cookie存放到浏览器内存中。当该客户端浏览器再一次访问服务端时携带JSESSIONID，服务端获取到cookie值也就是JSESSIONID，服务端将在内存中查找是否存在匹配的Session对象，如果有则使用，否则创建新的Session对象</p>
+<p>为什么服务端只能在客户端获取从服务端发送的cookie，而不能获取非服务端发送的其他cookie呢</p>
 </blockquote>
-<h2 id="Session的使用细节"><a href="#Session的使用细节" class="headerlink" title="Session的使用细节"></a>Session的使用细节</h2><ul>
-<li><p>Session钝化，活化</p>
+<p>服务端只能获取从服务端发送的Cookie，以及客户端将这些Cookie随后发送回服务器的Cookie，是由于浏览器的安全性和隐私保护机制所决定的。这个限制有以下原因：</p>
+<ol>
+<li>同源策略：浏览器实施了同源策略（Same-Origin Policy），这是一种安全措施，限制了一个网站（或域）的JavaScript代码只能访问与其来源相同的资源。这意味着，JavaScript代码只能访问与网站的域名相同的Cookie。这是为了防止恶意网站访问用户在其他网站上的Cookie数据。</li>
+<li>安全性：Cookie中包含了敏感信息，如用户身份验证令牌。如果服务端可以直接获取所有Cookie，那么恶意的服务端可以轻松地窃取用户在其他网站上的Cookie信息，导致安全问题。</li>
+<li>隐私保护：Cookie中可能包含用户的隐私信息，如浏览历史、偏好设置等。浏览器将这些信息视为用户的隐私，并严格限制对其访问，以保护用户的隐私。</li>
+</ol>
+<p>虽然服务端不能直接获取非服务端发送的其他网站的Cookie，但可以通过合法的手段，如用户授权或者跳转到其他网站来获取特定Cookie信息。例如，OAuth授权流程允许服务端通过重定向用户到第三方认证提供者的页面，获得用户授权后，获取特定的令牌信息。但这些操作通常需要用户的明示同意和合法的授权机制，以确保隐私和安全。</p>
+<h2 id="Cookie原理"><a href="#Cookie原理" class="headerlink" title="Cookie原理"></a>Cookie原理</h2><ul>
+<li>Cookie的实现是基于HTTP协议的<ul>
+<li>响应头：set-cookie</li>
+<li>请求头：cookie</li>
+</ul>
+</li>
+</ul>
+<p><img src="/assets/image-20230902215325907.png" srcset="/img/loading.gif" lazyload alt="image-20230902215325907"></p>
+<h2 id="Cookie使用细节"><a href="#Cookie使用细节" class="headerlink" title="Cookie使用细节"></a>Cookie使用细节</h2><ul>
+<li><p>Cookie的存活时间</p>
 <ul>
-<li><p>服务器重启后，Session中的数据是否存在？</p>
+<li>默认情况下，Cookie存储在浏览器内存中，当浏览器关闭，内存释放，则Cookie被销毁</li>
+<li>持久化修改：setMaxAge(int seconds)<ol>
+<li>正数：将Cookie写入浏览器所在电脑的硬盘，持久化存储。到时间自动删除</li>
+<li>负数：默认值，Cookie在当前浏览器内存中，当浏览器关闭，则Cookie被销毁</li>
+<li>零：删除对应Cookie</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Cookie存储中文</p>
 <ul>
-<li><p>钝化：服务器正常关闭后，Tomcat会自动将Session数据写入硬盘的文件中。</p>
-<p><img src="/assets/image-20230903131306044.png" srcset="/img/loading.gif" lazyload alt="image-20230903131306044"></p>
+<li><p>Cookie不能直接存储中文</p>
 </li>
-<li><p>活化：再次启动服务器后，从文件中加载数据到Session中</p>
-</li>
-<li><p>当浏览器关闭后，浏览器的从服务端响应到的Cookie消失，但服务端对应的Session对象仍保留</p>
-</li>
+<li><p>存储方法：转码，URL编码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">value</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;张三&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">encode</span> <span class="hljs-operator">=</span> URLEncoder.encode(value, <span class="hljs-string">&quot;UTF-8&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;存储数据&quot;</span> + encode);<br><span class="hljs-type">Cookie</span> <span class="hljs-variable">cookie</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cookie</span>(<span class="hljs-string">&quot;username&quot;</span>, encode);<br></code></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>Session销毁</p>
-<ul>
-<li><p>默认情况下，session对象最后一次调用的30分钟自动销毁</p>
-<p><img src="/assets/image-20230903131929014.png" srcset="/img/loading.gif" lazyload alt="image-20230903131929014"></p>
-</li>
-<li><p>调用Session对象的invalidate()方法</p>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="/assets/image-20230903132357992.png" srcset="/img/loading.gif" lazyload alt="image-20230903132357992"></p>
 
                 
               </div>
@@ -327,6 +331,27 @@
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JavaWeb%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/" class="category-chain-item">JavaWeb核心技术</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>
@@ -337,8 +362,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>http://example.com/2023/09/03/黑马-Web核心/7_Session/</div>
+      <div>Cookie</div>
+      <div>http://example.com/2023/09/01/黑马-Web核心/6_Cookie/</div>
     </div>
     <div class="license-meta">
       
@@ -350,7 +375,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月3日</div>
+          <div>2023年9月1日</div>
         </div>
       
       
@@ -382,9 +407,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/03/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/8_%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B7%A5%E5%85%B7%E7%B1%BB/" title="">
+                      <a href="/2023/09/01/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/4_Request&amp;Response/" title="Request&amp;&amp;Response">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">Request&amp;&amp;Response</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -392,8 +417,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/03/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/6_Cookie/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2023/09/01/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/5_%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/" title="会话跟踪">
+                        <span class="hidden-mobile">会话跟踪</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
