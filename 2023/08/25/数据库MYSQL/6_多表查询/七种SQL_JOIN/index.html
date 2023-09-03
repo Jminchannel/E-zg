@@ -16,25 +16,23 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="数据库概述1.为什么使用数据库  持久化：将数据保存到可掉电式存储设备中，在硬盘中“固化”数据 持久化的主要作用：将内存中的数据存储在关系型数据库中   2.数据库与数据库管理系统 相关概念  DB:database 数据库。即存储数据的“仓库”，其本质是一个文件系统。它保存了一系列有组织的数据。 DBMS:数据库管理系统。是一种操纵和管理数据库的大型软件，用于建立、使用和维护数据库，对数据库进行">
+    <meta name="description" content="7种SQL JOINS UNION的使用利用JNION关键字，可以给出多条SELECT语句，并将它们的结果组合成单个结果集。合并时，两个表对应的列数和数据类型必须相同，并且相互对应。各个SELECT语句之间使用JNION或UNION ALL关键字分隔。 UNION返回两个查询的结果集的并集。去除重复记录 UNION ALL返回两个查询的结果集的并集，不删除重复部分 1注意：执行UNION ALL语">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2023/09/03/1_%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/index.html">
+<meta property="og:title" content="7种SQL JOINS实现">
+<meta property="og:url" content="http://example.com/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/6_%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/%E4%B8%83%E7%A7%8DSQL_JOIN/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="数据库概述1.为什么使用数据库  持久化：将数据保存到可掉电式存储设备中，在硬盘中“固化”数据 持久化的主要作用：将内存中的数据存储在关系型数据库中   2.数据库与数据库管理系统 相关概念  DB:database 数据库。即存储数据的“仓库”，其本质是一个文件系统。它保存了一系列有组织的数据。 DBMS:数据库管理系统。是一种操纵和管理数据库的大型软件，用于建立、使用和维护数据库，对数据库进行">
+<meta property="og:description" content="7种SQL JOINS UNION的使用利用JNION关键字，可以给出多条SELECT语句，并将它们的结果组合成单个结果集。合并时，两个表对应的列数和数据类型必须相同，并且相互对应。各个SELECT语句之间使用JNION或UNION ALL关键字分隔。 UNION返回两个查询的结果集的并集。去除重复记录 UNION ALL返回两个查询的结果集的并集，不删除重复部分 1注意：执行UNION ALL语">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/assets/image-20230820175721499.png">
-<meta property="og:image" content="http://example.com/assets/image-20230820190615531.png">
-<meta property="og:image" content="http://example.com/assets/image-20230820190652783.png">
-<meta property="article:published_time" content="2023-09-03T01:00:12.150Z">
-<meta property="article:modified_time" content="2023-08-21T11:09:19.898Z">
+<meta property="og:image" content="http://example.com/assets/image-20230822155432532.png">
+<meta property="article:published_time" content="2023-08-25T14:53:43.000Z">
+<meta property="article:modified_time" content="2023-09-03T07:00:10.120Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/assets/image-20230820175721499.png">
+<meta name="twitter:image" content="http://example.com/assets/image-20230822155432532.png">
   
   
   
-  <title>Hexo</title>
+  <title>7种SQL JOINS实现 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="7种SQL JOINS实现"></span>
           
         </div>
 
@@ -211,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-03 09:00" pubdate>
-          2023年9月3日 上午
+        <time datetime="2023-08-25 22:53" pubdate>
+          2023年8月25日 晚上
         </time>
       </span>
     
@@ -223,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          1.9k 字
         
       </span>
     
@@ -234,7 +232,7 @@
         
         
         
-          15 分钟
+          16 分钟
         
       </span>
     
@@ -271,108 +269,19 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">7种SQL JOINS实现</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="数据库概述"><a href="#数据库概述" class="headerlink" title="数据库概述"></a>数据库概述</h1><p><strong>1.为什么使用数据库</strong></p>
-<ul>
-<li>持久化：将数据保存到可掉电式存储设备中，在硬盘中“固化”数据</li>
-<li>持久化的主要作用：将内存中的数据存储在关系型数据库中</li>
-</ul>
-<p><img src="/assets/image-20230820175721499.png" srcset="/img/loading.gif" lazyload alt="image-20230820175721499"></p>
-<p><strong>2.数据库与数据库管理系统</strong></p>
-<p><strong>相关概念</strong></p>
-<ul>
-<li>DB:database <strong>数据库</strong>。即存储数据的“仓库”，其本质是一个文件系统。它保存了一系列有组织的数据。</li>
-<li>DBMS:<strong>数据库管理系统</strong>。是一种操纵和管理数据库的大型软件，用于建立、使用和维护数据库，对数据库进行统一管理和控制。用户通过数据库管理系统访问数据库中表内的数据。</li>
-<li>SQL:<strong>结构化查询语言</strong>。用来与数据库通信的语言。</li>
-</ul>
-<p><strong>二者关系</strong></p>
-<p>数据库管理系统(DBMS)可以管理多个数据库，一般开发人员会针对每一个应用创建一个数据库。为保存应用中实体的数据，一般会在数据库创建多个表，以保存程序中实体用户的数据。</p>
-<p><strong>常见DBMS</strong></p>
-<ul>
-<li>MYSQL</li>
-<li>ORACLE</li>
-<li>SQLSERVER</li>
-</ul>
-<p><strong>3.MYSQL介绍</strong></p>
-<p><strong>概述</strong></p>
-<p>MYSQL是一个<strong>开放源代码的关系型数据库管理系统</strong></p>
-<p><strong>版本由5.7—-&gt;8.0</strong></p>
-<p><strong>ORACLE与<strong><strong>MYSQL</strong></strong>的选择</strong></p>
-<p>Oracle更适合大型跨国企业的使用，对性能要求以及安全性有更高的要求。</p>
-<p>MySQL由于其体积小、速度快、总体拥有成本低，可处理上干万条记录的大型数据库，尤其是开放源码这一特点，使得很多互联网公司、中小型网站选择了MySQL作为网站数据库(Facebook,Twitter,YouTube,阿里巴巴&#x2F;蚂蚁金服，去哪儿，美团外卖，腾讯)。</p>
-<p><strong>4.RDBMS与非RDMBS</strong></p>
-<p>使用最多的是RDBMS关系型数据库</p>
-<p><strong>RDBMS</strong></p>
-<p>实质：最古老的数据库类型，<strong>二元关系</strong></p>
-<ul>
-<li>关系型数据库以行列存储数据，这一行列系列组成表TABLE，一组表组成库DATABASE</li>
-<li>表与表之间的数据记录存在关系，关系型数据库就是建立在关系模型基础上的数据库</li>
-<li>SQL是查询语言</li>
-</ul>
-<p>优势</p>
-<ul>
-<li>复杂查询</li>
-<li>事务支持</li>
-</ul>
-<p><strong>非RDBMS(NoSQL)</strong></p>
-<p>实质：RDBMS的阉割版，基于键值对存储数据，性能贼高。通过减少不常用的功能进一步提高性能。</p>
-<p><strong>键值型数据库（如Redis）</strong></p>
-<p><strong>文档型数据库（如MongoDB）…</strong></p>
-<p>NoSQL对SQL做出了很好的补充，比如实际开发中，有很多业务需求，其实并不需要完整的关系型数据库功能非关系型数据库的功能就足够使用了。这种情况下，使用性能更高、成本更低的非关系型数据库当然是更明智的选择。比如：日志收集、排行榜、定时器等。</p>
-<p><strong>5.RDBMS设计规则</strong></p>
-<ul>
-<li>关系型数据库的典型数据结构就是数据表，这些数据表的组成都是结构化的(Structured)。</li>
-<li>将数据放到表中，表再放到库中。</li>
-<li>一个数据库中可以有多个表，每个表都有一个名字，用来标识自己。表名具有唯一性。</li>
-<li>表具有一些特性，这些特性定义了数据在表中如何存储，类似Java和Python中“类”的设计。</li>
-</ul>
-<p><strong>表，记录，字段</strong></p>
-<ul>
-<li>ER模型（entity-relationship，实体-联系）三个主要概念：实体集，属性，联系集</li>
-<li>一个实体集(class)对应于数据库中的一个表(table),一个实体(instance)则对应于数据库表中的一行(row),也称为一条记录(record)。一个属性(attribute)对应于数据库表中的一列(column),也称为一个字段(field)。</li>
-</ul>
-<p>ORM思想 表—java的类 表的数据—类的对象 表的列—类的属性</p>
-<p><strong>表的关联关系</strong></p>
-<p>存在四种</p>
-<ol>
-<li>一对一关联</li>
-<li>一对多关联</li>
-<li>多对多关联</li>
-<li>自我引用</li>
-</ol>
-<p><strong>一对一 one to one</strong></p>
-<p>举例：学生表（学号、姓名、手机号码、班级、系别、身份证号码、家庭住籍贯、紧急联系人…）</p>
-<ul>
-<li><p>拆为两个表</p>
-</li>
-<li><ul>
-<li>基础信息表：学号、姓名、手机号码、班级、系别</li>
-<li>档案信息表：身份证号码、家庭住籍贯、紧急联系人…</li>
-</ul>
-</li>
-<li><p>建表原则</p>
-</li>
-<li><ul>
-<li>外键唯一：主表的主键和从表的外键（唯一），形成主外键关系，外键唯一。</li>
-<li>外键是主键：主表的主键和从表的主键，形成主外键关系。</li>
-</ul>
-</li>
-</ul>
-<p><strong>一对多 one to many</strong></p>
-<p>举例：客户表和订单表，分类表和商品表，部门表和员工表</p>
-<p><strong>多对多 many to many</strong></p>
-<p>创建第三表，即联接表，将多对多划分为两个一对多关系。</p>
-<ul>
-<li>学生信息表：一行代表一个学生的信息（学号、姓名、手机号码、班级、系别…）</li>
-<li>课程信息表：一行代表一个课程的信息（课程编号、授课老师、简介…）</li>
-<li>选课信息表：一个学生可以选多门课，一门课可以被多个学生选择</li>
-</ul>
-<h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><p><img src="/assets/image-20230820190615531.png" srcset="/img/loading.gif" lazyload alt="image-20230820190615531"></p>
-<p><img src="/assets/image-20230820190652783.png" srcset="/img/loading.gif" lazyload alt="image-20230820190652783"></p>
+                <h1 id="7种SQL-JOINS"><a href="#7种SQL-JOINS" class="headerlink" title="7种SQL JOINS"></a>7种SQL JOINS</h1><p><img src="/assets/image-20230822155432532.png" srcset="/img/loading.gif" lazyload alt="image-20230822155432532"></p>
+<h2 id="UNION的使用"><a href="#UNION的使用" class="headerlink" title="UNION的使用"></a>UNION的使用</h2><p>利用JNION关键字，可以给出多条SELECT语句，并将它们的结果组合成单个结果集。合并时，两个表对应的列数和数据类型必须相同，并且相互对应。各个SELECT语句之间使用JNION或UNION ALL关键字分隔。</p>
+<h3 id="UNION"><a href="#UNION" class="headerlink" title="UNION"></a>UNION</h3><p>返回两个查询的结果集的并集。去除重复记录</p>
+<h3 id="UNION-ALL"><a href="#UNION-ALL" class="headerlink" title="UNION ALL"></a>UNION ALL</h3><p>返回两个查询的结果集的并集，不删除重复部分</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">注意：执行<span class="hljs-built_in">UNION</span> <span class="hljs-built_in">ALL</span>语句时所需要的资源比<span class="hljs-built_in">UNION</span>语句少。如果明确知道合并数据后的结果数据不存在重复数据，或者不需要去除重复的数据，则尽量使用JNION <span class="hljs-built_in">ALL</span>语句，以提高数据查询的效率。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs sql">#<span class="hljs-keyword">UNION</span> <span class="hljs-operator">/</span> <span class="hljs-keyword">UNION</span> <span class="hljs-keyword">ALL</span><br><span class="hljs-comment">-- 七种JOIN的实现</span><br><span class="hljs-comment">-- 中图 内连接</span><br><span class="hljs-keyword">SELECT</span> E.employee_id,D.department_name<br><span class="hljs-keyword">FROM</span> employees E <span class="hljs-keyword">JOIN</span> departments D<br><span class="hljs-keyword">ON</span> E.department_id <span class="hljs-operator">=</span> D.department_id; #<span class="hljs-number">106</span><br><span class="hljs-comment">-- 左上图 左外连接</span><br><span class="hljs-keyword">SELECT</span> E.employee_id,D.department_name<br><span class="hljs-keyword">FROM</span> employees E <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> departments D <br><span class="hljs-keyword">ON</span> E.department_id <span class="hljs-operator">=</span> D.department_id; #<span class="hljs-number">106</span> <span class="hljs-operator">+</span> <span class="hljs-number">1</span> <span class="hljs-operator">=</span> <span class="hljs-number">107</span><br><span class="hljs-comment">-- 右上图 右外连接</span><br><span class="hljs-keyword">SELECT</span> E.employee_id,D.department_name<br><span class="hljs-keyword">FROM</span> employees E <span class="hljs-keyword">RIGHT</span> <span class="hljs-keyword">JOIN</span> departments D <br><span class="hljs-keyword">ON</span> E.department_id <span class="hljs-operator">=</span> D.department_id; #<span class="hljs-number">106</span> <span class="hljs-operator">+</span> <span class="hljs-number">16</span> <span class="hljs-operator">=</span> <span class="hljs-number">122</span><br><span class="hljs-comment">-- 左图 左外连接</span><br><span class="hljs-keyword">SELECT</span> E.employee_id,D.department_name<br><span class="hljs-keyword">FROM</span> employees E <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> departments D <br><span class="hljs-keyword">ON</span> E.department_id <span class="hljs-operator">=</span> D.department_id<br><span class="hljs-keyword">WHERE</span> E.department_id <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span>;<br><span class="hljs-comment">-- 右图 右外连接</span><br><span class="hljs-keyword">SELECT</span> E.employee_id,D.department_name<br><span class="hljs-keyword">FROM</span> employees E <span class="hljs-keyword">RIGHT</span> <span class="hljs-keyword">JOIN</span> departments D <br><span class="hljs-keyword">ON</span> E.department_id <span class="hljs-operator">=</span> D.department_id<br><span class="hljs-keyword">WHERE</span> E.department_id <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span>;<br><span class="hljs-comment">-- 左下图 满外连接</span><br>	<span class="hljs-comment">-- 左上图 UNION ALL 右图</span><br><span class="hljs-keyword">SELECT</span> E.employee_id,D.department_name<br><span class="hljs-keyword">FROM</span> employees E <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> departments D <br><span class="hljs-keyword">ON</span> E.department_id <span class="hljs-operator">=</span> D.department_id<br><span class="hljs-keyword">UNION</span> <span class="hljs-keyword">ALL</span><br><span class="hljs-keyword">SELECT</span> E.employee_id,D.department_name<br><span class="hljs-keyword">FROM</span> employees E <span class="hljs-keyword">RIGHT</span> <span class="hljs-keyword">JOIN</span> departments D <br><span class="hljs-keyword">ON</span> E.department_id <span class="hljs-operator">=</span> D.department_id<br><span class="hljs-keyword">WHERE</span> E.department_id <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span>; #<span class="hljs-number">1</span> <span class="hljs-operator">+</span> <span class="hljs-number">106</span> <span class="hljs-operator">+</span> <span class="hljs-number">16</span> <span class="hljs-operator">=</span> <span class="hljs-number">123</span><br>	<span class="hljs-comment">-- 右上图 UNION ALL 左图</span><br><span class="hljs-keyword">SELECT</span> E.employee_id,D.department_name<br><span class="hljs-keyword">FROM</span> employees E <span class="hljs-keyword">RIGHT</span> <span class="hljs-keyword">JOIN</span> departments D <br><span class="hljs-keyword">ON</span> E.department_id <span class="hljs-operator">=</span> D.department_id<br><span class="hljs-keyword">UNION</span> <span class="hljs-keyword">ALL</span><br><span class="hljs-keyword">SELECT</span> E.employee_id,D.department_name<br><span class="hljs-keyword">FROM</span> employees E <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> departments D <br><span class="hljs-keyword">ON</span> E.department_id <span class="hljs-operator">=</span> D.department_id<br><span class="hljs-keyword">WHERE</span> E.department_id <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span>; #<span class="hljs-number">1</span> <span class="hljs-operator">+</span> <span class="hljs-number">106</span> <span class="hljs-operator">+</span> <span class="hljs-number">16</span> <span class="hljs-operator">=</span> <span class="hljs-number">123</span><br><span class="hljs-comment">-- 右下图 满外连接</span><br><span class="hljs-comment">-- 左图 UNION ALL 右图</span><br><span class="hljs-keyword">SELECT</span> E.employee_id,D.department_name<br><span class="hljs-keyword">FROM</span> employees E <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> departments D <br><span class="hljs-keyword">ON</span> E.department_id <span class="hljs-operator">=</span> D.department_id<br><span class="hljs-keyword">WHERE</span> E.department_id <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span><br><span class="hljs-keyword">UNION</span> <span class="hljs-keyword">ALL</span><br><span class="hljs-keyword">SELECT</span> E.employee_id,D.department_name<br><span class="hljs-keyword">FROM</span> employees E <span class="hljs-keyword">RIGHT</span> <span class="hljs-keyword">JOIN</span> departments D <br><span class="hljs-keyword">ON</span> E.department_id <span class="hljs-operator">=</span> D.department_id<br><span class="hljs-keyword">WHERE</span> E.department_id <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NULL</span>; #<span class="hljs-number">1</span> <span class="hljs-operator">+</span> <span class="hljs-number">16</span> <span class="hljs-operator">=</span> <span class="hljs-number">17</span><br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -380,6 +289,27 @@
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">Mysql数据库</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>
@@ -390,8 +320,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>http://example.com/2023/09/03/1_数据库概述/数据库概述/</div>
+      <div>7种SQL JOINS实现</div>
+      <div>http://example.com/2023/08/25/数据库MYSQL/6_多表查询/七种SQL_JOIN/</div>
     </div>
     <div class="license-meta">
       
@@ -403,7 +333,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月3日</div>
+          <div>2023年8月25日</div>
         </div>
       
       
@@ -435,9 +365,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/03/%E5%87%AF%E7%A5%9E%E9%99%8D%E4%B8%B4/kaiGod/" title="">
+                      <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/8_%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/" title="聚合函数">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">聚合函数</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -445,8 +375,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/01/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/1_HTTP/" title="HTTP">
-                        <span class="hidden-mobile">HTTP</span>
+                      <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/6_%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" title="多表查询">
+                        <span class="hidden-mobile">多表查询</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
