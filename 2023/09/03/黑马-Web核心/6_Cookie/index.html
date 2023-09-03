@@ -16,20 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="帅是一种态度HANDSOMEBOY FREEDOMBOY FASHIONBOY">
+    <meta name="description" content="CookieCookie基本使用数据保存在客户端，每次请求都携带Cookie数据进行访问  1234protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &amp;#123;    Cookie cookie &#x3D; new Cookie(&amp;quot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2023/09/03/%E5%87%AF%E7%A5%9E%E9%99%8D%E4%B8%B4/kaiGod/index.html">
+<meta property="og:url" content="http://example.com/2023/09/03/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/6_Cookie/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="帅是一种态度HANDSOMEBOY FREEDOMBOY FASHIONBOY">
+<meta property="og:description" content="CookieCookie基本使用数据保存在客户端，每次请求都携带Cookie数据进行访问  1234protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &amp;#123;    Cookie cookie &#x3D; new Cookie(&amp;quot">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/assets/image-20230903094856925.png">
-<meta property="og:image" content="http://example.com/assets/image-20230903094907233.png">
-<meta property="article:published_time" content="2023-09-03T01:00:58.612Z">
-<meta property="article:modified_time" content="2023-09-03T01:52:27.633Z">
+<meta property="og:image" content="http://example.com/assets/image-20230902211121274.png">
+<meta property="og:image" content="http://example.com/assets/image-20230902212437077.png">
+<meta property="og:image" content="http://example.com/assets/image-20230902212721661.png">
+<meta property="og:image" content="http://example.com/assets/image-20230902215325907.png">
+<meta property="article:published_time" content="2023-09-03T02:10:06.312Z">
+<meta property="article:modified_time" content="2023-09-02T14:18:18.948Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/assets/image-20230903094856925.png">
+<meta name="twitter:image" content="http://example.com/assets/image-20230902211121274.png">
   
   
   
@@ -210,7 +212,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-03 09:00" pubdate>
+        <time datetime="2023-09-03 10:10" pubdate>
           2023年9月3日 上午
         </time>
       </span>
@@ -222,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          37 字
+          1.3k 字
         
       </span>
     
@@ -233,7 +235,7 @@
         
         
         
-          1 分钟
+          11 分钟
         
       </span>
     
@@ -275,9 +277,54 @@
             
               <div class="markdown-body">
                 
-                <h1 id="帅是一种态度"><a href="#帅是一种态度" class="headerlink" title="帅是一种态度"></a>帅是一种态度</h1><h1 id="HANDSOMEBOY"><a href="#HANDSOMEBOY" class="headerlink" title="HANDSOMEBOY"></a>HANDSOMEBOY</h1><p><img src="/assets/image-20230903094856925.png" srcset="/img/loading.gif" lazyload alt="image-20230903094856925"></p>
-<h1 id="FREEDOMBOY"><a href="#FREEDOMBOY" class="headerlink" title="FREEDOMBOY"></a>FREEDOMBOY</h1><p><img src="/assets/image-20230903094907233.png" srcset="/img/loading.gif" lazyload alt="image-20230903094907233"></p>
-<h1 id="FASHIONBOY"><a href="#FASHIONBOY" class="headerlink" title="FASHIONBOY"></a>FASHIONBOY</h1>
+                <h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><h2 id="Cookie基本使用"><a href="#Cookie基本使用" class="headerlink" title="Cookie基本使用"></a>Cookie基本使用</h2><p>数据保存在<strong>客户端</strong>，每次请求都携带Cookie数据进行访问</p>
+<p><img src="/assets/image-20230902211121274.png" srcset="/img/loading.gif" lazyload alt="image-20230902211121274"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> ServletException, IOException &#123;<br>    <span class="hljs-type">Cookie</span> <span class="hljs-variable">cookie</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cookie</span>(<span class="hljs-string">&quot;username&quot;</span>, <span class="hljs-string">&quot;zhansan&quot;</span>);<br>    resp.addCookie(cookie);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="/assets/image-20230902212437077.png" srcset="/img/loading.gif" lazyload alt="image-20230902212437077"></p>
+<p><img src="/assets/image-20230902212721661.png" srcset="/img/loading.gif" lazyload alt="image-20230902212721661"></p>
+<blockquote>
+<p>为什么服务端只能在客户端获取从服务端发送的cookie，而不能获取非服务端发送的其他cookie呢</p>
+</blockquote>
+<p>服务端只能获取从服务端发送的Cookie，以及客户端将这些Cookie随后发送回服务器的Cookie，是由于浏览器的安全性和隐私保护机制所决定的。这个限制有以下原因：</p>
+<ol>
+<li>同源策略：浏览器实施了同源策略（Same-Origin Policy），这是一种安全措施，限制了一个网站（或域）的JavaScript代码只能访问与其来源相同的资源。这意味着，JavaScript代码只能访问与网站的域名相同的Cookie。这是为了防止恶意网站访问用户在其他网站上的Cookie数据。</li>
+<li>安全性：Cookie中包含了敏感信息，如用户身份验证令牌。如果服务端可以直接获取所有Cookie，那么恶意的服务端可以轻松地窃取用户在其他网站上的Cookie信息，导致安全问题。</li>
+<li>隐私保护：Cookie中可能包含用户的隐私信息，如浏览历史、偏好设置等。浏览器将这些信息视为用户的隐私，并严格限制对其访问，以保护用户的隐私。</li>
+</ol>
+<p>虽然服务端不能直接获取非服务端发送的其他网站的Cookie，但可以通过合法的手段，如用户授权或者跳转到其他网站来获取特定Cookie信息。例如，OAuth授权流程允许服务端通过重定向用户到第三方认证提供者的页面，获得用户授权后，获取特定的令牌信息。但这些操作通常需要用户的明示同意和合法的授权机制，以确保隐私和安全。</p>
+<h2 id="Cookie原理"><a href="#Cookie原理" class="headerlink" title="Cookie原理"></a>Cookie原理</h2><ul>
+<li>Cookie的实现是基于HTTP协议的<ul>
+<li>响应头：set-cookie</li>
+<li>请求头：cookie</li>
+</ul>
+</li>
+</ul>
+<p><img src="/assets/image-20230902215325907.png" srcset="/img/loading.gif" lazyload alt="image-20230902215325907"></p>
+<h2 id="Cookie使用细节"><a href="#Cookie使用细节" class="headerlink" title="Cookie使用细节"></a>Cookie使用细节</h2><ul>
+<li><p>Cookie的存活时间</p>
+<ul>
+<li>默认情况下，Cookie存储在浏览器内存中，当浏览器关闭，内存释放，则Cookie被销毁</li>
+<li>持久化修改：setMaxAge(int seconds)<ol>
+<li>正数：将Cookie写入浏览器所在电脑的硬盘，持久化存储。到时间自动删除</li>
+<li>负数：默认值，Cookie在当前浏览器内存中，当浏览器关闭，则Cookie被销毁</li>
+<li>零：删除对应Cookie</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Cookie存储中文</p>
+<ul>
+<li><p>Cookie不能直接存储中文</p>
+</li>
+<li><p>存储方法：转码，URL编码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">value</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;张三&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">encode</span> <span class="hljs-operator">=</span> URLEncoder.encode(value, <span class="hljs-string">&quot;UTF-8&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;存储数据&quot;</span> + encode);<br><span class="hljs-type">Cookie</span> <span class="hljs-variable">cookie</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cookie</span>(<span class="hljs-string">&quot;username&quot;</span>, encode);<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
                 
               </div>
             
@@ -295,7 +342,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div></div>
-      <div>http://example.com/2023/09/03/凯神降临/kaiGod/</div>
+      <div>http://example.com/2023/09/03/黑马-Web核心/6_Cookie/</div>
     </div>
     <div class="license-meta">
       
@@ -339,7 +386,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/03/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/1_HTTP/" title="">
+                      <a href="/2023/09/03/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/7_Session/" title="">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
@@ -349,7 +396,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/03/1_%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" title="">
+                      <a href="/2023/09/03/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/5_%E4%BC%9A%E8%AF%9D%E8%B7%9F%E8%B8%AA/" title="">
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
