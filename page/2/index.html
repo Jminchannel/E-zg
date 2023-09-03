@@ -440,15 +440,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/10_%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86%E8%A1%A8/%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%AE%A1%E7%90%86%E8%A1%A8/" target="_self">
-          创建和管理表
+        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/13_%E7%BA%A6%E6%9D%9F/%E7%BA%A6%E6%9D%9F/" target="_self">
+          约束Constraint
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/10_%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86%E8%A1%A8/%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%AE%A1%E7%90%86%E8%A1%A8/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/13_%E7%BA%A6%E6%9D%9F/%E7%BA%A6%E6%9D%9F/" target="_self">
         <div>
-          创建数据库之前为什么不是先创建数据表？  从系统架构的层次看，MYSQL数据库系统从大到小依次是数据库服务器，数据库，数据表，数据表的行与列  创建数据库方式1 	MYSQL8+1CREATE DATABASE mytest1    方式2 MYSQL5 1CREATE DATABASE IF NOT EXISTS TEST9 CHARACTER SET &#x27;UTF8&#x27;;  管理
+          约束约束Constraint 概述为什么需要约束数据完整性是指数据的精确性和可靠性。为了保证数据的完整性，SQL规范以约束的方式对表数据进行额外的条件限制。  实体完整性：同一个表中，不能存在两条完全相同无法区别的记录。 域完整性：范围 引用完整性：例如员工所在部门，部门表就必须存在该部门 用户自定义完整性：例如用户名密码不可为空   为什么需要约束？为了保证数据的完整性！   什么叫约束？对表中
         </div>
       </a>
 
@@ -548,15 +548,69 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/13_%E7%BA%A6%E6%9D%9F/%E7%BA%A6%E6%9D%9F/" target="_self">
-          约束Constraint
+        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/10_%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86%E8%A1%A8/%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%AE%A1%E7%90%86%E8%A1%A8/" target="_self">
+          创建和管理表
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/13_%E7%BA%A6%E6%9D%9F/%E7%BA%A6%E6%9D%9F/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/10_%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86%E8%A1%A8/%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%AE%A1%E7%90%86%E8%A1%A8/" target="_self">
         <div>
-          约束约束Constraint 概述为什么需要约束数据完整性是指数据的精确性和可靠性。为了保证数据的完整性，SQL规范以约束的方式对表数据进行额外的条件限制。  实体完整性：同一个表中，不能存在两条完全相同无法区别的记录。 域完整性：范围 引用完整性：例如员工所在部门，部门表就必须存在该部门 用户自定义完整性：例如用户名密码不可为空   为什么需要约束？为了保证数据的完整性！   什么叫约束？对表中
+          创建数据库之前为什么不是先创建数据表？  从系统架构的层次看，MYSQL数据库系统从大到小依次是数据库服务器，数据库，数据表，数据表的行与列  创建数据库方式1 	MYSQL8+1CREATE DATABASE mytest1    方式2 MYSQL5 1CREATE DATABASE IF NOT EXISTS TEST9 CHARACTER SET &#x27;UTF8&#x27;;  管理
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-25 22:53" pubdate>
+              2023-08-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">Mysql数据库</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/2_%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/" target="_self">
+          卸载
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/2_%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/" target="_self">
+        <div>
+          卸载    cmd 查询当前版本 &#x2F;&#x2F;mysql –version     登录mysql &#x2F;&#x2F;mysql -u root -p      文件资源管理器中找到Mysql server   卸载：     关闭mysql服务     卸载包卸载或控制面板卸载   安装链接：https://share.weiyun.com/yd7OxoMm 密码：cg4mvb
         </div>
       </a>
 
@@ -611,60 +665,6 @@
       <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/15_%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%87%BD%E6%95%B0/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%87%BD%E6%95%B0/" target="_self">
         <div>
           存储过程与函数创建存储过程12345CREATE PROCEDURE 存储过程名(IN|OUT|INOUT 参数名 参数类型,...)[characteristics ...]BEGIN存储过程体END   IN:为输入参数，有输入无返回，默认 OUT:当前参数为输出，有返回无输入 INOUT:有输入有返回  阿里巴巴规范不建议写存储过程 12345678910111213141516171819
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-25 22:53" pubdate>
-              2023-08-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">Mysql数据库</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/14_%E8%A7%86%E5%9B%BE/%E8%A7%86%E5%9B%BE/" target="_self">
-          视图View
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/14_%E8%A7%86%E5%9B%BE/%E8%A7%86%E5%9B%BE/" target="_self">
-        <div>
-          视图视图的理解 可以看作是一个虚拟表，本身不存储数据，本质是可以存储起来的SELECT语句。 视图中SELECT语句涉及的表称为基表 针对视图做DML操作，会影响到对应的基表中的数据。反之亦然。 视图本身的删除，不会导致基表中数据的删除。 视图的应用场景：针对于小型项目，不推荐使用视图。针对于大型项目，可以考虑使用视图。 优点：简化查询。控制数据的访问。  具体格式12345CREATE [OR
         </div>
       </a>
 
