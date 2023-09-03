@@ -16,40 +16,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Tomcat简介 概念：Tomcat是Apache软件基金会一个核心项目，是一个开源免费的轻量级Web服务器，支持Servlet&#x2F;JSP少量JavaEE规范。  JavaEE：Java Enterprise Edition Java企业版。包含13项技术规范： JDBC,JNDI,EJB,JSP,Servlet,XML,JMS,JAVA IDL,JTS,JTA,JavaMail,JAF">
-<meta property="og:type" content="article">
+    <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2023/09/03/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/2_Apache_Tomcat/index.html">
+<meta property="og:url" content="http://example.com/2023/09/03/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/8_%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B7%A5%E5%85%B7%E7%B1%BB/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Tomcat简介 概念：Tomcat是Apache软件基金会一个核心项目，是一个开源免费的轻量级Web服务器，支持Servlet&#x2F;JSP少量JavaEE规范。  JavaEE：Java Enterprise Edition Java企业版。包含13项技术规范： JDBC,JNDI,EJB,JSP,Servlet,XML,JMS,JAVA IDL,JTS,JTA,JavaMail,JAF">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/assets/image-20230901080720741.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901080943294.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901081342172.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901081241009.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901081725216.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901081833397.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901082046824.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901082210477.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901082426150.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901082532643.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901082834307.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901082934444.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901083425622.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901083706828.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901083746740.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901084500747.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901084614107.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901084633362.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901084652060.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901084959883.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901085453488.png">
-<meta property="og:image" content="http://example.com/assets/image-20230901085429942.png">
-<meta property="article:published_time" content="2023-09-03T02:10:06.301Z">
-<meta property="article:modified_time" content="2023-09-01T00:54:54.837Z">
+<meta property="article:published_time" content="2023-09-03T05:35:51.223Z">
+<meta property="article:modified_time" content="2023-09-03T05:35:11.957Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/assets/image-20230901080720741.png">
   
   
   
@@ -230,8 +205,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-03 10:10" pubdate>
-          2023年9月3日 上午
+        <time datetime="2023-09-03 13:35" pubdate>
+          2023年9月3日 下午
         </time>
       </span>
     
@@ -242,7 +217,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          618 字
+          0 字
         
       </span>
     
@@ -253,7 +228,7 @@
         
         
         
-          6 分钟
+          1 分钟
         
       </span>
     
@@ -295,51 +270,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
-<li><p>概念：Tomcat是Apache软件基金会一个核心项目，是一个开源免费的<strong>轻量级Web服务器</strong>，支持Servlet&#x2F;JSP少量JavaEE规范。</p>
-</li>
-<li><p>JavaEE：Java Enterprise Edition Java企业版。包含13项技术规范：</p>
-<p>JDBC,JNDI,EJB,JSP,Servlet,XML,JMS,JAVA IDL,JTS,JTA,JavaMail,JAF</p>
-</li>
-</ul>
-<h2 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h2><ol>
-<li>Web服务器的作用？封装HTTP协议操作，简化开发。可将web项目部署到服务器，对外提供网上浏览服务。</li>
-<li>Tomcat是一个轻量级的web服务器，支持Servlet&#x2F;JSP少量JavaEE规范，也称Web容器，Servlet容器。</li>
-</ol>
-<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>官网</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><img src="/assets/image-20230901080720741.png" srcset="/img/loading.gif" lazyload alt="image-20230901080720741"><img src="/assets/image-20230901080943294.png" srcset="/img/loading.gif" lazyload alt="image-20230901080943294"></p>
-<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>直接删除目录即可</p>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>双击bin\startup.bat</p>
-<p><img src="/assets/image-20230901081342172.png" srcset="/img/loading.gif" lazyload alt="image-20230901081342172"></p>
-<p><img src="/assets/image-20230901081241009.png" srcset="/img/loading.gif" lazyload alt="image-20230901081241009"></p>
-<p>解决乱码问题:在conf&#x2F;logging.properties</p>
-<p><img src="/assets/image-20230901081725216.png" srcset="/img/loading.gif" lazyload alt="image-20230901081725216"><img src="/assets/image-20230901081833397.png" srcset="/img/loading.gif" lazyload alt="image-20230901081833397"></p>
-<h3 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h3><ol>
-<li>直接×掉运行窗口：强制关闭</li>
-<li>bin\shutdown.bat:正常关闭</li>
-<li>Ctrl+C:正常关闭</li>
-</ol>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>修改端口号：conf&#x2F;server.xml</p>
-<p><img src="/assets/image-20230901082046824.png" srcset="/img/loading.gif" lazyload alt="image-20230901082046824"></p>
-<p><img src="/assets/image-20230901082210477.png" srcset="/img/loading.gif" lazyload alt="image-20230901082210477"></p>
-<p>HTTP默认端口号为80</p>
-<h3 id="部署项目"><a href="#部署项目" class="headerlink" title="部署项目"></a>部署项目</h3><p><img src="/assets/image-20230901082426150.png" srcset="/img/loading.gif" lazyload alt="image-20230901082426150"></p>
-<p><img src="/assets/image-20230901082532643.png" srcset="/img/loading.gif" lazyload alt="image-20230901082532643"></p>
-<h2 id="IDEA创建Maven-web项目"><a href="#IDEA创建Maven-web项目" class="headerlink" title="IDEA创建Maven web项目"></a>IDEA创建Maven web项目</h2><p><img src="/assets/image-20230901082834307.png" srcset="/img/loading.gif" lazyload alt="image-20230901082834307"></p>
-<p>war打包之后就会在target目录中生成，如下</p>
-<p><img src="/assets/image-20230901082934444.png" srcset="/img/loading.gif" lazyload alt="image-20230901082934444"></p>
-<p><img src="/assets/image-20230901083425622.png" srcset="/img/loading.gif" lazyload alt="image-20230901083425622"></p>
-<p>编译后的java字节码文件和resource的资源文件放到WEB-INF的classes目录中，pom.xml依赖坐标对应的jar包会放入WEB-INF的lib目录中</p>
-<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p><img src="/assets/image-20230901083706828.png" srcset="/img/loading.gif" lazyload alt="image-20230901083706828"></p>
-<p><img src="/assets/image-20230901083746740.png" srcset="/img/loading.gif" lazyload alt="image-20230901083746740"></p>
-<p><img src="/assets/image-20230901084500747.png" srcset="/img/loading.gif" lazyload alt="image-20230901084500747"></p>
-<p><img src="/assets/image-20230901084614107.png" srcset="/img/loading.gif" lazyload alt="image-20230901084614107"></p>
-<p><img src="/assets/image-20230901084633362.png" srcset="/img/loading.gif" lazyload alt="image-20230901084633362"></p>
-<p><img src="/assets/image-20230901084652060.png" srcset="/img/loading.gif" lazyload alt="image-20230901084652060"></p>
-<h2 id="IDEA集成本地Tomcat"><a href="#IDEA集成本地Tomcat" class="headerlink" title="IDEA集成本地Tomcat"></a>IDEA集成本地Tomcat</h2><p><img src="/assets/image-20230901084959883.png" srcset="/img/loading.gif" lazyload alt="image-20230901084959883"></p>
-<p><img src="/assets/image-20230901085453488.png" srcset="/img/loading.gif" lazyload alt="image-20230901085453488"></p>
-<p><img src="/assets/image-20230901085429942.png" srcset="/img/loading.gif" lazyload alt="image-20230901085429942"></p>
-
+                
                 
               </div>
             
@@ -357,7 +288,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div></div>
-      <div>http://example.com/2023/09/03/黑马-Web核心/2_Apache_Tomcat/</div>
+      <div>http://example.com/2023/09/03/黑马-Web核心/8_验证码工具类/</div>
     </div>
     <div class="license-meta">
       
@@ -401,17 +332,11 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/03/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/3_Servlet/" title="">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/03/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/1_HTTP/" title="">
+                      <a href="/2023/09/03/%E9%BB%91%E9%A9%AC-Web%E6%A0%B8%E5%BF%83/7_Session/" title="">
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
