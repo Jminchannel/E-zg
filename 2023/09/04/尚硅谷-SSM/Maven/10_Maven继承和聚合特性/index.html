@@ -16,26 +16,24 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="9_Maven扩展构建管理和插件配置构建概念项目构建是指将源代码、依赖库和资源文件等转换成可执行或可部署的应用程序的过程，在这个过程中包括编译源代码、链接依赖库、打包和部署等多个步骤。  主动触发场景 重新编译 : 编译不充分, 部分文件没有被编译! 打包 : 独立部署到外部服务器软件,打包部署 部署本地或者私服仓库 : maven工程加入到本地或者私服仓库,供其他工程使用，部署必须jar包形式">
+    <meta name="description" content="10_Maven继承和聚合特性父工程管理依赖，不会加载，而子工程可以继承这些依赖或者覆盖版本">
 <meta property="og:type" content="article">
-<meta property="og:title" content="9_Maven扩展构建管理和插件配置">
-<meta property="og:url" content="http://elaskon.asia/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/9_Maven%E6%89%A9%E5%B1%95%E6%9E%84%E5%BB%BA%E7%AE%A1%E7%90%86%E5%92%8C%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="10_Maven继承和聚合特性">
+<meta property="og:url" content="http://elaskon.asia/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/10_Maven%E7%BB%A7%E6%89%BF%E5%92%8C%E8%81%9A%E5%90%88%E7%89%B9%E6%80%A7/index.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="9_Maven扩展构建管理和插件配置构建概念项目构建是指将源代码、依赖库和资源文件等转换成可执行或可部署的应用程序的过程，在这个过程中包括编译源代码、链接依赖库、打包和部署等多个步骤。  主动触发场景 重新编译 : 编译不充分, 部分文件没有被编译! 打包 : 独立部署到外部服务器软件,打包部署 部署本地或者私服仓库 : maven工程加入到本地或者私服仓库,供其他工程使用，部署必须jar包形式">
+<meta property="og:description" content="10_Maven继承和聚合特性父工程管理依赖，不会加载，而子工程可以继承这些依赖或者覆盖版本">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20230904111151694.png">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20230904111338744.png">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20230904111355381.png">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20230904112724642.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230904120901362.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230904120844140.png">
 <meta property="article:published_time" content="2023-09-04T02:55:43.000Z">
-<meta property="article:modified_time" content="2023-09-04T03:39:37.556Z">
+<meta property="article:modified_time" content="2023-09-04T05:10:36.907Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://elaskon.asia/assets/image-20230904111151694.png">
+<meta name="twitter:image" content="http://elaskon.asia/assets/image-20230904120901362.png">
   
   
   
-  <title>9_Maven扩展构建管理和插件配置 - E-zg小破站</title>
+  <title>10_Maven继承和聚合特性 - E-zg小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="9_Maven扩展构建管理和插件配置"></span>
+            <span id="subtitle" data-typed-text="10_Maven继承和聚合特性"></span>
           
         </div>
 
@@ -224,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          763 字
+          46 字
         
       </span>
     
@@ -235,7 +233,7 @@
         
         
         
-          7 分钟
+          1 分钟
         
       </span>
     
@@ -272,45 +270,14 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">9_Maven扩展构建管理和插件配置</h1>
+            <h1 id="seo-header">10_Maven继承和聚合特性</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="9-Maven扩展构建管理和插件配置"><a href="#9-Maven扩展构建管理和插件配置" class="headerlink" title="9_Maven扩展构建管理和插件配置"></a>9_Maven扩展构建管理和插件配置</h1><h2 id="构建概念"><a href="#构建概念" class="headerlink" title="构建概念"></a>构建概念</h2><p>项目构建是指将源代码、依赖库和资源文件等转换成可执行或可部署的应用程序的过程，在这个过程中包括编译源代码、链接依赖库、打包和部署等多个步骤。</p>
-<p><img src="/assets/image-20230904111151694.png" srcset="/img/loading.gif" lazyload alt="image-20230904111151694"></p>
-<h3 id="主动触发场景"><a href="#主动触发场景" class="headerlink" title="主动触发场景"></a>主动触发场景</h3><ul>
-<li>重新编译 : 编译不充分, 部分文件没有被编译!</li>
-<li>打包 : 独立部署到外部服务器软件,打包部署</li>
-<li>部署本地或者私服仓库 : maven工程加入到本地或者私服仓库,供其他工程使用，部署必须jar包形式</li>
-</ul>
-<p><img src="/assets/image-20230904111338744.png" srcset="/img/loading.gif" lazyload alt="image-20230904111338744"></p>
-<p><img src="/assets/image-20230904111355381.png" srcset="/img/loading.gif" lazyload alt="image-20230904111355381"></p>
-<h3 id="构建命令周期"><a href="#构建命令周期" class="headerlink" title="构建命令周期"></a>构建命令周期</h3><p>构建生命周期可以理解成是一组固定构建命令的有序集合，触发周期后的命令，会自动触发周期前的命令！也是一种简化构建的思路!</p>
-<p><img src="/assets/image-20230904112724642.png" srcset="/img/loading.gif" lazyload alt="image-20230904112724642"></p>
-<ul>
-<li><p>清理周期：主要是对项目编译生成文件进行清理</p>
-<p>  包含命令：clean</p>
-</li>
-<li><p>默认周期：定义了真正构件时所需要执行的所有步骤，它是生命周期中最核心的部分</p>
-<p>  包含命令：compile - test - package - install &#x2F; deploy</p>
-</li>
-<li><p>报告周期</p>
-<p>  包含命令：site</p>
-<p>  打包: mvn clean package 本地仓库: mvn clean install</p>
-</li>
-</ul>
-<p>打包最佳方式：mvn clean package</p>
-<h3 id="周期，命令和插件"><a href="#周期，命令和插件" class="headerlink" title="周期，命令和插件:"></a>周期，命令和插件:</h3><ul>
-<li><p>周期→包含若干命令→包含若干插件!</p>
-</li>
-<li><p>使用周期命令构建，简化构建过程！</p>
-</li>
-<li><p>最终进行构建的是插件！</p>
-</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>   <span class="hljs-comment">&lt;!-- jdk17 和 war包版本插件不匹配 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-war-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.2.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
+                <h1 id="10-Maven继承和聚合特性"><a href="#10-Maven继承和聚合特性" class="headerlink" title="10_Maven继承和聚合特性"></a>10_Maven继承和聚合特性</h1><p>父工程管理依赖，不会加载，而子工程可以继承这些依赖或者覆盖版本</p>
+<p><img src="/assets/image-20230904120901362.png" srcset="/img/loading.gif" lazyload alt="image-20230904120901362"></p>
+<p><img src="/assets/image-20230904120844140.png" srcset="/img/loading.gif" lazyload alt="image-20230904120844140"></p>
 
                 
               </div>
@@ -349,8 +316,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>9_Maven扩展构建管理和插件配置</div>
-      <div>http://elaskon.asia/2023/09/04/尚硅谷-SSM/Maven/9_Maven扩展构建管理和插件配置/</div>
+      <div>10_Maven继承和聚合特性</div>
+      <div>http://elaskon.asia/2023/09/04/尚硅谷-SSM/Maven/10_Maven继承和聚合特性/</div>
     </div>
     <div class="license-meta">
       
@@ -394,9 +361,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/11_Maven%E8%81%9A%E5%90%88%E5%85%B3%E7%B3%BB/" title="11_Maven聚合特性">
+                      <a href="/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/9_Maven%E6%89%A9%E5%B1%95%E6%9E%84%E5%BB%BA%E7%AE%A1%E7%90%86%E5%92%8C%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/" title="9_Maven扩展构建管理和插件配置">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">11_Maven聚合特性</span>
+                        <span class="hidden-mobile">9_Maven扩展构建管理和插件配置</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -404,8 +371,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/10_Maven%E7%BB%A7%E6%89%BF%E5%92%8C%E8%81%9A%E5%90%88%E7%89%B9%E6%80%A7/" title="10_Maven继承和聚合特性">
-                        <span class="hidden-mobile">10_Maven继承和聚合特性</span>
+                      <a href="/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/8_Maven%E4%BE%9D%E8%B5%96%E5%AF%BC%E5%85%A5%E5%A4%B1%E8%B4%A5%E5%9C%BA%E6%99%AF%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="8_Maven依赖导入失败场景和解决方案">
+                        <span class="hidden-mobile">8_Maven依赖导入失败场景和解决方案</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
