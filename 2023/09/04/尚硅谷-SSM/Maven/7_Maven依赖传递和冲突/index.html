@@ -16,23 +16,21 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1234567891011121314151617181920212223242526272829303132#2 SELECT MAX(salary),MIN(salary),AVG(salary),SUM(salary)FROM employees;#3SELECT job_id,MAX(salary),MIN(salary),AVG(salary),SUM(salary)FROM empl">
+    <meta name="description" content="7_Maven依赖传递和冲突依赖传递指的是当一个模块或库 A 依赖于另一个模块或库 B，而 B 又依赖于模块或库 C，那么 A 会间接依赖于 C。 即导入依赖，会自动导入依赖的依赖。（compile dependenices） 依赖传递的作用 减少重复依赖：当多个项目依赖同一个库时，Maven 可以自动下载并且只下载一次该库。这样可以减少项目的构建时间和磁盘空间。 自动管理依赖: Maven 可以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="E-zg小破站">
-<meta property="og:url" content="http://elaskon.asia/2023/09/03/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/8_%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/%E7%BB%83%E4%B9%A0/index.html">
+<meta property="og:title" content="7_Maven依赖传递和冲突">
+<meta property="og:url" content="http://elaskon.asia/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/7_Maven%E4%BE%9D%E8%B5%96%E4%BC%A0%E9%80%92%E5%92%8C%E5%86%B2%E7%AA%81/index.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132#2 SELECT MAX(salary),MIN(salary),AVG(salary),SUM(salary)FROM employees;#3SELECT job_id,MAX(salary),MIN(salary),AVG(salary),SUM(salary)FROM empl">
+<meta property="og:description" content="7_Maven依赖传递和冲突依赖传递指的是当一个模块或库 A 依赖于另一个模块或库 B，而 B 又依赖于模块或库 C，那么 A 会间接依赖于 C。 即导入依赖，会自动导入依赖的依赖。（compile dependenices） 依赖传递的作用 减少重复依赖：当多个项目依赖同一个库时，Maven 可以自动下载并且只下载一次该库。这样可以减少项目的构建时间和磁盘空间。 自动管理依赖: Maven 可以">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20230824115837834.png">
-<meta property="article:published_time" content="2023-09-03T06:57:21.906Z">
-<meta property="article:modified_time" content="2023-08-24T07:55:39.960Z">
+<meta property="article:published_time" content="2023-09-04T01:00:43.000Z">
+<meta property="article:modified_time" content="2023-09-04T02:46:23.832Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://elaskon.asia/assets/image-20230824115837834.png">
   
   
   
-  <title>E-zg小破站</title>
+  <title>7_Maven依赖传递和冲突 - E-zg小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="7_Maven依赖传递和冲突"></span>
           
         </div>
 
@@ -209,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-03 14:57" pubdate>
-          2023年9月3日 下午
+        <time datetime="2023-09-04 09:00" pubdate>
+          2023年9月4日 上午
         </time>
       </span>
     
@@ -221,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          828 字
+          496 字
         
       </span>
     
@@ -232,7 +230,7 @@
         
         
         
-          7 分钟
+          5 分钟
         
       </span>
     
@@ -269,14 +267,28 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">7_Maven依赖传递和冲突</h1>
             
             
               <div class="markdown-body">
                 
-                <p><img src="/assets/image-20230824115837834.png" srcset="/img/loading.gif" lazyload alt="image-20230824115837834"></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs sql">#<span class="hljs-number">2</span> <br><span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">MAX</span>(salary),<span class="hljs-built_in">MIN</span>(salary),<span class="hljs-built_in">AVG</span>(salary),<span class="hljs-built_in">SUM</span>(salary)<br><span class="hljs-keyword">FROM</span> employees;<br>#<span class="hljs-number">3</span><br><span class="hljs-keyword">SELECT</span> job_id,<span class="hljs-built_in">MAX</span>(salary),<span class="hljs-built_in">MIN</span>(salary),<span class="hljs-built_in">AVG</span>(salary),<span class="hljs-built_in">SUM</span>(salary)<br><span class="hljs-keyword">FROM</span> employees<br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> job_id;<br>#<span class="hljs-number">4</span><br><span class="hljs-keyword">SELECT</span> job_id,<span class="hljs-built_in">COUNT</span>(<span class="hljs-number">1</span>)<br><span class="hljs-keyword">FROM</span> employees<br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> job_id;<br>#<span class="hljs-number">5</span><br><span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">MAX</span>(salary) <span class="hljs-operator">-</span> <span class="hljs-built_in">MIN</span>(salary) <span class="hljs-string">&#x27;DIFFERENCE&#x27;</span><br><span class="hljs-keyword">FROM</span> employees;<br>#<span class="hljs-number">6</span><br><span class="hljs-keyword">SELECT</span> manager_id,<span class="hljs-built_in">MIN</span>(salary)<br><span class="hljs-keyword">FROM</span> employees<br><span class="hljs-keyword">WHERE</span> manager_id <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span><br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> manager_id<br><span class="hljs-keyword">HAVING</span> <span class="hljs-built_in">MIN</span>(salary) <span class="hljs-operator">&gt;</span> <span class="hljs-number">6000</span>;<br>#<span class="hljs-number">7</span><br><span class="hljs-keyword">SELECT</span> D.department_name,D.location_id,<span class="hljs-built_in">COUNT</span>(E.employee_id),<span class="hljs-built_in">AVG</span>(E.salary)<br><span class="hljs-keyword">FROM</span> employees E <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> departments D<br><span class="hljs-keyword">ON</span> E.department_id <span class="hljs-operator">=</span> D.department_id<br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> D.department_name,D.location_id<br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-built_in">AVG</span>(e.salary) <span class="hljs-keyword">DESC</span>;<br>#<span class="hljs-number">8</span><br><span class="hljs-keyword">SELECT</span> E.job_id,D.department_name,J.job_title,<span class="hljs-built_in">MIN</span>(E.salary)<br><span class="hljs-keyword">FROM</span> employees E <span class="hljs-keyword">JOIN</span> departments D<br><span class="hljs-keyword">ON</span> E.department_id <span class="hljs-operator">=</span> E.department_id<br><span class="hljs-keyword">JOIN</span> jobs J <span class="hljs-keyword">ON</span> E.job_id <span class="hljs-operator">=</span> J.job_id<br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> E.job_id,D.department_name<br></code></pre></td></tr></table></figure>
-
+                <h1 id="7-Maven依赖传递和冲突"><a href="#7-Maven依赖传递和冲突" class="headerlink" title="7_Maven依赖传递和冲突"></a>7_Maven依赖传递和冲突</h1><p><strong>依赖传递</strong>指的是当一个模块或库 A 依赖于另一个模块或库 B，而 B 又依赖于模块或库 C，那么 A 会间接依赖于 C。</p>
+<p>即导入依赖，会自动导入依赖的依赖。（compile dependenices）</p>
+<h2 id="依赖传递的作用"><a href="#依赖传递的作用" class="headerlink" title="依赖传递的作用"></a>依赖传递的作用</h2><ol>
+<li>减少重复依赖：当多个项目依赖同一个库时，Maven 可以自动下载并且只下载一次该库。这样可以减少项目的构建时间和磁盘空间。</li>
+<li>自动管理依赖: Maven 可以自动管理依赖项，使用依赖传递，简化了依赖项的管理，使项目构建更加可靠和一致。</li>
+<li>确保依赖版本正确性：通过依赖传递的依赖，之间都不会存在版本兼容性问题，确实依赖的版本正确性！</li>
+</ol>
+<h2 id="依赖冲突"><a href="#依赖冲突" class="headerlink" title="依赖冲突"></a>依赖冲突</h2><p>发现已经存在的重复依赖，会终止依赖传递，避免依赖和重复依赖的问题。</p>
+<blockquote>
+<p>假设A依赖B的1.0，而C依赖了B的2.0，问项目中引入A和C，此时B的版本(1.0)</p>
+</blockquote>
+<p>依赖冲突的解决原则：</p>
+<ul>
+<li>第一原则：谁短谁优先，即引用的路径长度。假设A-E-D-B1.0和C-B2.0，此时优先引用后者。C-A-B2.0</li>
+<li>第二原则：谁上谁优先，即dependencies声明的先后顺序。假设A-B1.0,C-B2.0优先前者。A-C-B1.0</li>
+<li>只要发生了冲突，后续的依赖传递将会发生终止。</li>
+</ul>
 
                 
               </div>
@@ -284,6 +296,27 @@
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Maven/" class="category-chain-item">Maven</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>
@@ -294,8 +327,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>http://elaskon.asia/2023/09/03/数据库MYSQL/8_聚合函数/练习/</div>
+      <div>7_Maven依赖传递和冲突</div>
+      <div>http://elaskon.asia/2023/09/04/尚硅谷-SSM/Maven/7_Maven依赖传递和冲突/</div>
     </div>
     <div class="license-meta">
       
@@ -307,7 +340,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月3日</div>
+          <div>2023年9月4日</div>
         </div>
       
       
@@ -339,9 +372,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/03/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/1_Maven%E7%AE%80%E4%BB%8B/" title="MAVEN简介">
+                      <a href="/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/8_Maven%E4%BE%9D%E8%B5%96%E5%AF%BC%E5%85%A5%E5%A4%B1%E8%B4%A5%E5%9C%BA%E6%99%AF%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="8_Maven依赖导入失败场景和解决方案">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">MAVEN简介</span>
+                        <span class="hidden-mobile">8_Maven依赖导入失败场景和解决方案</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -349,8 +382,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/03/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/6_%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/%E7%BB%83%E4%B9%A0/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/6_Maven%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E4%BE%9D%E8%B5%96%E5%92%8C%E6%9E%84%E5%BB%BA%E7%AE%A1%E7%90%86/" title="6_Maven核心功能依赖和构建管理">
+                        <span class="hidden-mobile">6_Maven核心功能依赖和构建管理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

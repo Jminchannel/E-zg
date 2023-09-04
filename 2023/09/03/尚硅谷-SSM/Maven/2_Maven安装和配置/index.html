@@ -16,23 +16,21 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1234567891011121314151617181920212223242526272829303132#2 SELECT MAX(salary),MIN(salary),AVG(salary),SUM(salary)FROM employees;#3SELECT job_id,MAX(salary),MIN(salary),AVG(salary),SUM(salary)FROM empl">
+    <meta name="description" content="Maven安装和配置下载安装环境变量配置不说了 本地maven基本配置改maven&#x2F;conf&#x2F;settings.xml配置文件 目标：  依赖本地缓存位置（本地仓库位置） maven下载镜像 maven选用编译项目的jdk版本！  123456789101112131415161718192021222324252627282930313233依赖本地缓存位置（本地仓库位置）&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="E-zg小破站">
-<meta property="og:url" content="http://elaskon.asia/2023/09/03/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/8_%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/%E7%BB%83%E4%B9%A0/index.html">
+<meta property="og:title" content="MAVEN安装和配置">
+<meta property="og:url" content="http://elaskon.asia/2023/09/03/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/2_Maven%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132#2 SELECT MAX(salary),MIN(salary),AVG(salary),SUM(salary)FROM employees;#3SELECT job_id,MAX(salary),MIN(salary),AVG(salary),SUM(salary)FROM empl">
+<meta property="og:description" content="Maven安装和配置下载安装环境变量配置不说了 本地maven基本配置改maven&#x2F;conf&#x2F;settings.xml配置文件 目标：  依赖本地缓存位置（本地仓库位置） maven下载镜像 maven选用编译项目的jdk版本！  123456789101112131415161718192021222324252627282930313233依赖本地缓存位置（本地仓库位置）&amp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20230824115837834.png">
-<meta property="article:published_time" content="2023-09-03T06:57:21.906Z">
-<meta property="article:modified_time" content="2023-08-24T07:55:39.960Z">
+<meta property="article:published_time" content="2023-09-03T14:53:43.000Z">
+<meta property="article:modified_time" content="2023-09-04T00:16:14.857Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://elaskon.asia/assets/image-20230824115837834.png">
   
   
   
-  <title>E-zg小破站</title>
+  <title>MAVEN安装和配置 - E-zg小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="MAVEN安装和配置"></span>
           
         </div>
 
@@ -209,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-03 14:57" pubdate>
-          2023年9月3日 下午
+        <time datetime="2023-09-03 22:53" pubdate>
+          2023年9月3日 晚上
         </time>
       </span>
     
@@ -221,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          828 字
+          1.3k 字
         
       </span>
     
@@ -232,7 +230,7 @@
         
         
         
-          7 分钟
+          12 分钟
         
       </span>
     
@@ -269,14 +267,26 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">MAVEN安装和配置</h1>
             
             
               <div class="markdown-body">
                 
-                <p><img src="/assets/image-20230824115837834.png" srcset="/img/loading.gif" lazyload alt="image-20230824115837834"></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs sql">#<span class="hljs-number">2</span> <br><span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">MAX</span>(salary),<span class="hljs-built_in">MIN</span>(salary),<span class="hljs-built_in">AVG</span>(salary),<span class="hljs-built_in">SUM</span>(salary)<br><span class="hljs-keyword">FROM</span> employees;<br>#<span class="hljs-number">3</span><br><span class="hljs-keyword">SELECT</span> job_id,<span class="hljs-built_in">MAX</span>(salary),<span class="hljs-built_in">MIN</span>(salary),<span class="hljs-built_in">AVG</span>(salary),<span class="hljs-built_in">SUM</span>(salary)<br><span class="hljs-keyword">FROM</span> employees<br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> job_id;<br>#<span class="hljs-number">4</span><br><span class="hljs-keyword">SELECT</span> job_id,<span class="hljs-built_in">COUNT</span>(<span class="hljs-number">1</span>)<br><span class="hljs-keyword">FROM</span> employees<br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> job_id;<br>#<span class="hljs-number">5</span><br><span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">MAX</span>(salary) <span class="hljs-operator">-</span> <span class="hljs-built_in">MIN</span>(salary) <span class="hljs-string">&#x27;DIFFERENCE&#x27;</span><br><span class="hljs-keyword">FROM</span> employees;<br>#<span class="hljs-number">6</span><br><span class="hljs-keyword">SELECT</span> manager_id,<span class="hljs-built_in">MIN</span>(salary)<br><span class="hljs-keyword">FROM</span> employees<br><span class="hljs-keyword">WHERE</span> manager_id <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span><br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> manager_id<br><span class="hljs-keyword">HAVING</span> <span class="hljs-built_in">MIN</span>(salary) <span class="hljs-operator">&gt;</span> <span class="hljs-number">6000</span>;<br>#<span class="hljs-number">7</span><br><span class="hljs-keyword">SELECT</span> D.department_name,D.location_id,<span class="hljs-built_in">COUNT</span>(E.employee_id),<span class="hljs-built_in">AVG</span>(E.salary)<br><span class="hljs-keyword">FROM</span> employees E <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> departments D<br><span class="hljs-keyword">ON</span> E.department_id <span class="hljs-operator">=</span> D.department_id<br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> D.department_name,D.location_id<br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-built_in">AVG</span>(e.salary) <span class="hljs-keyword">DESC</span>;<br>#<span class="hljs-number">8</span><br><span class="hljs-keyword">SELECT</span> E.job_id,D.department_name,J.job_title,<span class="hljs-built_in">MIN</span>(E.salary)<br><span class="hljs-keyword">FROM</span> employees E <span class="hljs-keyword">JOIN</span> departments D<br><span class="hljs-keyword">ON</span> E.department_id <span class="hljs-operator">=</span> E.department_id<br><span class="hljs-keyword">JOIN</span> jobs J <span class="hljs-keyword">ON</span> E.job_id <span class="hljs-operator">=</span> J.job_id<br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> E.job_id,D.department_name<br></code></pre></td></tr></table></figure>
+                <h1 id="Maven安装和配置"><a href="#Maven安装和配置" class="headerlink" title="Maven安装和配置"></a>Maven安装和配置</h1><p>下载安装环境变量配置不说了</p>
+<h2 id="本地maven基本配置"><a href="#本地maven基本配置" class="headerlink" title="本地maven基本配置"></a>本地maven基本配置</h2><p>改maven&#x2F;conf&#x2F;settings.xml配置文件</p>
+<p>目标：</p>
+<ol>
+<li>依赖本地缓存位置（本地仓库位置）</li>
+<li>maven下载镜像</li>
+<li>maven选用编译项目的jdk版本！</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs xml">依赖本地缓存位置（本地仓库位置）<br><span class="hljs-comment">&lt;!-- localRepository</span><br><span class="hljs-comment"> | The path to the local repository maven will use to store artifacts.</span><br><span class="hljs-comment"> |</span><br><span class="hljs-comment"> | Default: $&#123;user.home&#125;/.m2/repository</span><br><span class="hljs-comment">&lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;</span><br><span class="hljs-comment">--&gt;</span><br><span class="hljs-comment">&lt;!-- conf/settings.xml 55行 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">localRepository</span>&gt;</span>D:\repository<span class="hljs-tag">&lt;/<span class="hljs-name">localRepository</span>&gt;</span><br><br>maven下载镜像<br><span class="hljs-comment">&lt;!--在mirrors节点(标签)下添加中央仓库镜像 160行附近--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">mirror</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>alimaven<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>aliyun maven<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mirrorOf</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">mirrorOf</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mirror</span>&gt;</span><br><br>配置jdk17版本项目构建<br><span class="hljs-comment">&lt;!--在profiles节点(标签)下添加jdk编译版本 268行附近--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">profile</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>jdk-17<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">activation</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">activeByDefault</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">activeByDefault</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">jdk</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">jdk</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">activation</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.source</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.source</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.target</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.target</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.compilerVersion</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.compilerVersion</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
+<h2 id="IDEA配置本地MAVEN"><a href="#IDEA配置本地MAVEN" class="headerlink" title="IDEA配置本地MAVEN"></a>IDEA配置本地MAVEN</h2><p>替换成本地配置好的maven</p>
+<ol>
+<li>进入IDEA，file &#x2F; settings &#x2F; build &#x2F; build tool &#x2F; maven，选中本地maven</li>
+<li>查看本地仓库是否自动变为配置的地址</li>
+</ol>
 
                 
               </div>
@@ -284,6 +294,27 @@
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Maven/" class="category-chain-item">Maven</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>
@@ -294,8 +325,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>http://elaskon.asia/2023/09/03/数据库MYSQL/8_聚合函数/练习/</div>
+      <div>MAVEN安装和配置</div>
+      <div>http://elaskon.asia/2023/09/03/尚硅谷-SSM/Maven/2_Maven安装和配置/</div>
     </div>
     <div class="license-meta">
       
@@ -339,9 +370,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/03/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/1_Maven%E7%AE%80%E4%BB%8B/" title="MAVEN简介">
+                      <a href="/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/4_idea%E6%9E%84%E5%BB%BAMaven.Javaee%E5%B7%A5%E7%A8%8B/" title="4_idea构建Maven.Javaee工程">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">MAVEN简介</span>
+                        <span class="hidden-mobile">4_idea构建Maven.Javaee工程</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -349,8 +380,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/03/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/6_%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/%E7%BB%83%E4%B9%A0/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2023/09/03/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/3_%E5%9F%BA%E4%BA%8Eidea%E7%9A%84maven%E5%B7%A5%E7%A8%8B%E5%88%9B%E5%BB%BA/" title="基于idea的maven工程创建">
+                        <span class="hidden-mobile">基于idea的maven工程创建</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

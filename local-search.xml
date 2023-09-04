@@ -4,6 +4,177 @@
   
   
   <entry>
+    <title>9_Maven扩展构建管理和插件配置</title>
+    <link href="/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/9_Maven%E6%89%A9%E5%B1%95%E6%9E%84%E5%BB%BA%E7%AE%A1%E7%90%86%E5%92%8C%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/"/>
+    <url>/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/9_Maven%E6%89%A9%E5%B1%95%E6%9E%84%E5%BB%BA%E7%AE%A1%E7%90%86%E5%92%8C%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="9-Maven扩展构建管理和插件配置"><a href="#9-Maven扩展构建管理和插件配置" class="headerlink" title="9_Maven扩展构建管理和插件配置"></a>9_Maven扩展构建管理和插件配置</h1><h2 id="构建概念"><a href="#构建概念" class="headerlink" title="构建概念"></a>构建概念</h2><p>项目构建是指将源代码、依赖库和资源文件等转换成可执行或可部署的应用程序的过程，在这个过程中包括编译源代码、链接依赖库、打包和部署等多个步骤。</p><p><img src="/assets/image-20230904111151694.png" alt="image-20230904111151694"></p><h3 id="主动触发场景"><a href="#主动触发场景" class="headerlink" title="主动触发场景"></a>主动触发场景</h3><ul><li>重新编译 : 编译不充分, 部分文件没有被编译!</li><li>打包 : 独立部署到外部服务器软件,打包部署</li><li>部署本地或者私服仓库 : maven工程加入到本地或者私服仓库,供其他工程使用，部署必须jar包形式</li></ul><p><img src="/assets/image-20230904111338744.png" alt="image-20230904111338744"></p><p><img src="/assets/image-20230904111355381.png" alt="image-20230904111355381"></p><h3 id="构建命令周期"><a href="#构建命令周期" class="headerlink" title="构建命令周期"></a>构建命令周期</h3><p>构建生命周期可以理解成是一组固定构建命令的有序集合，触发周期后的命令，会自动触发周期前的命令！也是一种简化构建的思路!</p><p><img src="/assets/image-20230904112724642.png" alt="image-20230904112724642"></p><ul><li><p>清理周期：主要是对项目编译生成文件进行清理</p><p>  包含命令：clean</p></li><li><p>默认周期：定义了真正构件时所需要执行的所有步骤，它是生命周期中最核心的部分</p><p>  包含命令：compile - test - package - install &#x2F; deploy</p></li><li><p>报告周期</p><p>  包含命令：site</p><p>  打包: mvn clean package 本地仓库: mvn clean install</p></li></ul><p>打包最佳方式：mvn clean package</p><h3 id="周期，命令和插件"><a href="#周期，命令和插件" class="headerlink" title="周期，命令和插件:"></a>周期，命令和插件:</h3><ul><li><p>周期→包含若干命令→包含若干插件!</p></li><li><p>使用周期命令构建，简化构建过程！</p></li><li><p>最终进行构建的是插件！</p></li></ul><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>   <span class="hljs-comment">&lt;!-- jdk17 和 war包版本插件不匹配 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-war-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.2.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Maven</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>8_Maven依赖导入失败场景和解决方案</title>
+    <link href="/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/8_Maven%E4%BE%9D%E8%B5%96%E5%AF%BC%E5%85%A5%E5%A4%B1%E8%B4%A5%E5%9C%BA%E6%99%AF%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <url>/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/8_Maven%E4%BE%9D%E8%B5%96%E5%AF%BC%E5%85%A5%E5%A4%B1%E8%B4%A5%E5%9C%BA%E6%99%AF%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    
+    <content type="html"><![CDATA[<h1 id="8-Maven依赖导入失败场景和解决方案"><a href="#8-Maven依赖导入失败场景和解决方案" class="headerlink" title="8_Maven依赖导入失败场景和解决方案"></a>8_Maven依赖导入失败场景和解决方案</h1><h2 id="出错的场景"><a href="#出错的场景" class="headerlink" title="出错的场景"></a>出错的场景</h2><ol><li>下载依赖时出现网络故障或仓库服务器宕机等原因，导致无法连接至 Maven 仓库，从而无法下载依赖。</li><li>依赖项的版本号或配置文件中的版本号错误，或者依赖项没有正确定义，导致 Maven 下载的依赖项与实际需要的不一致，从而引发错误。</li><li>本地 Maven 仓库或缓存被污染或损坏，导致 Maven 无法正确地使用现有的依赖项，并且也无法重新下载！</li></ol><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol><li><p>检查网络连接和 Maven 仓库服务器状态。</p></li><li><p>确保依赖项的版本号与项目对应的版本号匹配，并检查 POM 文件中的依赖项是否正确。</p></li><li><p>清除本地 Maven 仓库缓存（lastUpdated 文件），因为只要存在lastupdated缓存文件，刷新也不会重新下载。本地仓库中，根据依赖的gav属性依次向下查找文件夹，最终删除内部的文件，刷新重新下载即可！</p><p> 例如： pom.xml依赖</p></li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs XML"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>druid<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2.8<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure><p>可能出现的问题：访问本地仓库不存在依赖，并且不访问阿里镜像的问题，即本地仓库被污染。解决问题则必须删除污染文件，lastupdated缓存文件</p><p>​    <a href="https://secure2-danger.wostatic.cn/static/tpcPbE2YRb3wNi5TGT62Ht/%E6%B8%85%E7%90%86maven%E9%94%99%E8%AF%AF%E7%BC%93%E5%AD%98.bat?auth_key=1693796348-tbwNYKRzNqEaJgQSKCXWeN-0-ee9c561a4a3d43509b558e609636156c&download=%E6%B8%85%E7%90%86maven%E9%94%99%E8%AF%AF%E7%BC%93%E5%AD%98.bat">清理错误缓存脚本</a></p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs XML">使用记事本打开<br>set REPOSITORY_PATH=D:\repository  改成你本地仓库地址即可！<br>点击运行脚本，即可自动清理本地错误缓存文件！！<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Maven</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>7_Maven依赖传递和冲突</title>
+    <link href="/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/7_Maven%E4%BE%9D%E8%B5%96%E4%BC%A0%E9%80%92%E5%92%8C%E5%86%B2%E7%AA%81/"/>
+    <url>/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/7_Maven%E4%BE%9D%E8%B5%96%E4%BC%A0%E9%80%92%E5%92%8C%E5%86%B2%E7%AA%81/</url>
+    
+    <content type="html"><![CDATA[<h1 id="7-Maven依赖传递和冲突"><a href="#7-Maven依赖传递和冲突" class="headerlink" title="7_Maven依赖传递和冲突"></a>7_Maven依赖传递和冲突</h1><p><strong>依赖传递</strong>指的是当一个模块或库 A 依赖于另一个模块或库 B，而 B 又依赖于模块或库 C，那么 A 会间接依赖于 C。</p><p>即导入依赖，会自动导入依赖的依赖。（compile dependenices）</p><h2 id="依赖传递的作用"><a href="#依赖传递的作用" class="headerlink" title="依赖传递的作用"></a>依赖传递的作用</h2><ol><li>减少重复依赖：当多个项目依赖同一个库时，Maven 可以自动下载并且只下载一次该库。这样可以减少项目的构建时间和磁盘空间。</li><li>自动管理依赖: Maven 可以自动管理依赖项，使用依赖传递，简化了依赖项的管理，使项目构建更加可靠和一致。</li><li>确保依赖版本正确性：通过依赖传递的依赖，之间都不会存在版本兼容性问题，确实依赖的版本正确性！</li></ol><h2 id="依赖冲突"><a href="#依赖冲突" class="headerlink" title="依赖冲突"></a>依赖冲突</h2><p>发现已经存在的重复依赖，会终止依赖传递，避免依赖和重复依赖的问题。</p><blockquote><p>假设A依赖B的1.0，而C依赖了B的2.0，问项目中引入A和C，此时B的版本(1.0)</p></blockquote><p>依赖冲突的解决原则：</p><ul><li>第一原则：谁短谁优先，即引用的路径长度。假设A-E-D-B1.0和C-B2.0，此时优先引用后者。C-A-B2.0</li><li>第二原则：谁上谁优先，即dependencies声明的先后顺序。假设A-B1.0,C-B2.0优先前者。A-C-B1.0</li><li>只要发生了冲突，后续的依赖传递将会发生终止。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Maven</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>6_Maven核心功能依赖和构建管理</title>
+    <link href="/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/6_Maven%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E4%BE%9D%E8%B5%96%E5%92%8C%E6%9E%84%E5%BB%BA%E7%AE%A1%E7%90%86/"/>
+    <url>/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/6_Maven%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E4%BE%9D%E8%B5%96%E5%92%8C%E6%9E%84%E5%BB%BA%E7%AE%A1%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<h1 id="6-Maven核心功能依赖和构建管理"><a href="#6-Maven核心功能依赖和构建管理" class="headerlink" title="6_Maven核心功能依赖和构建管理"></a>6_Maven核心功能依赖和构建管理</h1><p>Maven 依赖管理是 Maven 软件中最重要的功能之一。能够帮助开发人员自动解决软件包依赖问题。</p><p>Maven 能够自动解析项目的依赖关系，并通过 Maven 仓库自动下载和管理依赖，从而避免了手动下载和管理依赖的繁琐工作和可能引发的版本冲突问题。</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- </span><br><span class="hljs-comment">   通过编写依赖jar包的gav必要属性，引入第三方依赖！</span><br><span class="hljs-comment">   scope属性是可选的，可以指定依赖生效范围！</span><br><span class="hljs-comment">   依赖信息查询方式：</span><br><span class="hljs-comment">      1. maven仓库信息官网 https://mvnrepository.com/</span><br><span class="hljs-comment">      2. mavensearch插件搜索</span><br><span class="hljs-comment"> --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 引入具体的依赖包 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>log4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>log4j<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2.17<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-comment">&lt;!--</span><br><span class="hljs-comment">            生效范围</span><br><span class="hljs-comment">            - compile ：main目录 test目录  打包打包 [默认]</span><br><span class="hljs-comment">            - provided：main目录 test目录  Servlet</span><br><span class="hljs-comment">            - runtime： 打包运行           MySQL</span><br><span class="hljs-comment">            - test:    test目录           junit</span><br><span class="hljs-comment">         --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>runtime<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br></code></pre></td></tr></table></figure><p><a href="https://mvnrepository.com/">https://mvnrepository.com</a></p><p>maven-search插件</p><p><img src="/assets/image-20230904092353800.png" alt="image-20230904092353800"></p><p><img src="/assets/image-20230904092543000.png" alt="image-20230904092543000"></p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cn.hutool<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>hutool-all<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.8.21<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure><h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><h3 id="如何设置变量呢，用于依赖版本管理"><a href="#如何设置变量呢，用于依赖版本管理" class="headerlink" title="如何设置变量呢，用于依赖版本管理"></a>如何设置变量呢，用于依赖版本管理</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--    声明变量，声明后可以在其他位置引用$&#123;hutool.version&#125;--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">hutool.version</span>&gt;</span>5.8.21<span class="hljs-tag">&lt;/<span class="hljs-name">hutool.version</span>&gt;</span><br></code></pre></td></tr></table></figure><p><img src="/assets/image-20230904093404904.png" alt="image-20230904093404904"></p><h3 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h3><p>引入依赖的作用域</p><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs subunit">scope引用作用域<br>默认compile 全局<br>main 主类<br><span class="hljs-keyword">test </span>测试 Junit @Test<br>runtime 运行和打包 mysql Class.forname(com.mysql.cj.jdbc.Driver)<br>provided main和test可以使用，runtime不使用 Servlet HttpServlet<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Maven</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>5_Maven工程项目结构说明</title>
+    <link href="/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/5_Maven%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E/"/>
+    <url>/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/5_Maven%E5%B7%A5%E7%A8%8B%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E/</url>
+    
+    <content type="html"><![CDATA[<h1 id="5-Maven工程项目结构说明"><a href="#5-Maven工程项目结构说明" class="headerlink" title="5_Maven工程项目结构说明"></a>5_Maven工程项目结构说明</h1><p>Maven Web 程序的文件结构及每个文件的作用：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs xml">|-- pom.xml                               # Maven 项目管理文件 <br>|-- src<br>    |-- main                              # 项目主要代码<br>    |   |-- java                          # Java 源代码目录<br>    |   |   `-- com/example/myapp         # 开发者代码主目录<br>    |   |       |-- controller            # 存放 Controller 层代码的目录<br>    |   |       |-- service               # 存放 Service 层代码的目录<br>    |   |       |-- dao                   # 存放 DAO 层代码的目录<br>    |   |       `-- model                 # 存放数据模型的目录<br>    |   |-- resources                     # 资源目录，存放配置文件、静态资源等<br>    |   |   |-- log4j.properties          # 日志配置文件<br>    |   |   |-- spring-mybatis.xml        # Spring Mybatis 配置文件<br>    |   |   `-- static                    # 存放静态资源的目录<br>    |   |       |-- css                   # 存放 CSS 文件的目录<br>    |   |       |-- js                    # 存放 JavaScript 文件的目录<br>    |   |       `-- images                # 存放图片资源的目录<br>    |   `-- webapp                        # 存放 WEB 相关配置和资源<br>    |       |-- WEB-INF                   # 存放 WEB 应用配置文件<br>    |       |   |-- web.xml               # Web 应用的部署描述文件<br>    |       |   `-- classes               # 存放编译后的 class 文件<br>    |       `-- index.html                # Web 应用入口页面<br>    `-- test                              # 项目测试代码<br>        |-- java                          # 单元测试目录<br>        `-- resources                     # 测试资源目录<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Maven</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>4_idea构建Maven.Javaee工程</title>
+    <link href="/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/4_idea%E6%9E%84%E5%BB%BAMaven.Javaee%E5%B7%A5%E7%A8%8B/"/>
+    <url>/2023/09/04/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/4_idea%E6%9E%84%E5%BB%BAMaven.Javaee%E5%B7%A5%E7%A8%8B/</url>
+    
+    <content type="html"><![CDATA[<h1 id="4-idea构建Maven-Javee工程"><a href="#4-idea构建Maven-Javee工程" class="headerlink" title="4_idea构建Maven.Javee工程"></a>4_idea构建Maven.Javee工程</h1><h2 id="手动创建web项目"><a href="#手动创建web项目" class="headerlink" title="手动创建web项目"></a>手动创建web项目</h2><ol><li>创建一个Javase maven工程</li><li>补全文件结构<br>main<br>   web<br>   WEB-INF<br>       web.xml</li><li>pom.xml<br>packaging    war</li><li>刷新-web多了一个小蓝点</li></ol><p><img src="/assets/image-20230904085713423.png" alt="image-20230904085713423"></p><h2 id="插件创建web项目"><a href="#插件创建web项目" class="headerlink" title="插件创建web项目"></a>插件创建web项目</h2><ol><li><p>安装插件JBLJavaToWeb</p><p><img src="/assets/image-20230904090112064.png" alt="image-20230904090112064"></p></li><li><p>创建一个javaeemaven工程</p></li><li><p>右键、使用插件快速补全web项目</p><p><img src="/assets/image-20230904090501505.png" alt="image-20230904090501505"></p></li></ol><p><img src="/assets/image-20230904090548624.png" alt="image-20230904090548624"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Maven</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>MAVEN安装和配置</title>
+    <link href="/2023/09/03/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/2_Maven%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/"/>
+    <url>/2023/09/03/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/2_Maven%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Maven安装和配置"><a href="#Maven安装和配置" class="headerlink" title="Maven安装和配置"></a>Maven安装和配置</h1><p>下载安装环境变量配置不说了</p><h2 id="本地maven基本配置"><a href="#本地maven基本配置" class="headerlink" title="本地maven基本配置"></a>本地maven基本配置</h2><p>改maven&#x2F;conf&#x2F;settings.xml配置文件</p><p>目标：</p><ol><li>依赖本地缓存位置（本地仓库位置）</li><li>maven下载镜像</li><li>maven选用编译项目的jdk版本！</li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs xml">依赖本地缓存位置（本地仓库位置）<br><span class="hljs-comment">&lt;!-- localRepository</span><br><span class="hljs-comment"> | The path to the local repository maven will use to store artifacts.</span><br><span class="hljs-comment"> |</span><br><span class="hljs-comment"> | Default: $&#123;user.home&#125;/.m2/repository</span><br><span class="hljs-comment">&lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;</span><br><span class="hljs-comment">--&gt;</span><br><span class="hljs-comment">&lt;!-- conf/settings.xml 55行 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">localRepository</span>&gt;</span>D:\repository<span class="hljs-tag">&lt;/<span class="hljs-name">localRepository</span>&gt;</span><br><br>maven下载镜像<br><span class="hljs-comment">&lt;!--在mirrors节点(标签)下添加中央仓库镜像 160行附近--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">mirror</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>alimaven<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>aliyun maven<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mirrorOf</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">mirrorOf</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mirror</span>&gt;</span><br><br>配置jdk17版本项目构建<br><span class="hljs-comment">&lt;!--在profiles节点(标签)下添加jdk编译版本 268行附近--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">profile</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>jdk-17<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">activation</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">activeByDefault</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">activeByDefault</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">jdk</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">jdk</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">activation</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.source</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.source</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.target</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.target</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">maven.compiler.compilerVersion</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">maven.compiler.compilerVersion</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span><br></code></pre></td></tr></table></figure><h2 id="IDEA配置本地MAVEN"><a href="#IDEA配置本地MAVEN" class="headerlink" title="IDEA配置本地MAVEN"></a>IDEA配置本地MAVEN</h2><p>替换成本地配置好的maven</p><ol><li>进入IDEA，file &#x2F; settings &#x2F; build &#x2F; build tool &#x2F; maven，选中本地maven</li><li>查看本地仓库是否自动变为配置的地址</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Maven</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>基于idea的maven工程创建</title>
+    <link href="/2023/09/03/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/3_%E5%9F%BA%E4%BA%8Eidea%E7%9A%84maven%E5%B7%A5%E7%A8%8B%E5%88%9B%E5%BB%BA/"/>
+    <url>/2023/09/03/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/3_%E5%9F%BA%E4%BA%8Eidea%E7%9A%84maven%E5%B7%A5%E7%A8%8B%E5%88%9B%E5%BB%BA/</url>
+    
+    <content type="html"><![CDATA[<h1 id="基于idea的maven工程创建"><a href="#基于idea的maven工程创建" class="headerlink" title="基于idea的maven工程创建"></a>基于idea的maven工程创建</h1><h2 id="GAVP属性"><a href="#GAVP属性" class="headerlink" title="GAVP属性"></a>GAVP属性</h2><p>GAVP 是指 GroupId、ArtifactId、Version、Packaging</p><p>前三个是必要的，而 Packaging 属性为可选项</p><ul><li><p>GroupId</p><p>GroupID 格式：com.{公司&#x2F;BU }.业务线.[子业务线]，最多 4 级。com.taobao.tddl</p></li><li><p>ArtifactID</p><p>产品线名-模块名。tc-client或者bookstore</p></li><li><p>Version版本号</p><p>主版本号.次版本号.修订号，通常</p><p>初始→1.0.0  修改bug → 1.0.1  功能调整 → 1.1.1</p><p><img src="/assets/image-20230904082705083.png" alt="image-20230904082705083"></p></li><li><p>Packaging定义规则</p><p>指示将项目打包为什么类型的文件，idea根据packaging值，识别maven项目类型</p><ul><li><p>packaging 属性为 jar（默认值），代表普通的Java工程，打包以后是.jar结尾的文件。</p></li><li><p>packaging 属性为 war，代表Java的web工程，打包以后.war结尾的文件。</p></li><li><p>packaging 属性为 pom，代表不会打包，用来做继承的父工程。</p></li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Maven</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>MAVEN简介</title>
+    <link href="/2023/09/03/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/1_Maven%E7%AE%80%E4%BB%8B/"/>
+    <url>/2023/09/03/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Maven/1_Maven%E7%AE%80%E4%BB%8B/</url>
+    
+    <content type="html"><![CDATA[<h1 id="MAVEN简介"><a href="#MAVEN简介" class="headerlink" title="MAVEN简介"></a>MAVEN简介</h1><p>Maven 是一款为 Java 项目构建管理、依赖管理的工具（软件），使用 Maven 可以自动化构建、测试、打包和发布项目，大大提高了开发效率和质量。</p><p>（项目构建、依赖管理）√</p><h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="场景概念"><a href="#场景概念" class="headerlink" title="场景概念"></a>场景概念</h3><ol><li>项目需要导包（依赖），可以将所需的依赖项信息填到Maven工程的配置文件，Maven将下载并复制到项目中。</li><li>开发完成后，如果需要打包为war文件并部署到服务器中运行，可以使用一行构建命令（mvn package）快速项目构建和打包，节省时间。</li></ol><h3 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h3><p>​Maven 可以管理项目的依赖，包括自动下载所需依赖库、自动下载依赖需要的依赖并且保证版本没有冲突、依赖版本管理等。</p><h3 id="构建管理"><a href="#构建管理" class="headerlink" title="构建管理"></a>构建管理</h3><p>​项目构建是指将源代码、配置文件、资源文件等转化为能够运行或部署的应用程序或库的过程！Maven可以管理项目的编译、测试、打包、部署等构建过程。通过实现标准的构建生命周期，Maven 可以确保每一个构建过程都遵循同样的规则和最佳实践。</p><p><img src="/assets/image-20230903235602934.png" alt="image-20230903235602934"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Maven</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title></title>
     <link href="/2023/09/03/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/8_%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/%E7%BB%83%E4%B9%A0/"/>
     <url>/2023/09/03/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/8_%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/%E7%BB%83%E4%B9%A0/</url>
