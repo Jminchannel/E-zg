@@ -27,8 +27,16 @@
 <meta property="og:image" content="http://elaskon.asia/assets/image-20230905094436916.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20230905225535354.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20230906075910773.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230906124317151.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230906125718675.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230906191506477.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230906191652765.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230906193630652.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230906203306946.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230906204106237.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230906212015114.png">
 <meta property="article:published_time" content="2023-09-05T00:12:00.000Z">
-<meta property="article:modified_time" content="2023-09-06T00:31:13.385Z">
+<meta property="article:modified_time" content="2023-09-06T13:21:35.075Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://elaskon.asia/assets/image-20230905083350701.png">
@@ -292,7 +300,160 @@
 
 <h4 id="bean对象的获取"><a href="#bean对象的获取" class="headerlink" title="bean对象的获取"></a>bean对象的获取</h4><p><img src="/assets/image-20230906075910773.png" srcset="/img/loading.gif" lazyload alt="image-20230906075910773"></p>
 <p>注意！可以通过接口类来获取bean，在满足bean唯一性的前提下，其实：『对象 instanceof 指定的类型』的返回结果， 只要返回的是true就可以认定为和类型匹配，能够获取到</p>
-<h3 id="组件的作用域和周期方法配置"><a href="#组件的作用域和周期方法配置" class="headerlink" title="组件的作用域和周期方法配置"></a>组件的作用域和周期方法配置</h3>
+<h3 id="高级特性：组件的作用域和周期方法配置"><a href="#高级特性：组件的作用域和周期方法配置" class="headerlink" title="高级特性：组件的作用域和周期方法配置"></a>高级特性：组件的作用域和周期方法配置</h3><h4 id="组件周期方法配置"><a href="#组件周期方法配置" class="headerlink" title="组件周期方法配置"></a>组件周期方法配置</h4><ol>
+<li><p>周期方法概念</p>
+<p>可在组件类中定义方法，然后当ioc容器实例化和销毁组件对象的时候进行调用，这两种方法是生命周期方法！</p>
+</li>
+<li><p>周期方法声明</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Javabean</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">init</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;javabean.init&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">clean</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;javabean.clean&quot;</span>);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">    &lt;bean id=<span class="hljs-string">&quot;javabean&quot;</span> class=<span class="hljs-string">&quot;com.Jmin_ioc.ioc06.Javabean&quot;</span> init-method=<span class="hljs-string">&quot;init&quot;</span> destroy-method=<span class="hljs-string">&quot;clean&quot;</span>/&gt;<br>&lt;!--    init-method初始化方法名<br>        destroy-method 销毁方法--&gt;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">SpringInitAndDestroy</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-type">ClassPathXmlApplicationContext</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassPathXmlApplicationContext</span>(<span class="hljs-string">&quot;spring-06.xml&quot;</span>);<br>    context.getBean(<span class="hljs-string">&quot;javabean&quot;</span>);  <span class="hljs-comment">//完成初始化</span><br>    <span class="hljs-comment">//javabean.init</span><br>    context.close(); <span class="hljs-comment">//正常结束ioc容器之前调用destory()</span><br>    <span class="hljs-comment">//javabean.clean</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20230906124317151.png" srcset="/img/loading.gif" lazyload alt="image-20230906124317151"></p>
+</li>
+<li><p>周期方法配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml">    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;javabean&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.Jmin_ioc.ioc06.Javabean&quot;</span> <span class="hljs-attr">init-method</span>=<span class="hljs-string">&quot;init&quot;</span> <span class="hljs-attr">destroy-method</span>=<span class="hljs-string">&quot;clean&quot;</span>/&gt;</span><br><span class="hljs-comment">&lt;!--    init-method初始化方法名</span><br><span class="hljs-comment">        destroy-method 销毁方法--&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="组件作用域配置"><a href="#组件作用域配置" class="headerlink" title="组件作用域配置"></a>组件作用域配置</h4><ol>
+<li><p>bean作用域概念</p>
+<p><code>&lt;bean</code> 标签声明Bean，只是将Bean的信息配置给SpringIoC容器！</p>
+<p>在IoC容器中，这些<code>&lt;bean</code>标签对应的信息转成Spring内部 <code>BeanDefinition</code> 对象，<code>BeanDefinition</code> 对象内，包含定义的信息（id,class,属性等等）！</p>
+<p><img src="/assets/image-20230906125718675.png" srcset="/img/loading.gif" lazyload alt="image-20230906125718675"></p>
+<p>这意味着，<code>BeanDefinition</code>与<code>类</code>概念一样，SpringIoC容器可以可以根据<code>BeanDefinition</code>对象反射创建多个Bean对象实例。</p>
+<p>具体创建多少个Bean的实例对象，由Bean的作用域<code>Scope</code>属性指定！</p>
+</li>
+<li><p>作用域可选值</p>
+<table>
+<thead>
+<tr>
+<th>取值</th>
+<th>含义</th>
+<th>创建对象的时机</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>singleton（单例）</td>
+<td>在 IOC 容器中，这个 bean 的对象始终为单实例</td>
+<td>IOC 容器初始化时</td>
+<td>是</td>
+</tr>
+<tr>
+<td>prototype（多例）</td>
+<td>这个 bean 在 IOC 容器中有多个实例</td>
+<td>获取 bean 时</td>
+<td>否</td>
+</tr>
+</tbody></table>
+<p> 如果是在WebApplicationContext环境下还会有另外两个作用域（但不常用）：</p>
+<table>
+<thead>
+<tr>
+<th align="center">取值</th>
+<th>含义</th>
+<th>创建对象的时机</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">request</td>
+<td>请求范围内有效的实例</td>
+<td>每次请求</td>
+<td>否</td>
+</tr>
+<tr>
+<td align="center">session</td>
+<td>会话范围内有效的实例</td>
+<td>每次会话</td>
+<td>否</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>作用域配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;javabean&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.Jmin_ioc.ioc06.Javabean&quot;</span> <span class="hljs-attr">init-method</span>=<span class="hljs-string">&quot;init&quot;</span> <span class="hljs-attr">destroy-method</span>=<span class="hljs-string">&quot;clean&quot;</span>/&gt;</span><br><span class="hljs-comment">&lt;!--    init-method初始化方法名</span><br><span class="hljs-comment">        destroy-method 销毁方法--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.Jmin_ioc.ioc06.Javabean&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;javabean2&quot;</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">&quot;prototype&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">SpringInitAndDestroy</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-type">ClassPathXmlApplicationContext</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassPathXmlApplicationContext</span>(<span class="hljs-string">&quot;spring-06.xml&quot;</span>);<br>    <span class="hljs-type">Javabean</span> <span class="hljs-variable">bean</span> <span class="hljs-operator">=</span> context.getBean(Javabean.class);<br>    bean.setNum(<span class="hljs-number">12</span>);<br>    System.out.println(bean.getNum());<br>    <span class="hljs-type">Javabean</span> <span class="hljs-variable">bean2</span> <span class="hljs-operator">=</span> context.getBean(Javabean.class);<br>    System.out.println(bean2.getNum());<br>    context.close();<br>&#125;<br><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">SpringInitAndDestroy2</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-type">ClassPathXmlApplicationContext</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassPathXmlApplicationContext</span>(<span class="hljs-string">&quot;spring-06.xml&quot;</span>);<br>    <span class="hljs-type">Javabean</span> <span class="hljs-variable">bean</span> <span class="hljs-operator">=</span> context.getBean(<span class="hljs-string">&quot;javabean2&quot;</span>,Javabean.class);<br>    bean.setNum(<span class="hljs-number">12</span>);<br>    System.out.println(bean.getNum());<br>    <span class="hljs-type">Javabean</span> <span class="hljs-variable">bean2</span> <span class="hljs-operator">=</span> context.getBean(<span class="hljs-string">&quot;javabean2&quot;</span>,Javabean.class);<br>    System.out.println(bean2.getNum());<br>    context.close();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20230906191506477.png" srcset="/img/loading.gif" lazyload alt="image-20230906191506477"></p>
+</li>
+</ol>
+<p><img src="/assets/image-20230906191652765.png" srcset="/img/loading.gif" lazyload alt="image-20230906191652765"></p>
+<h3 id="高级特性：FactoryBean特性和使用"><a href="#高级特性：FactoryBean特性和使用" class="headerlink" title="高级特性：FactoryBean特性和使用"></a>高级特性：FactoryBean特性和使用</h3><ol>
+<li>简介</li>
+</ol>
+<p><img src="/assets/image-20230906193630652.png" srcset="/img/loading.gif" lazyload alt="image-20230906193630652"></p>
+<p><code>FactoryBean</code>接口是Spring IoC容器实例化逻辑的可插拨性点。</p>
+<p>可用于配置复杂的Bean对象，可以将创建过程存储在<code>FactoryBean</code>的getObject方法。</p>
+<p><code>FactoryBean&lt;T&gt;</code> 接口提供三种方法：</p>
+<ul>
+<li><p><code>T getObject()</code>: </p>
+<p>  返回此工厂创建的对象的实例。该返回值会被存储到IoC容器！</p>
+</li>
+<li><p><code>boolean isSingleton()</code>: </p>
+<p>  如果此 <code>FactoryBean</code> 返回单例，则返回 <code>true</code> ，否则返回 <code>false</code> 。此方法的默认实现返回 <code>true</code> （注意，lombok插件使用，可能影响效果）。</p>
+</li>
+<li><p><code>Class&lt;?&gt; getObjectType()</code>: </p>
+<p>  返回 <code>getObject()</code> 方法返回的对象类型，如果事先不知道类型，则返回 <code>null</code> 。</p>
+</li>
+</ul>
+<ol start="2">
+<li><p>使用场景：</p>
+<ol>
+<li>代理类的创建</li>
+<li>第三方框架整合</li>
+<li>复杂对象实例化等</li>
+</ol>
+</li>
+<li><p>使用方法：</p>
+<ol>
+<li><p>创建需要实例化的类JavaBean。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">JavaBean</span> &#123;<br>    <span class="hljs-keyword">private</span> String name;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String name)</span> &#123;<br>        <span class="hljs-built_in">this</span>.name = name;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>再创建实例化工厂类，实现<code>FactoryBean&lt;JavaBean&gt;</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">JavaBeanFactoryBean</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">FactoryBean</span>&lt;JavaBean&gt; &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> JavaBean <span class="hljs-title function_">getObject</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br><span class="hljs-comment">//        实例化</span><br>        <span class="hljs-type">JavaBean</span> <span class="hljs-variable">javaBean</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JavaBean</span>();<br>        <span class="hljs-keyword">return</span> javaBean;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> Class&lt;?&gt; getObjectType() &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>配置文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;javaBeanFactoryBean&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.Jmin_ioc.ioc07.JavaBeanFactoryBean&quot;</span>/&gt;</span><br><span class="hljs-comment">&lt;!--    优势：将复杂的实例化方法在工厂中返回--&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>检测是否成功实例化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">javaBeanFactoryTest</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>    <span class="hljs-type">ClassPathXmlApplicationContext</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassPathXmlApplicationContext</span>(<span class="hljs-string">&quot;spring-07.xml&quot;</span>);<br>    <span class="hljs-type">JavaBeanFactoryBean</span> <span class="hljs-variable">bean</span> <span class="hljs-operator">=</span> context.getBean(JavaBeanFactoryBean.class);<br>    <span class="hljs-type">JavaBean</span> <span class="hljs-variable">object</span> <span class="hljs-operator">=</span> bean.getObject();<br>    System.out.println(<span class="hljs-string">&quot;javaBean is &quot;</span>+object);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20230906203306946.png" srcset="/img/loading.gif" lazyload alt="image-20230906203306946"></p>
+</li>
+</ol>
+<p>复杂实例化，注入属性</p>
+<ol start="2">
+<li><p>第一步如上，实例化工厂类，实现<code>FactoryBean&lt;JavaBean&gt;</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">JavaBeanFactoryBean</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">FactoryBean</span>&lt;JavaBean&gt; &#123;<br>    <span class="hljs-keyword">private</span> String name;<br><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> name;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String name)</span> &#123;<br>        <span class="hljs-built_in">this</span>.name = name;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> JavaBean <span class="hljs-title function_">getObject</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br><span class="hljs-comment">//        实例化</span><br>        <span class="hljs-type">JavaBean</span> <span class="hljs-variable">javaBean</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JavaBean</span>();<br>        javaBean.setName(name);<br>        <span class="hljs-keyword">return</span> javaBean;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> Class&lt;?&gt; getObjectType() &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>配置文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;javaBeanFactoryBean&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.Jmin_ioc.ioc07.JavaBeanFactoryBean&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;dog&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br><span class="hljs-comment">&lt;!--    优势：将复杂的实例化方法在工厂中返回--&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>检测是否成功实例化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">javaBeanFactoryTest</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>    <span class="hljs-type">ClassPathXmlApplicationContext</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ClassPathXmlApplicationContext</span>(<span class="hljs-string">&quot;spring-07.xml&quot;</span>);<br>    <span class="hljs-type">JavaBean</span> <span class="hljs-variable">bean1</span> <span class="hljs-operator">=</span> context.getBean(<span class="hljs-string">&quot;javaBeanFactoryBean&quot;</span>,JavaBean.class);<br>    System.out.println(<span class="hljs-string">&quot;javaBean is &quot;</span> + bean1.getName());<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20230906204106237.png" srcset="/img/loading.gif" lazyload alt="image-20230906204106237"></p>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h4><blockquote>
+<p>FactoryBean和BeanFactory区别</p>
+</blockquote>
+<p>答：共同点都是接口，BeanFactory是IoC容器最大的接口，也就是IoC容器，而FactoryBean是标准化组件工厂的接口，是组件。通常情况下整合第三方框架采用定义FactoryBean实现类的getObject()方法实现。</p>
+<p>BeanFactory是SpringIOC容器中最大的接口，是Spring框架的基础。它是作为一个顶级接口定义了容器的基本行为，例如管理bean的生命周期，配置文件的加载和解析，bean的装配和依赖注入等。BeanFactory接口提供了访问Bean的方式，例如getBean()方法。可以获取不同来源比如数据库，xml文件，java配置类等等，获取bean实例。同时BeanFactory包含了很多子类提供很多强大的功能。</p>
+<p>FactoryBean是标准化组件工厂的接口，是Spring中特殊的bean，可以在getObject()工厂方法自定义实例化bean的逻辑。FactoryBean在容器启动时被创建，一般情况下整合第三方框架采用定义FactoryBean实现类的getObject()方法实现。</p>
+<h3 id="练习：基于XML整合三层架构组件"><a href="#练习：基于XML整合三层架构组件" class="headerlink" title="练习：基于XML整合三层架构组件"></a>练习：基于XML整合三层架构组件</h3><ol>
+<li><p>需求分析</p>
+<p>搭建一个三层架构案例，模拟查询全部学生（学生表）信息，持久层使用JdbcTemplate和Druid技术，使用XML方式进行组件管理！</p>
+<p><img src="/assets/image-20230906212015114.png" srcset="/img/loading.gif" lazyload alt="image-20230906212015114"></p>
+</li>
+<li><p>数据库的准备</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> database studb;<br><br>use studb;<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> students (<br>  id <span class="hljs-type">INT</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br>  name <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  gender <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  age <span class="hljs-type">INT</span>,<br>  class <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>)<br>);<br><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> students (id, name, gender, age, class)<br><span class="hljs-keyword">VALUES</span><br>  (<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;张三&#x27;</span>, <span class="hljs-string">&#x27;男&#x27;</span>, <span class="hljs-number">20</span>, <span class="hljs-string">&#x27;高中一班&#x27;</span>),<br>  (<span class="hljs-number">2</span>, <span class="hljs-string">&#x27;李四&#x27;</span>, <span class="hljs-string">&#x27;男&#x27;</span>, <span class="hljs-number">19</span>, <span class="hljs-string">&#x27;高中二班&#x27;</span>),<br>  (<span class="hljs-number">3</span>, <span class="hljs-string">&#x27;王五&#x27;</span>, <span class="hljs-string">&#x27;女&#x27;</span>, <span class="hljs-number">18</span>, <span class="hljs-string">&#x27;高中一班&#x27;</span>),<br>  (<span class="hljs-number">4</span>, <span class="hljs-string">&#x27;赵六&#x27;</span>, <span class="hljs-string">&#x27;女&#x27;</span>, <span class="hljs-number">20</span>, <span class="hljs-string">&#x27;高中三班&#x27;</span>),<br>  (<span class="hljs-number">5</span>, <span class="hljs-string">&#x27;刘七&#x27;</span>, <span class="hljs-string">&#x27;男&#x27;</span>, <span class="hljs-number">19</span>, <span class="hljs-string">&#x27;高中二班&#x27;</span>),<br>  (<span class="hljs-number">6</span>, <span class="hljs-string">&#x27;陈八&#x27;</span>, <span class="hljs-string">&#x27;女&#x27;</span>, <span class="hljs-number">18</span>, <span class="hljs-string">&#x27;高中一班&#x27;</span>),<br>  (<span class="hljs-number">7</span>, <span class="hljs-string">&#x27;杨九&#x27;</span>, <span class="hljs-string">&#x27;男&#x27;</span>, <span class="hljs-number">20</span>, <span class="hljs-string">&#x27;高中三班&#x27;</span>),<br>  (<span class="hljs-number">8</span>, <span class="hljs-string">&#x27;吴十&#x27;</span>, <span class="hljs-string">&#x27;男&#x27;</span>, <span class="hljs-number">19</span>, <span class="hljs-string">&#x27;高中二班&#x27;</span>);<br><br></code></pre></td></tr></table></figure></li>
+</ol>
+
 
   
 
