@@ -253,15 +253,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/11_%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5DML/CRUD/" target="_self">
-          增删改查DML
+        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/14_%E8%A7%86%E5%9B%BE/%E8%A7%86%E5%9B%BE/" target="_self">
+          视图View
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/11_%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5DML/CRUD/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/14_%E8%A7%86%E5%9B%BE/%E8%A7%86%E5%9B%BE/" target="_self">
         <div>
-          INSERT1234567891011121314151617181920INSERT INTO emp(emp_id,emp_name)-&gt; VALUES (1001,&#x27;shkstart&#x27;),-&gt; (1002,&#x27;atguigu&#x27;),-&gt; (1003,&#x27;Tom&#x27;);-- INSERT INTO table_name(co
+          视图视图的理解 可以看作是一个虚拟表，本身不存储数据，本质是可以存储起来的SELECT语句。 视图中SELECT语句涉及的表称为基表 针对视图做DML操作，会影响到对应的基表中的数据。反之亦然。 视图本身的删除，不会导致基表中数据的删除。 视图的应用场景：针对于小型项目，不推荐使用视图。针对于大型项目，可以考虑使用视图。 优点：简化查询。控制数据的访问。  具体格式12345CREATE [OR
         </div>
       </a>
 
@@ -415,15 +415,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/2_%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/" target="_self">
-          卸载
+        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/3_%E5%9F%BA%E6%9C%AC%E7%9A%84select%E8%AF%AD%E5%8F%A5/select/" target="_self">
+          SQL背景
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/2_%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/3_%E5%9F%BA%E6%9C%AC%E7%9A%84select%E8%AF%AD%E5%8F%A5/select/" target="_self">
         <div>
-          卸载    cmd 查询当前版本 &#x2F;&#x2F;mysql –version     登录mysql &#x2F;&#x2F;mysql -u root -p      文件资源管理器中找到Mysql server   卸载：     关闭mysql服务     卸载包卸载或控制面板卸载   安装链接：https://share.weiyun.com/yd7OxoMm 密码：cg4mvb
+          SQL背景 半衰期长 与数据打交道   SQL分类 DDL数据定义语言 create \ alter \ drop \ rename \ truncate (data definition languages) DML数据操作语言 insert \ delete \ update \ select  (data manipulation languages) DCL数据控制语言 commit \
         </div>
       </a>
 
@@ -523,15 +523,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/3_%E5%9F%BA%E6%9C%AC%E7%9A%84select%E8%AF%AD%E5%8F%A5/select/" target="_self">
-          SQL背景
+        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/2_%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/" target="_self">
+          卸载
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/3_%E5%9F%BA%E6%9C%AC%E7%9A%84select%E8%AF%AD%E5%8F%A5/select/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/2_%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/" target="_self">
         <div>
-          SQL背景 半衰期长 与数据打交道   SQL分类 DDL数据定义语言 create \ alter \ drop \ rename \ truncate (data definition languages) DML数据操作语言 insert \ delete \ update \ select  (data manipulation languages) DCL数据控制语言 commit \
+          卸载    cmd 查询当前版本 &#x2F;&#x2F;mysql –version     登录mysql &#x2F;&#x2F;mysql -u root -p      文件资源管理器中找到Mysql server   卸载：     关闭mysql服务     卸载包卸载或控制面板卸载   安装链接：https://share.weiyun.com/yd7OxoMm 密码：cg4mvb
         </div>
       </a>
 
