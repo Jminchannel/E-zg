@@ -307,69 +307,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/10_%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86%E8%A1%A8/%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%AE%A1%E7%90%86%E8%A1%A8/" target="_self">
-          创建和管理表
+        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/11_%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5DML/CRUD/" target="_self">
+          增删改查DML
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/10_%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86%E8%A1%A8/%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E7%AE%A1%E7%90%86%E8%A1%A8/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/11_%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5DML/CRUD/" target="_self">
         <div>
-          创建数据库之前为什么不是先创建数据表？  从系统架构的层次看，MYSQL数据库系统从大到小依次是数据库服务器，数据库，数据表，数据表的行与列  创建数据库方式1 	MYSQL8+1CREATE DATABASE mytest1    方式2 MYSQL5 1CREATE DATABASE IF NOT EXISTS TEST9 CHARACTER SET &#x27;UTF8&#x27;;  管理
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-25 22:53" pubdate>
-              2023-08-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">Mysql数据库</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/14_%E8%A7%86%E5%9B%BE/%E8%A7%86%E5%9B%BE/" target="_self">
-          视图View
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/14_%E8%A7%86%E5%9B%BE/%E8%A7%86%E5%9B%BE/" target="_self">
-        <div>
-          视图视图的理解 可以看作是一个虚拟表，本身不存储数据，本质是可以存储起来的SELECT语句。 视图中SELECT语句涉及的表称为基表 针对视图做DML操作，会影响到对应的基表中的数据。反之亦然。 视图本身的删除，不会导致基表中数据的删除。 视图的应用场景：针对于小型项目，不推荐使用视图。针对于大型项目，可以考虑使用视图。 优点：简化查询。控制数据的访问。  具体格式12345CREATE [OR
+          INSERT1234567891011121314151617181920INSERT INTO emp(emp_id,emp_name)-&gt; VALUES (1001,&#x27;shkstart&#x27;),-&gt; (1002,&#x27;atguigu&#x27;),-&gt; (1003,&#x27;Tom&#x27;);-- INSERT INTO table_name(co
         </div>
       </a>
 
@@ -469,69 +415,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/1_%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" target="_self">
-          数据库概述
+        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/14_%E8%A7%86%E5%9B%BE/%E8%A7%86%E5%9B%BE/" target="_self">
+          视图View
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/1_%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/14_%E8%A7%86%E5%9B%BE/%E8%A7%86%E5%9B%BE/" target="_self">
         <div>
-          数据库概述1.为什么使用数据库  持久化：将数据保存到可掉电式存储设备中，在硬盘中“固化”数据 持久化的主要作用：将内存中的数据存储在关系型数据库中   2.数据库与数据库管理系统 相关概念  DB:database 数据库。即存储数据的“仓库”，其本质是一个文件系统。它保存了一系列有组织的数据。 DBMS:数据库管理系统。是一种操纵和管理数据库的大型软件，用于建立、使用和维护数据库，对数据库进行
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-25 22:53" pubdate>
-              2023-08-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">Mysql数据库</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/2_%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/" target="_self">
-          卸载
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/2_%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/" target="_self">
-        <div>
-          卸载    cmd 查询当前版本 &#x2F;&#x2F;mysql –version     登录mysql &#x2F;&#x2F;mysql -u root -p      文件资源管理器中找到Mysql server   卸载：     关闭mysql服务     卸载包卸载或控制面板卸载   安装链接：https://share.weiyun.com/yd7OxoMm 密码：cg4mvb
+          视图视图的理解 可以看作是一个虚拟表，本身不存储数据，本质是可以存储起来的SELECT语句。 视图中SELECT语句涉及的表称为基表 针对视图做DML操作，会影响到对应的基表中的数据。反之亦然。 视图本身的删除，不会导致基表中数据的删除。 视图的应用场景：针对于小型项目，不推荐使用视图。针对于大型项目，可以考虑使用视图。 优点：简化查询。控制数据的访问。  具体格式12345CREATE [OR
         </div>
       </a>
 
@@ -631,15 +523,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/4_%E8%BF%90%E7%AE%97%E7%AC%A6/%E8%BF%90%E7%AE%97%E7%AC%A6/" target="_self">
-          运算符
+        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/2_%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/" target="_self">
+          卸载
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/4_%E8%BF%90%E7%AE%97%E7%AC%A6/%E8%BF%90%E7%AE%97%E7%AC%A6/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/2_%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/" target="_self">
         <div>
-          运算符算术运算符 特殊举例  此时字符串转换为数值，隐式转换  ‘s’当作0处理  null与任何值运算结果都为null  运算错误，输出null  除法运算结果为浮点型数值  结果正负取决于被除数的正负 比较运算符比较运算符用来对表达式左边的操作数和右边的操作数进行比较，比较的结果为真则返回1，比较的结果为假则返回0,其他情况则返回NULL。  &#x3D; 字符与数值的比较，字符隐式转换为0
+          卸载    cmd 查询当前版本 &#x2F;&#x2F;mysql –version     登录mysql &#x2F;&#x2F;mysql -u root -p      文件资源管理器中找到Mysql server   卸载：     关闭mysql服务     卸载包卸载或控制面板卸载   安装链接：https://share.weiyun.com/yd7OxoMm 密码：cg4mvb
         </div>
       </a>
 
@@ -685,15 +577,123 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/7_%E5%8D%95%E8%A1%8C%E5%87%BD%E6%95%B0/%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E5%87%BD%E6%95%B0/" target="_self">
-          加密和解密函数
+        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/1_%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" target="_self">
+          数据库概述
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/7_%E5%8D%95%E8%A1%8C%E5%87%BD%E6%95%B0/%E5%8A%A0%E5%AF%86%E4%B8%8E%E8%A7%A3%E5%AF%86%E5%87%BD%E6%95%B0/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/1_%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" target="_self">
         <div>
-          加密与解密函数 PASSWORD(8.0已弃用) MD5,SHA不可逆加密 ENCODE,DECODE加解密(8.0已弃用)
+          数据库概述1.为什么使用数据库  持久化：将数据保存到可掉电式存储设备中，在硬盘中“固化”数据 持久化的主要作用：将内存中的数据存储在关系型数据库中   2.数据库与数据库管理系统 相关概念  DB:database 数据库。即存储数据的“仓库”，其本质是一个文件系统。它保存了一系列有组织的数据。 DBMS:数据库管理系统。是一种操纵和管理数据库的大型软件，用于建立、使用和维护数据库，对数据库进行
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-25 22:53" pubdate>
+              2023-08-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">Mysql数据库</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/5_%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/" target="_self">
+          排序数据
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/5_%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/%E6%8E%92%E5%BA%8F%E4%B8%8E%E5%88%86%E9%A1%B5/" target="_self">
+        <div>
+          排序数据sql语句的执行顺序1231.先经过FROM过滤条件，筛选出数据2.再经过SELECT查询需求截取数据，并发现某列具备别名3.最后看ORDER BY的排序补充，因此别名也可以在此运用  排序规则 ORDER BY ASC升序(ascend) 默认 DESC倒序(descend)    没有排序操作，默认按添加数据的顺序进行排序，可以用列的别名编写排序 按照salary从高到低的顺序显示员工
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-25 22:53" pubdate>
+              2023-08-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">Mysql数据库</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/4_%E8%BF%90%E7%AE%97%E7%AC%A6/%E8%BF%90%E7%AE%97%E7%AC%A6/" target="_self">
+          运算符
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/4_%E8%BF%90%E7%AE%97%E7%AC%A6/%E8%BF%90%E7%AE%97%E7%AC%A6/" target="_self">
+        <div>
+          运算符算术运算符 特殊举例  此时字符串转换为数值，隐式转换  ‘s’当作0处理  null与任何值运算结果都为null  运算错误，输出null  除法运算结果为浮点型数值  结果正负取决于被除数的正负 比较运算符比较运算符用来对表达式左边的操作数和右边的操作数进行比较，比较的结果为真则返回1，比较的结果为假则返回0,其他情况则返回NULL。  &#x3D; 字符与数值的比较，字符隐式转换为0
         </div>
       </a>
 
