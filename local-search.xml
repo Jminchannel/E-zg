@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>10_Spring-text-测试环境搭建</title>
+    <link href="/2023/09/09/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/10_Spring-text-%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <url>/2023/09/09/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/10_Spring-text-%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Spring-text测试环境搭建"><a href="#Spring-text测试环境搭建" class="headerlink" title="Spring-text测试环境搭建"></a>Spring-text测试环境搭建</h1><h2 id="导入依赖"><a href="#导入依赖" class="headerlink" title="导入依赖"></a>导入依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>6.0.6<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure><h2 id="创建组件"><a href="#创建组件" class="headerlink" title="创建组件"></a>创建组件</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> &#123;<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="创建测试类"><a href="#创建测试类" class="headerlink" title="创建测试类"></a>创建测试类</h2><p>在测试类上注解</p><p><img src="/assets/image-20230909181222695.png" alt="image-20230909181222695"></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringJUnitConfig(JavaConfig.class)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">javaTest</span> &#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> A a;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">test</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(a);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p><img src="/assets/image-20230909182032516.png" alt="image-20230909182032516"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Spring</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>9_基于注解+配置类方式的SpringIOC容器</title>
     <link href="/2023/09/08/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/9_%E5%9F%BA%E4%BA%8E%E9%85%8D%E7%BD%AE%E7%B1%BB%E7%9A%84%E7%AE%A1%E7%90%86IOC%E7%BB%83%E4%B9%A0/"/>
     <url>/2023/09/08/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/9_%E5%9F%BA%E4%BA%8E%E9%85%8D%E7%BD%AE%E7%B1%BB%E7%9A%84%E7%AE%A1%E7%90%86IOC%E7%BB%83%E4%B9%A0/</url>
@@ -128,6 +147,8 @@
     <categories>
       
       <category>Spring</category>
+      
+      <category>IOC</category>
       
     </categories>
     
