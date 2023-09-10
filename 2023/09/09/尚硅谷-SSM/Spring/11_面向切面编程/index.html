@@ -16,26 +16,28 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Spring-text测试环境搭建导入依赖123456&lt;dependency&gt;    &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;spring-test&lt;&#x2F;artifactId&gt;    &lt;version&gt;6.0.6&lt;&#x2F;version&gt;    &lt;s">
+    <meta name="description" content="面向切面编程入门场景设定，问题复现定义四个加减乘除方法，要求分别输出需要运算的数值和运算结果  声明接口 1234567891011121314&#x2F;** *       + - * &#x2F; 运算的标准接口! *&#x2F;public interface Calculator &amp;#123;        int add(int i, int j);        int sub(int i, int j);">
 <meta property="og:type" content="article">
-<meta property="og:title" content="10_Spring-text-测试环境搭建">
-<meta property="og:url" content="http://elaskon.asia/2023/09/09/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/10_Spring-text-%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:title" content="11_面向切面编程">
+<meta property="og:url" content="http://elaskon.asia/2023/09/09/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/11_%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/index.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="Spring-text测试环境搭建导入依赖123456&lt;dependency&gt;    &lt;groupId&gt;org.springframework&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;spring-test&lt;&#x2F;artifactId&gt;    &lt;version&gt;6.0.6&lt;&#x2F;version&gt;    &lt;s">
+<meta property="og:description" content="面向切面编程入门场景设定，问题复现定义四个加减乘除方法，要求分别输出需要运算的数值和运算结果  声明接口 1234567891011121314&#x2F;** *       + - * &#x2F; 运算的标准接口! *&#x2F;public interface Calculator &amp;#123;        int add(int i, int j);        int sub(int i, int j);">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20230909181222695.png">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20230909182032516.png">
-<meta property="article:published_time" content="2023-09-09T05:12:00.000Z">
-<meta property="article:modified_time" content="2023-09-09T10:27:18.616Z">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230909231429135.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230910095814197.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230910095842382.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230909230714132.png">
+<meta property="article:published_time" content="2023-09-09T07:02:43.000Z">
+<meta property="article:modified_time" content="2023-09-10T03:59:23.153Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://elaskon.asia/assets/image-20230909181222695.png">
+<meta name="twitter:image" content="http://elaskon.asia/assets/image-20230909231429135.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>10_Spring-text-测试环境搭建 - E-zg小破站</title>
+  <title>11_面向切面编程 - E-zg小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -228,7 +230,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="10_Spring-text-测试环境搭建"></span>
+            <span id="subtitle" data-typed-text="11_面向切面编程"></span>
           
         </div>
 
@@ -239,7 +241,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-09 13:12" pubdate>
+        <time datetime="2023-09-09 15:02" pubdate>
           2023年9月9日 下午
         </time>
       </span>
@@ -251,7 +253,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          433 字
+          2.1k 字
         
       </span>
     
@@ -262,7 +264,7 @@
         
         
         
-          4 分钟
+          18 分钟
         
       </span>
     
@@ -307,12 +309,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">10_Spring-text-测试环境搭建</h1>
+            <h1 id="seo-header">11_面向切面编程</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年9月9日 晚上
+                    本文最后更新于：2023年9月10日 中午
                   
                 
               </p>
@@ -320,17 +322,37 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Spring-text测试环境搭建"><a href="#Spring-text测试环境搭建" class="headerlink" title="Spring-text测试环境搭建"></a>Spring-text测试环境搭建</h1><h2 id="导入依赖"><a href="#导入依赖" class="headerlink" title="导入依赖"></a>导入依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>6.0.6<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+                <h1 id="面向切面编程入门"><a href="#面向切面编程入门" class="headerlink" title="面向切面编程入门"></a>面向切面编程入门</h1><h2 id="场景设定，问题复现"><a href="#场景设定，问题复现" class="headerlink" title="场景设定，问题复现"></a>场景设定，问题复现</h2><p>定义四个加减乘除方法，要求分别输出需要运算的数值和运算结果</p>
+<ol>
+<li><p>声明接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> *       + - * / 运算的标准接口!</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Calculator</span> &#123;<br>    <br>    <span class="hljs-type">int</span> <span class="hljs-title function_">add</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span>;<br>    <br>    <span class="hljs-type">int</span> <span class="hljs-title function_">sub</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span>;<br>    <br>    <span class="hljs-type">int</span> <span class="hljs-title function_">mul</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span>;<br>    <br>    <span class="hljs-type">int</span> <span class="hljs-title function_">div</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span>;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>接口实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 实现计算接口,单纯添加 + - * / 实现! 掺杂其他功能!</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CalculatorPureImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Calculator</span> &#123;<br>    <br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">add</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span> &#123;<br>    <span class="hljs-comment">//sout</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> i + j;<br>    <span class="hljs-comment">//sout 冗余问题出现</span><br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>    <br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">sub</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span> &#123;<br>    <br>        <span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> i - j;<br>    <br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>    <br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">mul</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span> &#123;<br>    <br>        <span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> i * j;<br>    <br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>    <br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">div</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span> &#123;<br>    <br>        <span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> i / j;<br>    <br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="创建组件"><a href="#创建组件" class="headerlink" title="创建组件"></a>创建组件</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span> &#123;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在每个方法中，先输出i和j的值，再输出result的值，实践发现，这样的代码十分冗余！！而且不方便维护！</p>
+</li>
+<li><p>解决思路：解耦，将重复代码统一提取，并且动态插入到每个业务方法中。</p>
+<p><img src="/assets/image-20230909231429135.png" srcset="/img/loading.gif" lazyload alt="image-20230909231429135"></p>
+</li>
+</ol>
+<h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><p>代理：将非核心逻辑剥离出来以后，封装这些非核心逻辑的类，对象，方法（中介）。</p>
+<p>目标：被代理“套用”课核心逻辑代码的类，对象，方法（房东）。</p>
+<p>代理的两种实现方式：静态代理和动态代理技术</p>
+<h3 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">StaticProxyCalculator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Calculator</span> &#123;<br>    <span class="hljs-keyword">private</span> Calculator calculator;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">StaticProxyCalculator</span><span class="hljs-params">(Calculator calculator)</span> &#123;<br>        <span class="hljs-built_in">this</span>.calculator = calculator;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">add</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;i = &quot;</span> + i + <span class="hljs-string">&quot;,j = &quot;</span> + j);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> calculator.add(i, j);<br>        System.out.println(<span class="hljs-string">&quot;result = &quot;</span> + result);<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">sub</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;i = &quot;</span> + i + <span class="hljs-string">&quot;,j = &quot;</span> + j);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> calculator.sub(i, j);<br>        System.out.println(<span class="hljs-string">&quot;result = &quot;</span> + result);<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">mul</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;i = &quot;</span> + i + <span class="hljs-string">&quot;,j = &quot;</span> + j);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> calculator.mul(i, j);<br>        System.out.println(<span class="hljs-string">&quot;result = &quot;</span> + result);<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">div</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;i = &quot;</span> + i + <span class="hljs-string">&quot;,j = &quot;</span> + j);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> calculator.div(i, j);<br>        System.out.println(<span class="hljs-string">&quot;result = &quot;</span> + result);<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-
-
-<h2 id="创建测试类"><a href="#创建测试类" class="headerlink" title="创建测试类"></a>创建测试类</h2><p>在测试类上注解</p>
-<p><img src="/assets/image-20230909181222695.png" srcset="/img/loading.gif" lazyload alt="image-20230909181222695"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringJUnitConfig(JavaConfig.class)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">javaTest</span> &#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> A a;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">test</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(a);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="/assets/image-20230909182032516.png" srcset="/img/loading.gif" lazyload alt="image-20230909182032516"></p>
+<h3 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h3><p>动态代理技术分类：</p>
+<ol>
+<li><p>JDK动态代理：JDK原生的实现方式，需要被代理的目标类必须实现接口，JDK动态代理会根据此接口生成代理对象。代理对象和目标对象有相同的接口！（Java原生）</p>
+<p><img src="/assets/image-20230910095814197.png" srcset="/img/loading.gif" lazyload alt="image-20230910095814197"></p>
+</li>
+<li><p>cglib：通过继承被代理的目标类实现代理，不需要目标类实现接口！（第三方-&gt;Spring）</p>
+<p><img src="/assets/image-20230910095842382.png" srcset="/img/loading.gif" lazyload alt="image-20230910095842382"></p>
+</li>
+</ol>
+<p>两种动态代理技术操作十分繁琐。需要自己编写代理工厂，在实际开发中，可以使用SpringAOP框架，简化代理的实现。</p>
+<p>新需求： 需要在每个方法中，添加控制台输出，输出参数和输出计算后的返回值！</p>
+<p><img src="/assets/image-20230909230714132.png" srcset="/img/loading.gif" lazyload alt="image-20230909230714132"></p>
 
                 
               </div>
@@ -354,7 +376,7 @@
   
     <span>></span>
     
-  <a href="/categories/Spring/Test/" class="category-chain-item">Test</a>
+  <a href="/categories/Spring/AOP/" class="category-chain-item">AOP</a>
   
   
 
@@ -376,8 +398,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>10_Spring-text-测试环境搭建</div>
-      <div>http://elaskon.asia/2023/09/09/尚硅谷-SSM/Spring/10_Spring-text-测试环境搭建/</div>
+      <div>11_面向切面编程</div>
+      <div>http://elaskon.asia/2023/09/09/尚硅谷-SSM/Spring/11_面向切面编程/</div>
     </div>
     <div class="license-meta">
       
@@ -421,9 +443,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/09/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/11_%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/" title="11_面向切面编程">
+                      <a href="/2023/09/09/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/12_SpringAOP%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/" title="12_SpringAOP面向切面编程思想">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">11_面向切面编程</span>
+                        <span class="hidden-mobile">12_SpringAOP面向切面编程思想</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -431,8 +453,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/08/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/9_%E5%9F%BA%E4%BA%8E%E9%85%8D%E7%BD%AE%E7%B1%BB%E7%9A%84%E7%AE%A1%E7%90%86IOC%E7%BB%83%E4%B9%A0/" title="9_基于注解+配置类方式的SpringIOC容器">
-                        <span class="hidden-mobile">9_基于注解+配置类方式的SpringIOC容器</span>
+                      <a href="/2023/09/09/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/10_Spring-text-%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="10_Spring-text-测试环境搭建">
+                        <span class="hidden-mobile">10_Spring-text-测试环境搭建</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
