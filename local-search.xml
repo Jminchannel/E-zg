@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title></title>
+    <link href="/2023/09/11/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/19_%E6%88%91%E5%AF%B9Spring%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <url>/2023/09/11/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/19_%E6%88%91%E5%AF%B9Spring%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[<p>Spring的主要功能一共有三个，分别是IOC，AOP，TX(声明式事务的管理)。</p><p>Spring家族，Spring是一个全家桶，内有许多框架的支持，而这些框架都是基于SpringFramework框架。不论是AOP还是TX等等都是要基于IOC容器的组件进行的动态操作。</p><p>Spring的核心功能，ioc&#x2F;di，aop，tx</p><p>ioc&#x2F;di的组件管理是个很简单的事，但他引发了整个Spring，组件管理就是对java中对象的存储和周期管理过程。通常我们都是自己new对象，但是有了Spring就不需要我们自己new，而是可以把类的信息交付给SpringIOC容器，让它管理。SpringIOC就成为帮我们创建存储管理对象的组件，其最大的容器就是beanfactory，BeanFactory 接口提供了访问 bean 的方式，例如 getBean() 方法获取指定的 bean 实例。它可以从不同的来源获取 bean 定义，并将其转换为 bean 实例。同时，BeanFactory 还包含很多子类提供了额外的强大功能。</p><p>ioc是存储组件的容器，控制反转指的是权限从成员交给Spring的核心容器的过程。权限交给ioc管理后，组件之间存在引用关系，di可以协助我们引用装配，将组件引用到另一个组件。di有三种配置方式，xml，xml+注解，纯注解（注解+配置类）</p><p>AOP是一种编程思维，完善oop的缺点，oop是垂直思维，如果需要局部修改方法内部的功能，oop是很难做到的，因此出现了aop横向编程思维。aop是横切技术，可以剖析方法的内部，将冗余的非核心代码批出来，再用动态代理技术接回核心代码中。</p><p>AOP框架是实现aop思维的具体框架，这是技术的封装，代理技术有jdk和cglib。基于注解的aop注解，有对应的位置注解，前置后置返回异常环绕增强的注解，切点切面</p><p>编程式事务和声明式事务管理</p><p>Springtx事务操作</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>18_基于注解的声明式事务实践</title>
     <link href="/2023/09/11/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/18_%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%AE%9E%E8%B7%B5/"/>
     <url>/2023/09/11/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/18_%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%AE%9E%E8%B7%B5/</url>
