@@ -4,12 +4,41 @@
   
   
   <entry>
-    <title></title>
+    <title>20_Spring的面试题</title>
+    <link href="/2023/09/12/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/20_Spring%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <url>/2023/09/12/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/20_Spring%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Spring面试题"><a href="#Spring面试题" class="headerlink" title="Spring面试题"></a>Spring面试题</h1><h2 id="Spring中有两个id相同的bean会报错吗？"><a href="#Spring中有两个id相同的bean会报错吗？" class="headerlink" title="Spring中有两个id相同的bean会报错吗？"></a>Spring中有两个id相同的bean会报错吗？</h2><blockquote><p>答：在同一个XML文件中，不能同时存在多个id相同的bean，否则Spring容器在启动时会报错。id是表示Bean的唯一标识符，Spring在启动的时候会验证Bean的唯一性，一旦发现重复就会报错，这个错误发生在Spring对XML文件进行解析，转化为BeanDefinition的阶段。但是在两个不同的Spring配置文件中，可以存在id相同的两个bean，IOC容器在加载Bean的时候，默认会把多个相同id的bean进行覆盖。Spring3.0以后该问题发生了变化，提供了注解@Configuration可以声明一个配置类，然后在类中采用@Bean注解实现bean的声明，该方式完全取代了老旧的XML配置方式，那么如果我们在同一个配置类里面同时声明多个id相同的bean，SpringIOC容器在解析时只会注册第一个声明Bean的一个实例，后面重复的Bean的实例将不会被注册。</p></blockquote><h2 id="介绍下SpringIOC的工作流程"><a href="#介绍下SpringIOC的工作流程" class="headerlink" title="介绍下SpringIOC的工作流程"></a>介绍下SpringIOC的工作流程</h2><blockquote><p>IOC的全称叫Inversion of Control也就是控制反转，它的核心思想是把对象的管理权限交给容器，应用程序如果需要使用某个对象的实例，那么可以直接从IOC容器中获取。这种设计的好处是降低了程序里面对象与对象之间的耦合性，使得整个程序的体系结构变得更加灵活。</p><p>Spring提供了很多方式去声明一个Bean，比如在XML配置文件中，通过bean标签或者通过@Service，@Controller，@Component或者@Configuration配置类中的@Bean去声明等等，Spring在启动时候会去解析这些Bean然后保存到IOC容器里面。</p><p>SpringIOC的工作流程大致可分为两个阶段，第一个阶段是IOC容器的初始化阶段，这个阶段主要是根据程序里面定义的XML或者注解配XML或者注解配置类声明方式，通过解析和加载后生成BeanDefinition，然后把BeanDefinition注册到IOC容器中，通过注解或者XML声明的bean都会解析得到一个BeanDefinition实体，这个实体会包含bean的一些定义和一些基本的属性，最后把这个BeanDefinition实体保存到一个Map集合中，从而完成IOC的一个初始化,IOC容器的作用是对这些注册的Bean的定义信息进行处理和维护，它是IOC容器控制反转的一个核心。第二个阶段是完成bean的初始化和依赖注入，进入该阶段后会经过两件事情，第一个是通过反射去针对没有设置lazy-init属性的单例bean进行初始化；第二个是完成bean的依赖注入。最后的阶段是bean的使用，通过@Autowired的注解或者BeanFatory.getBean()从IOC容器中获取一个指定Bean的实例，另外针对设置lazy-easy属性以及非单例bean的一个实例化，是在每一次获取bean对象的时候调用bean的初始化方法来完成实例化的，并且SpringIOC容器不会去管理这些bean</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>Spring</category>
+      
+      <category>Summary</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>19_对Spring的理解</title>
     <link href="/2023/09/11/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/19_%E6%88%91%E5%AF%B9Spring%E7%9A%84%E7%90%86%E8%A7%A3/"/>
     <url>/2023/09/11/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/Spring/19_%E6%88%91%E5%AF%B9Spring%E7%9A%84%E7%90%86%E8%A7%A3/</url>
     
     <content type="html"><![CDATA[<p>Spring的主要功能一共有三个，分别是IOC，AOP，TX(声明式事务的管理)。</p><p>Spring家族，Spring是一个全家桶，内有许多框架的支持，而这些框架都是基于SpringFramework框架。不论是AOP还是TX等等都是要基于IOC容器的组件进行的动态操作。</p><p>Spring的核心功能，ioc&#x2F;di，aop，tx</p><p>ioc&#x2F;di的组件管理是个很简单的事，但他引发了整个Spring，组件管理就是对java中对象的存储和周期管理过程。通常我们都是自己new对象，但是有了Spring就不需要我们自己new，而是可以把类的信息交付给SpringIOC容器，让它管理。SpringIOC就成为帮我们创建存储管理对象的组件，其最大的容器就是beanfactory，BeanFactory 接口提供了访问 bean 的方式，例如 getBean() 方法获取指定的 bean 实例。它可以从不同的来源获取 bean 定义，并将其转换为 bean 实例。同时，BeanFactory 还包含很多子类提供了额外的强大功能。</p><p>ioc是存储组件的容器，控制反转指的是权限从成员交给Spring的核心容器的过程。权限交给ioc管理后，组件之间存在引用关系，di可以协助我们引用装配，将组件引用到另一个组件。di有三种配置方式，xml，xml+注解，纯注解（注解+配置类）</p><p>AOP是一种编程思维，完善oop的缺点，oop是垂直思维，如果需要局部修改方法内部的功能，oop是很难做到的，因此出现了aop横向编程思维。aop是横切技术，可以剖析方法的内部，将冗余的非核心代码批出来，再用动态代理技术接回核心代码中。</p><p>AOP框架是实现aop思维的具体框架，这是技术的封装，代理技术有jdk和cglib。基于注解的aop注解，有对应的位置注解，前置后置返回异常环绕增强的注解，切点切面</p><p>编程式事务和声明式事务管理</p><p>Springtx事务操作</p>]]></content>
     
+    
+    <categories>
+      
+      <category>Spring</category>
+      
+      <category>Summary</category>
+      
+    </categories>
     
     
   </entry>
