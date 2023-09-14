@@ -16,17 +16,17 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="MyBatis简介简介MyBatis中文网 什么是 MyBatis？MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）">
+    <meta name="description" content="1_MyBatis简介简介MyBatis中文网 什么是 MyBatis？MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1_MyBatis简介">
-<meta property="og:url" content="http://elaskon.asia/2023/09/12/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/MyBatis/Mybatis%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:url" content="http://elaskon.asia/2023/09/12/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/MyBatis/1_Mybatis%E7%AE%80%E4%BB%8B/index.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="MyBatis简介简介MyBatis中文网 什么是 MyBatis？MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）">
+<meta property="og:description" content="1_MyBatis简介简介MyBatis中文网 什么是 MyBatis？MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20230912164722776.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20230912174300776.png">
 <meta property="article:published_time" content="2023-09-12T06:12:43.000Z">
-<meta property="article:modified_time" content="2023-09-12T09:46:27.790Z">
+<meta property="article:modified_time" content="2023-09-13T05:58:00.634Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://elaskon.asia/assets/image-20230912164722776.png">
@@ -312,7 +312,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年9月12日 下午
+                    本文最后更新于：2023年9月13日 下午
                   
                 
               </p>
@@ -320,7 +320,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="MyBatis简介"><a href="#MyBatis简介" class="headerlink" title="MyBatis简介"></a>MyBatis简介</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a target="_blank" rel="noopener" href="https://mybatis.net.cn/">MyBatis中文网</a></p>
+                <h1 id="1-MyBatis简介"><a href="#1-MyBatis简介" class="headerlink" title="1_MyBatis简介"></a>1_MyBatis简介</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a target="_blank" rel="noopener" href="https://mybatis.net.cn/">MyBatis中文网</a></p>
 <h3 id="什么是-MyBatis？"><a href="#什么是-MyBatis？" class="headerlink" title="什么是 MyBatis？"></a>什么是 MyBatis？</h3><p>MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。</p>
 <h2 id="持久层框架对比"><a href="#持久层框架对比" class="headerlink" title="持久层框架对比"></a>持久层框架对比</h2><ul>
 <li>JDBC<ul>
@@ -370,7 +370,7 @@
 
 <h4 id="MapperXML文件"><a href="#MapperXML文件" class="headerlink" title="MapperXML文件"></a>MapperXML文件</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span> ?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">mapper</span></span><br><span class="hljs-meta">        <span class="hljs-keyword">PUBLIC</span> <span class="hljs-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span></span><br><span class="hljs-meta">        <span class="hljs-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span><br><span class="hljs-comment">&lt;!--namespace = mapper 对应接口的全限定符--&gt;</span><br><span class="hljs-comment">&lt;!--mapper接口定义的方法不可重载,mapper.xml无法根据方法名识别--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">&quot;com.jmin.mapper.EmployeeMapper&quot;</span>&gt;</span><br><span class="hljs-comment">&lt;!--    声明标签写sql语句</span><br><span class="hljs-comment">        每个标签对应一个方法，方法一个实现--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;queryByID&quot;</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">&quot;com.jmin.pojo.Employee&quot;</span>&gt;</span><br>        select emp_id empId,emp_name empName, emp_salary empSalary from<br>            t_emp where emp_id = #&#123;empId&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">delete</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;deleteByID&quot;</span>&gt;</span><br>        delete<br>        from t_emp<br>        where emp_id = #&#123;id&#125;;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">delete</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">mybatis_text</span> &#123;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">test</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException &#123;<br>        <span class="hljs-type">InputStream</span> <span class="hljs-variable">inputStream</span> <span class="hljs-operator">=</span> Resources.getResourceAsStream(<span class="hljs-string">&quot;mybatis-config.xml&quot;</span>);<br>        <span class="hljs-type">SqlSessionFactory</span> <span class="hljs-variable">sqlSessionFactory</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SqlSessionFactoryBuilder</span>().build(inputStream);<br>        <span class="hljs-type">SqlSession</span> <span class="hljs-variable">sqlSession</span> <span class="hljs-operator">=</span> sqlSessionFactory.openSession();<br>        <span class="hljs-type">EmployeeMapper</span> <span class="hljs-variable">mapper</span> <span class="hljs-operator">=</span> sqlSession.getMapper(EmployeeMapper.class);<br>        System.out.println(mapper.queryByID(<span class="hljs-number">1</span>));<br>        sqlSession.commit();<br>        sqlSession.close();<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">mybatis_text</span> &#123;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">test</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException &#123;<br>        <span class="hljs-type">InputStream</span> <span class="hljs-variable">inputStream</span> <span class="hljs-operator">=</span> Resources.getResourceAsStream(<span class="hljs-string">&quot;mybatis-config.xml&quot;</span>);<br>        <span class="hljs-type">SqlSessionFactory</span> <span class="hljs-variable">sqlSessionFactory</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SqlSessionFactoryBuilder</span>().build(inputStream);<br>        <span class="hljs-type">SqlSession</span> <span class="hljs-variable">sqlSession</span> <span class="hljs-operator">=</span> sqlSessionFactory.openSession();<br>        <span class="hljs-type">EmployeeMapper</span> <span class="hljs-variable">mapper</span> <span class="hljs-operator">=</span> sqlSession.getMapper(EmployeeMapper.class);<br>        System.out.println(mapper.queryByID(<span class="hljs-number">1</span>));<br>        sqlSession.commit();<br>        sqlSession.close();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p><img src="/assets/image-20230912174300776.png" srcset="/img/loading.gif" lazyload alt="image-20230912174300776"></p>
 <blockquote>
@@ -415,7 +415,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>1_MyBatis简介</div>
-      <div>http://elaskon.asia/2023/09/12/尚硅谷-SSM/MyBatis/Mybatis简介/</div>
+      <div>http://elaskon.asia/2023/09/12/尚硅谷-SSM/MyBatis/1_Mybatis简介/</div>
     </div>
     <div class="license-meta">
       
@@ -458,6 +458,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/09/13/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/MyBatis/3_Mybatis%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="3_MyBatis基本使用">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">3_MyBatis基本使用</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
