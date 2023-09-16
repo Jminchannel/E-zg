@@ -4,6 +4,69 @@
   
   
   <entry>
+    <title>10_Mybatis总结</title>
+    <link href="/2023/09/17/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/MyBatis/10_Mybatis%E6%80%BB%E7%BB%93/"/>
+    <url>/2023/09/17/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/MyBatis/10_Mybatis%E6%80%BB%E7%BB%93/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Mybatis总结"><a href="#Mybatis总结" class="headerlink" title="Mybatis总结"></a>Mybatis总结</h1><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>核心点</td><td>掌握目标</td></tr><tr><td>mybatis基础</td><td>使用流程, 参数输入,#{} ${},参数输出</td></tr><tr><td>mybatis多表</td><td>实体类设计,resultMap多表结果映射</td></tr><tr><td>mybatis动态语句</td><td>Mybatis动态语句概念, where , if , foreach标签</td></tr><tr><td>mybatis扩展</td><td>Mapper批量处理,分页插件,逆向工程</td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>SSM</category>
+      
+      <category>MyBatis</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>9_逆向工程和MybatisX插件</title>
+    <link href="/2023/09/16/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/MyBatis/9_%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%92%8CMybatisX%E6%8F%92%E4%BB%B6/"/>
+    <url>/2023/09/16/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/MyBatis/9_%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%92%8CMybatisX%E6%8F%92%E4%BB%B6/</url>
+    
+    <content type="html"><![CDATA[<h1 id="逆向工程和MybatisX插件"><a href="#逆向工程和MybatisX插件" class="headerlink" title="逆向工程和MybatisX插件"></a>逆向工程和MybatisX插件</h1><h2 id="ORM思维"><a href="#ORM思维" class="headerlink" title="ORM思维"></a>ORM思维</h2><p>ORM(Object-Relational Mapping，对象-关系映射)</p><p>这是一种将数据库和面向对象编程语言中的对象之间进行转换的技术。它将对象和关系数据库的概念进行映射，最后我们就可以通过方法调用进行数据库操作!!</p><p>最终: <strong>让我们可以使用面向对象思维进行数据库操作！！！</strong></p><p><img src="/assets/image-20230916234726067.png" alt="image-20230916234726067"></p><h2 id="ORM-框架通常有半自动和全自动两种方式"><a href="#ORM-框架通常有半自动和全自动两种方式" class="headerlink" title="ORM 框架通常有半自动和全自动两种方式"></a>ORM 框架通常有半自动和全自动两种方式</h2><ul><li>半自动 ORM 通常需要程序员手动编写 SQL 语句或者配置文件，将实体类和数据表进行映射，还需要手动将查询的结果集转换成实体对象。</li><li>全自动 ORM 则是将实体类和数据表进行自动映射，使用 API 进行数据库操作时，ORM 框架会自动执行 SQL 语句并将查询结果转换成实体对象，程序员无需再手动编写 SQL 语句和转换代码。</li></ul><h2 id="半自动和全自动-ORM-框架的区别"><a href="#半自动和全自动-ORM-框架的区别" class="headerlink" title="半自动和全自动 ORM 框架的区别"></a>半自动和全自动 ORM 框架的区别</h2><ol><li>映射方式：半自动 ORM 框架需要程序员手动指定实体类和数据表之间的映射关系，通常使用 XML 文件或注解方式来指定；全自动 ORM 框架则可以自动进行实体类和数据表的映射，无需手动干预。</li><li>查询方式：半自动 ORM 框架通常需要程序员手动编写 SQL 语句并将查询结果集转换成实体对象；全自动 ORM 框架可以自动组装 SQL 语句、执行查询操作，并将查询结果转换成实体对象。</li><li>性能：由于半自动 ORM 框架需要手动编写 SQL 语句，因此程序员必须对 SQL 语句和数据库的底层知识有一定的了解，才能编写高效的 SQL 语句；而全自动 ORM 框架通过自动优化生成的 SQL 语句来提高性能，程序员无需进行优化。</li><li>学习成本：半自动 ORM 框架需要程序员手动编写 SQL 语句和映射配置，要求程序员具备较高的数据库和 SQL 知识；全自动 ORM 框架可以自动生成 SQL 语句和映射配置，程序员无需了解过多的数据库和 SQL 知识。</li></ol><p>常见的半自动 ORM 框架包括 MyBatis 等；常见的全自动 ORM 框架包括 Hibernate、Spring Data JPA、MyBatis-Plus 等。</p><h2 id="MybatisX插件"><a href="#MybatisX插件" class="headerlink" title="MybatisX插件"></a>MybatisX插件</h2><p><strong>半自动orm框架，也能实现单表的crud自动生成的逆向工程：半自动orm -&gt; 全自动orm迈进</strong></p><p>但是需要注意，逆向工程只能生成CRUD的操作，多表查询依然需要自己编写！</p><ol><li><p>安装插件</p><p><img src="/assets/image-20230917000632173.png" alt="image-20230917000632173"></p></li><li><p>连接数据库</p><p><img src="/assets/image-20230917001255410.png" alt="image-20230917001255410"></p><p><img src="/assets/image-20230917001642649.png" alt="image-20230917001642649"></p></li><li><p>mybatisx配置</p><p><img src="/assets/image-20230917002559830.png" alt="image-20230917002559830"></p><p><img src="/assets/image-20230917002700490.png" alt="image-20230917002700490"></p></li><li><p>生成src</p><p><img src="/assets/image-20230917002943396.png" alt="image-20230917002943396"></p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>SSM</category>
+      
+      <category>MyBatis</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>8_MyBatis高级扩展</title>
+    <link href="/2023/09/16/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/MyBatis/8_MyBatis%E9%AB%98%E7%BA%A7%E6%89%A9%E5%B1%95/"/>
+    <url>/2023/09/16/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/MyBatis/8_MyBatis%E9%AB%98%E7%BA%A7%E6%89%A9%E5%B1%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="MyBatis高级扩展"><a href="#MyBatis高级扩展" class="headerlink" title="MyBatis高级扩展"></a>MyBatis高级扩展</h1><h2 id="mapper映射"><a href="#mapper映射" class="headerlink" title="mapper映射"></a>mapper映射</h2><p>建议使用此方式！</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">mappers</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">package</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;com.jmin.mapper&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mappers</span>&gt;</span><br></code></pre></td></tr></table></figure><ul><li><p>批量指定，要求xml文件和mapper文件的命名必须相同</p></li><li><p>要求打包的位置必须一致，都是指定的包地址</p><ul><li><p>方案1 xml文件放进mapper类包中</p><p><img src="/assets/image-20230916220853224.png" alt="image-20230916220853224"></p><p>打包后发现，mapper.xml没有被打包进行mapper类包中，解决方法是在maven中添加build(不推荐)</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">directory</span>&gt;</span>src/main/java<span class="hljs-tag">&lt;/<span class="hljs-name">directory</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">includes</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">include</span>&gt;</span>**/*.*<span class="hljs-tag">&lt;/<span class="hljs-name">include</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">includes</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br></code></pre></td></tr></table></figure><p>再次打包结果：</p><p><img src="/assets/image-20230916221557844.png" alt="image-20230916221557844"></p></li><li><p>方案2：resource文件下创建对应的文件夹结构</p><p><img src="/assets/image-20230916221721699.png" alt="image-20230916221721699"></p><p><img src="/assets/image-20230916223240295.png" alt="image-20230916223240295"></p></li></ul></li></ul><h2 id="插件和分页插件PageHelper"><a href="#插件和分页插件PageHelper" class="headerlink" title="插件和分页插件PageHelper"></a>插件和分页插件PageHelper</h2><h3 id="插件机制和PageHelper插件介绍"><a href="#插件机制和PageHelper插件介绍" class="headerlink" title="插件机制和PageHelper插件介绍"></a>插件机制和PageHelper插件介绍</h3><p>MyBatis对插件进行了标准化的设计，并提供了一套可扩展的插件机制。插件可以在用于语句执行过程中进行拦截，并允许通过自定义处理程序来拦截和修改 SQL 语句、映射语句的结果等。</p><p><img src="/assets/image-20230916224530940.png" alt="image-20230916224530940"></p><p><strong>PageHelper</strong></p><p>以往的分页操作：</p><p><img src="/assets/image-20230916224709446.png" alt="image-20230916224709446"></p><p>使用PageHelper插件：</p><p><img src="/assets/image-20230916224744469.png" alt="image-20230916224744469"></p><p>使用步骤</p><ol><li><p>maven依赖导入</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.github.pagehelper<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>pagehelper<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.3.3<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure></li><li><p>config.xml</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span> <span class="hljs-attr">interceptor</span>=<span class="hljs-string">&quot;com.github.pagehelper.PageInterceptor&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;helperDialect&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;mysql&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br></code></pre></td></tr></table></figure></li><li><p>mapper.xml</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">&quot;com.jmin.mapper.EmployeeMapper&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;queryList&quot;</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">&quot;employee&quot;</span>&gt;</span><br>        select *<br>        from t_emp where emp_salary &gt; 100<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br></code></pre></td></tr></table></figure></li><li><p>test</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java">    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">test1</span><span class="hljs-params">()</span> &#123;<br><span class="hljs-comment">//        使用pageHelper插件</span><br>        <span class="hljs-type">EmployeeMapper</span> <span class="hljs-variable">mapper</span> <span class="hljs-operator">=</span> sqlSession.getMapper(EmployeeMapper.class);<br><span class="hljs-comment">//        调用之前，先设置分页数据</span><br>        PageHelper.startPage(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>);<span class="hljs-comment">//第1页查询2两个数据</span><br>        List&lt;Employee&gt; employees = mapper.queryList();<br><span class="hljs-comment">//       将查询数据封装到PageInfo的分页实体类中</span><br>        PageInfo&lt;Employee&gt; pageInfo = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PageInfo</span>&lt;&gt;(employees);<br><span class="hljs-comment">//        pageInfo获取分页的数据</span><br><span class="hljs-comment">//        当前页的数据</span><br>        List&lt;Employee&gt; list = pageInfo.getList();<br>        System.out.println(list);<br><span class="hljs-comment">//        获取总条数</span><br>        <span class="hljs-type">long</span> <span class="hljs-variable">total</span> <span class="hljs-operator">=</span> pageInfo.getTotal();<br>        System.out.println(total);<br><span class="hljs-comment">//        获取总页数</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">pageNum</span> <span class="hljs-operator">=</span> pageInfo.getPageNum();<br>        System.out.println(pageNum);<br>    &#125;<br></code></pre></td></tr></table></figure><p><strong>需要注意，多条查询不能装到一个分页区</strong></p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>SSM</category>
+      
+      <category>MyBatis</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>7_Mybatis动态语句</title>
     <link href="/2023/09/15/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/MyBatis/7_Mybatis%E5%8A%A8%E6%80%81%E8%AF%AD%E5%8F%A5/"/>
     <url>/2023/09/15/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/MyBatis/7_Mybatis%E5%8A%A8%E6%80%81%E8%AF%AD%E5%8F%A5/</url>
