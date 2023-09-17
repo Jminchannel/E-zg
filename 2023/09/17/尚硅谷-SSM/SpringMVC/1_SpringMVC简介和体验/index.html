@@ -16,23 +16,34 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Mybatis总结   核心点 掌握目标    mybatis基础 使用流程, 参数输入,#{} ${},参数输出   mybatis多表 实体类设计,resultMap多表结果映射   mybatis动态语句 Mybatis动态语句概念, where , if , foreach标签   mybatis扩展 Mapper批量处理,分页插件,逆向工程">
+    <meta name="description" content="SpringMVC简介和体验介绍Spring Web MVC是基于Servlet API构建的原始Web框架，从一开始就包含在Spring Framework中。正式名称“Spring Web MVC”来自其源模块的名称（ spring-webmvc ），但它通常被称为“Spring MVC”。 SpringMVC具备如下显著优势：  Spring 家族原生产品，与IOC容器等基础设施无缝对接 表">
 <meta property="og:type" content="article">
-<meta property="og:title" content="10_Mybatis总结">
-<meta property="og:url" content="http://elaskon.asia/2023/09/17/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/MyBatis/10_Mybatis%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="1_SpringMVC简介和体验">
+<meta property="og:url" content="http://elaskon.asia/2023/09/17/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/SpringMVC/1_SpringMVC%E7%AE%80%E4%BB%8B%E5%92%8C%E4%BD%93%E9%AA%8C/index.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="Mybatis总结   核心点 掌握目标    mybatis基础 使用流程, 参数输入,#{} ${},参数输出   mybatis多表 实体类设计,resultMap多表结果映射   mybatis动态语句 Mybatis动态语句概念, where , if , foreach标签   mybatis扩展 Mapper批量处理,分页插件,逆向工程">
+<meta property="og:description" content="SpringMVC简介和体验介绍Spring Web MVC是基于Servlet API构建的原始Web框架，从一开始就包含在Spring Framework中。正式名称“Spring Web MVC”来自其源模块的名称（ spring-webmvc ），但它通常被称为“Spring MVC”。 SpringMVC具备如下显著优势：  Spring 家族原生产品，与IOC容器等基础设施无缝对接 表">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-16T16:00:43.000Z">
-<meta property="article:modified_time" content="2023-09-16T16:49:23.933Z">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230917093043440.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230917095931165.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230917095943019.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230917101637081.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230917103816239.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230917103943113.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230917104205968.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230917104154057.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230917110824794.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230917112552815.png">
+<meta property="article:published_time" content="2023-09-16T17:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-17T03:51:04.720Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://elaskon.asia/assets/image-20230917093043440.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>10_Mybatis总结 - E-zg小破站</title>
+  <title>1_SpringMVC简介和体验 - E-zg小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -225,7 +236,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="10_Mybatis总结"></span>
+            <span id="subtitle" data-typed-text="1_SpringMVC简介和体验"></span>
           
         </div>
 
@@ -236,7 +247,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-17 00:00" pubdate>
+        <time datetime="2023-09-17 01:00" pubdate>
           2023年9月17日 凌晨
         </time>
       </span>
@@ -248,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          148 字
+          2.8k 字
         
       </span>
     
@@ -259,7 +270,7 @@
         
         
         
-          2 分钟
+          24 分钟
         
       </span>
     
@@ -304,12 +315,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">10_Mybatis总结</h1>
+            <h1 id="seo-header">1_SpringMVC简介和体验</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年9月17日 凌晨
+                    本文最后更新于：2023年9月17日 中午
                   
                 
               </p>
@@ -317,30 +328,67 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Mybatis总结"><a href="#Mybatis总结" class="headerlink" title="Mybatis总结"></a>Mybatis总结</h1><table>
-<thead>
-<tr>
-<th>核心点</th>
-<th>掌握目标</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>mybatis基础</td>
-<td>使用流程, 参数输入,#{} ${},参数输出</td>
-</tr>
-<tr>
-<td>mybatis多表</td>
-<td>实体类设计,resultMap多表结果映射</td>
-</tr>
-<tr>
-<td>mybatis动态语句</td>
-<td>Mybatis动态语句概念, where , if , foreach标签</td>
-</tr>
-<tr>
-<td>mybatis扩展</td>
-<td>Mapper批量处理,分页插件,逆向工程</td>
-</tr>
-</tbody></table>
+                <h1 id="SpringMVC简介和体验"><a href="#SpringMVC简介和体验" class="headerlink" title="SpringMVC简介和体验"></a>SpringMVC简介和体验</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Spring Web MVC是基于Servlet API构建的原始Web框架，从一开始就包含在Spring Framework中。正式名称“Spring Web MVC”来自其源模块的名称（ spring-webmvc ），但它通常被称为“Spring MVC”。</p>
+<p>SpringMVC具备如下显著优势：</p>
+<ul>
+<li><strong>Spring 家族原生产品</strong>，与IOC容器等基础设施无缝对接</li>
+<li>表述层各细分领域需要解决的问题<strong>全方位覆盖</strong>，提供<strong>全面解决方案</strong></li>
+<li><strong>代码清新简洁</strong>，大幅度提升开发效率</li>
+<li>内部组件化程度高，可插拔式组件<strong>即插即用</strong>，想要什么功能配置相应组件即可</li>
+<li><strong>性能卓著</strong>，尤其适合现代大型、超大型互联网项目要求</li>
+</ul>
+<h2 id="主要作用"><a href="#主要作用" class="headerlink" title="主要作用"></a>主要作用</h2><p><img src="/assets/image-20230917093043440.png" srcset="/img/loading.gif" lazyload alt="image-20230917093043440"></p>
+<p>SpringMVC的作用主要覆盖的是表述层，例如：</p>
+<ul>
+<li>请求映射</li>
+<li>数据输入</li>
+<li>视图界面</li>
+<li>请求分发</li>
+<li>表单回显</li>
+<li>会话控制</li>
+<li>过滤拦截</li>
+<li>异步交互</li>
+<li>文件上传</li>
+<li>文件下载</li>
+<li>数据校验</li>
+<li>类型转换</li>
+<li>等等等</li>
+</ul>
+<p><strong>最终总结：</strong></p>
+<ol>
+<li>简化前端参数接收( 形参列表 )</li>
+<li>简化后端数据响应(返回值)</li>
+<li>以及其他……</li>
+</ol>
+<h2 id="核心组件和调用流程理解"><a href="#核心组件和调用流程理解" class="headerlink" title="核心组件和调用流程理解"></a>核心组件和调用流程理解</h2><p><img src="/assets/image-20230917095931165.png" srcset="/img/loading.gif" lazyload alt="image-20230917095931165"></p>
+<p><img src="/assets/image-20230917095943019.png" srcset="/img/loading.gif" lazyload alt="image-20230917095943019"></p>
+<p>组件的理解：</p>
+<ol>
+<li>DispatcherServlet :  SpringMVC提供，我们需要使用web.xml配置使其生效，它是整个流程处理的核心，所有请求都经过它的处理和分发！[ CEO ]</li>
+<li>HandlerMapping :  SpringMVC提供，我们需要进行IoC配置使其加入IoC容器方可生效，它内部缓存handler(controller方法)和handler访问路径数据，被DispatcherServlet调用，用于查找路径对应的handler！[秘书]</li>
+<li>HandlerAdapter : SpringMVC提供，我们需要进行IoC配置使其加入IoC容器方可生效，它可以处理请求参数和处理响应数据数据，每次DispatcherServlet都是通过handlerAdapter间接调用handler，他是handler和DispatcherServlet之间的适配器！[经理]</li>
+<li>Handler : handler又称处理器，他是Controller类内部的方法简称，是由我们自己定义，用来接收参数，向后调用业务，最终返回响应结果！[打工人]</li>
+<li>ViewResovler : SpringMVC提供，我们需要进行IoC配置使其加入IoC容器方可生效！视图解析器主要作用简化模版视图页面查找的，但是需要注意，前后端分离项目，<strong>后端只返回JSON数据</strong>，不返回页面，那就不需要视图解析器！所以，视图解析器，相对其他的组件不是必须的！[财务]</li>
+</ol>
+<h2 id="体验"><a href="#体验" class="headerlink" title="体验"></a>体验</h2><h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p><img src="/assets/image-20230917101637081.png" srcset="/img/loading.gif" lazyload alt="image-20230917101637081"></p>
+<h3 id="配置分析"><a href="#配置分析" class="headerlink" title="配置分析"></a>配置分析</h3><ol>
+<li>DispatcherServlet，设置处理所有请求！</li>
+<li>HandlerMapping,HandlerAdapter,Handler需要加入到IoC容器，供DS调用！</li>
+<li>Handler自己声明（Controller）需要配置到HandlerMapping中供DS查找！</li>
+</ol>
+<h3 id="导入依赖"><a href="#导入依赖" class="headerlink" title="导入依赖"></a>导入依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs xml">        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-context<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>6.0.6<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-comment">&lt;!--        servlet相关依赖--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>jakarta.platform<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jakarta.jakartaee-web-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>9.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-comment">&lt;!--        SpringMVC相关依赖--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-webmvc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>6.0.6<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.tomcat<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>tomcat-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>10.1.13(对应使用的tomcat版本)<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20230917103816239.png" srcset="/img/loading.gif" lazyload alt="image-20230917103816239"></p>
+<p><img src="/assets/image-20230917103943113.png" srcset="/img/loading.gif" lazyload alt="image-20230917103943113"></p>
+<p>发现webapp文件夹没变蓝，刷新maven</p>
+<p><img src="/assets/image-20230917104205968.png" srcset="/img/loading.gif" lazyload alt="image-20230917104205968"></p>
+<p><img src="/assets/image-20230917104154057.png" srcset="/img/loading.gif" lazyload alt="image-20230917104154057"></p>
+<h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloController</span> &#123;<br>    <span class="hljs-comment">//    handler -&gt; springmvc</span><br>    <span class="hljs-meta">@RequestMapping(&quot;springmvc/hello&quot;)</span> <span class="hljs-comment">//对外访问的地址，到handlerMapping注册的注解</span><br>    <span class="hljs-meta">@ResponseBody</span> <span class="hljs-comment">//直接返回字符串给前端，不用找视图解析器</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">hello</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;hello()&quot;</span>);<br><span class="hljs-comment">//        返回给前端</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;hello mvc&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="配置类"><a href="#配置类" class="headerlink" title="配置类"></a>配置类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SpringMVCInit</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">AbstractAnnotationConfigDispatcherServletInitializer</span> &#123;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> Class&lt;?&gt;[] getRootConfigClasses() &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Class</span>[<span class="hljs-number">0</span>];<br>    &#125;<br><br><span class="hljs-comment">//    设置项目对应的配置</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> Class&lt;?&gt;[] getServletConfigClasses() &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Class</span>[]&#123;mvcConfig.class&#125;;<br>    &#125;<br><br><span class="hljs-comment">//    配置Springmvc内部自带的servlet的访问地址</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> String[] getServletMappings() &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[]&#123;<span class="hljs-string">&quot;/&quot;</span>&#125;;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="启动测试"><a href="#启动测试" class="headerlink" title="启动测试"></a>启动测试</h3><p><img src="/assets/image-20230917110824794.png" srcset="/img/loading.gif" lazyload alt="image-20230917110824794"></p>
+<p><img src="/assets/image-20230917112552815.png" srcset="/img/loading.gif" lazyload alt="image-20230917112552815"></p>
 
                 
               </div>
@@ -364,7 +412,7 @@
   
     <span>></span>
     
-  <a href="/categories/SSM/MyBatis/" class="category-chain-item">MyBatis</a>
+  <a href="/categories/SSM/SpringMVC/" class="category-chain-item">SpringMVC</a>
   
   
 
@@ -386,8 +434,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>10_Mybatis总结</div>
-      <div>http://elaskon.asia/2023/09/17/尚硅谷-SSM/MyBatis/10_Mybatis总结/</div>
+      <div>1_SpringMVC简介和体验</div>
+      <div>http://elaskon.asia/2023/09/17/尚硅谷-SSM/SpringMVC/1_SpringMVC简介和体验/</div>
     </div>
     <div class="license-meta">
       
@@ -431,18 +479,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/17/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/SpringMVC/1_SpringMVC%E7%AE%80%E4%BB%8B%E5%92%8C%E4%BD%93%E9%AA%8C/" title="1_SpringMVC简介和体验">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">1_SpringMVC简介和体验</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/16/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/MyBatis/9_%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%92%8CMybatisX%E6%8F%92%E4%BB%B6/" title="9_逆向工程和MybatisX插件">
-                        <span class="hidden-mobile">9_逆向工程和MybatisX插件</span>
+                      <a href="/2023/09/17/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/MyBatis/10_Mybatis%E6%80%BB%E7%BB%93/" title="10_Mybatis总结">
+                        <span class="hidden-mobile">10_Mybatis总结</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
