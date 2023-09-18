@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>5_原生Api对象操作</title>
+    <link href="/2023/09/19/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/SpringMVC/5_%E5%8E%9F%E7%94%9FApi%E5%AF%B9%E8%B1%A1%E6%93%8D%E4%BD%9C/"/>
+    <url>/2023/09/19/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/SpringMVC/5_%E5%8E%9F%E7%94%9FApi%E5%AF%B9%E8%B1%A1%E6%93%8D%E4%BD%9C/</url>
+    
+    <content type="html"><![CDATA[<h1 id="原生Api对象操作"><a href="#原生Api对象操作" class="headerlink" title="原生Api对象操作"></a>原生Api对象操作</h1><p>下表描述了支持的控制器方法参数</p><table><thead><tr><th>Controller method argument 控制器方法参数</th><th>Description</th></tr></thead><tbody><tr><td><code>jakarta.servlet.ServletRequest</code>, <code>jakarta.servlet.ServletResponse</code></td><td>请求&#x2F;响应对象</td></tr><tr><td><code>jakarta.servlet.http.HttpSession</code></td><td>强制存在会话。因此，这样的参数永远不会为 <code>null</code> 。</td></tr><tr><td><code>java.io.InputStream</code>, <code>java.io.Reader</code></td><td>用于访问由 Servlet API 公开的原始请求正文。</td></tr><tr><td><code>java.io.OutputStream</code>, <code>java.io.Writer</code></td><td>用于访问由 Servlet API 公开的原始响应正文。</td></tr><tr><td><code>@PathVariable</code></td><td>接收路径参数注解</td></tr><tr><td><code>@RequestParam</code></td><td>用于访问 Servlet 请求参数，包括多部分文件。参数值将转换为声明的方法参数类型。</td></tr><tr><td><code>@RequestHeader</code></td><td>用于访问请求标头。标头值将转换为声明的方法参数类型。</td></tr><tr><td><code>@CookieValue</code></td><td>用于访问Cookie。Cookie 值将转换为声明的方法参数类型。</td></tr><tr><td><code>@RequestBody</code></td><td>用于访问 HTTP 请求正文。正文内容通过使用 <code>HttpMessageConverter</code> 实现转换为声明的方法参数类型。</td></tr><tr><td><code>java.util.Map</code>, <code>org.springframework.ui.Model</code>, <code>org.springframework.ui.ModelMap</code></td><td>共享域对象，并在视图呈现过程中向模板公开。</td></tr><tr><td><code>Errors</code>, <code>BindingResult</code></td><td>验证和数据绑定中的错误信息获取对象！</td></tr></tbody></table><p><img src="/assets/image-20230919012218506.png" alt="image-20230919012218506"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>SSM</category>
+      
+      <category>SpringMVC</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>4_Cookie数据以及请求头数据获取</title>
     <link href="/2023/09/19/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/SpringMVC/4_Cookie%E6%95%B0%E6%8D%AE%E8%8E%B7%E5%8F%96/"/>
     <url>/2023/09/19/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/SpringMVC/4_Cookie%E6%95%B0%E6%8D%AE%E8%8E%B7%E5%8F%96/</url>
