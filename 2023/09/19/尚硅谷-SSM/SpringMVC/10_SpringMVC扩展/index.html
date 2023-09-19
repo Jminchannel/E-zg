@@ -16,23 +16,30 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="RestFul风格设计Restful风格概述RESTful（Representational State Transfer）是一种软件架构风格，用于设计网络应用程序和服务之间的通信。它是一种基于标准 HTTP 方法的简单和轻量级的通信协议，广泛应用于现代的Web服务开发。 通过遵循 RESTful 架构的设计原则，可以构建出易于理解、可扩展、松耦合和可重用的 Web 服务。RESTful API">
+    <meta name="description" content="SpringMVC扩展异常处理的两种方式开发过程中是不可避免地会出现各种异常情况的，例如网络连接异常、数据格式异常、空指针异常等等。异常的出现可能导致程序的运行出现问题，甚至直接导致程序崩溃。因此，在开发过程中，合理处理异常、避免异常产生、以及对异常进行有效的调试是非常重要的。   编程式异常处理简单说，try-catch处理 声明式异常处理简单说，将异常处理的逻辑从具体的业务逻辑中分离出来，通过">
 <meta property="og:type" content="article">
-<meta property="og:title" content="8_RestFul风格设计">
-<meta property="og:url" content="http://elaskon.asia/2023/09/19/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/SpringMVC/8_RestFul%E9%A3%8E%E6%A0%BC%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:title" content="10_SpringMVC扩展">
+<meta property="og:url" content="http://elaskon.asia/2023/09/19/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/SpringMVC/10_SpringMVC%E6%89%A9%E5%B1%95/index.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="RestFul风格设计Restful风格概述RESTful（Representational State Transfer）是一种软件架构风格，用于设计网络应用程序和服务之间的通信。它是一种基于标准 HTTP 方法的简单和轻量级的通信协议，广泛应用于现代的Web服务开发。 通过遵循 RESTful 架构的设计原则，可以构建出易于理解、可扩展、松耦合和可重用的 Web 服务。RESTful API">
+<meta property="og:description" content="SpringMVC扩展异常处理的两种方式开发过程中是不可避免地会出现各种异常情况的，例如网络连接异常、数据格式异常、空指针异常等等。异常的出现可能导致程序的运行出现问题，甚至直接导致程序崩溃。因此，在开发过程中，合理处理异常、避免异常产生、以及对异常进行有效的调试是非常重要的。   编程式异常处理简单说，try-catch处理 声明式异常处理简单说，将异常处理的逻辑从具体的业务逻辑中分离出来，通过">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-19T10:30:00.000Z">
-<meta property="article:modified_time" content="2023-09-19T13:14:30.257Z">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230919232429217.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230919235147955.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230920002753742.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230920002810565.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230920004000735.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230920004854090.png">
+<meta property="article:published_time" content="2023-09-19T14:30:00.000Z">
+<meta property="article:modified_time" content="2023-09-19T16:50:39.137Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://elaskon.asia/assets/image-20230919232429217.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>8_RestFul风格设计 - E-zg小破站</title>
+  <title>10_SpringMVC扩展 - E-zg小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -225,7 +232,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="8_RestFul风格设计"></span>
+            <span id="subtitle" data-typed-text="10_SpringMVC扩展"></span>
           
         </div>
 
@@ -236,7 +243,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-19 18:30" pubdate>
+        <time datetime="2023-09-19 22:30" pubdate>
           2023年9月19日 晚上
         </time>
       </span>
@@ -248,7 +255,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          2k 字
         
       </span>
     
@@ -259,7 +266,7 @@
         
         
         
-          13 分钟
+          17 分钟
         
       </span>
     
@@ -304,12 +311,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">8_RestFul风格设计</h1>
+            <h1 id="seo-header">10_SpringMVC扩展</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年9月19日 晚上
+                    本文最后更新于：2023年9月20日 凌晨
                   
                 
               </p>
@@ -317,95 +324,115 @@
             
               <div class="markdown-body">
                 
-                <h1 id="RestFul风格设计"><a href="#RestFul风格设计" class="headerlink" title="RestFul风格设计"></a>RestFul风格设计</h1><h2 id="Restful风格概述"><a href="#Restful风格概述" class="headerlink" title="Restful风格概述"></a>Restful风格概述</h2><p>RESTful（Representational State Transfer）是一种软件架构风格，用于设计网络应用程序和服务之间的通信。它是一种基于标准 HTTP 方法的简单和轻量级的通信协议，广泛应用于现代的Web服务开发。</p>
-<p>通过遵循 RESTful 架构的设计原则，可以构建出易于理解、可扩展、松耦合和可重用的 Web 服务。RESTful API 的特点是简单、清晰，并且易于使用和理解，它们使用标准的 HTTP 方法和状态码进行通信，不需要额外的协议和中间件。</p>
-<p>总而言之，RESTful 是一种基于 HTTP 和标准化的设计原则的软件架构风格，用于设计和实现可靠、可扩展和易于集成的 Web 服务和应用程序！</p>
-<h2 id="Restful特点"><a href="#Restful特点" class="headerlink" title="Restful特点"></a>Restful特点</h2><ol>
-<li>每一个URI代表1种资源（URI 是名词）；</li>
-<li>客户端使用GET、POST、PUT、DELETE 4个表示操作方式的动词对服务端资源进行操作：GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源；</li>
-<li>资源的表现形式是XML或者<strong>JSON</strong>；</li>
-<li>客户端与服务端之间的交互在请求之间是无状态的，从客户端到服务端的每个请求都必须包含理解请求所必需的信息。</li>
-</ol>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-number">1</span>.对于根据id查询数据<br><span class="hljs-regexp">/user/</span><span class="hljs-keyword">find</span>?id=<span class="hljs-number">1</span>  (GET) <br><span class="hljs-regexp">/user/</span><span class="hljs-number">1</span>  GET<br><span class="hljs-number">2</span>.根据id删除数据<br><span class="hljs-regexp">/user/</span>remove?id=<span class="hljs-number">1</span> (GET)<br><span class="hljs-regexp">/user/</span><span class="hljs-number">1</span>  <span class="hljs-keyword">DELETE</span><br></code></pre></td></tr></table></figure>
+                <h1 id="SpringMVC扩展"><a href="#SpringMVC扩展" class="headerlink" title="SpringMVC扩展"></a>SpringMVC扩展</h1><h2 id="异常处理的两种方式"><a href="#异常处理的两种方式" class="headerlink" title="异常处理的两种方式"></a>异常处理的两种方式</h2><p>开发过程中是不可避免地会出现各种异常情况的，例如网络连接异常、数据格式异常、空指针异常等等。异常的出现可能导致程序的运行出现问题，甚至直接导致程序崩溃。因此，在开发过程中，合理处理异常、避免异常产生、以及对异常进行有效的调试是非常重要的。</p>
+<p><img src="/assets/image-20230919232429217.png" srcset="/img/loading.gif" lazyload alt="image-20230919232429217"></p>
+<p><img src="/assets/image-20230919235147955.png" srcset="/img/loading.gif" lazyload alt="image-20230919235147955"></p>
+<h3 id="编程式异常处理"><a href="#编程式异常处理" class="headerlink" title="编程式异常处理"></a>编程式异常处理</h3><p>简单说，try-catch处理</p>
+<h3 id="声明式异常处理"><a href="#声明式异常处理" class="headerlink" title="声明式异常处理"></a>声明式异常处理</h3><p>简单说，将异常处理的逻辑从具体的业务逻辑中分离出来，通过配置等方式进行统一的管理和处理。开发人员只需要为方法或类标注相应的注解（如 @Throws 或 @ExceptionHandler）</p>
+<h3 id="站在宏观角度来看待声明式事务处理"><a href="#站在宏观角度来看待声明式事务处理" class="headerlink" title="站在宏观角度来看待声明式事务处理"></a>站在宏观角度来看待声明式事务处理</h3><blockquote>
+<p> 整个项目从架构这个层面设计的异常处理的统一机制和规范。</p>
+<p>一个项目中会包含很多个模块，各个模块需要分工完成。如果张三负责的模块按照 A 方案处理异常，李四负责的模块按照 B 方案处理异常……各个模块处理异常的思路、代码、命名细节都不一样，那么就会让整个项目非常混乱。 使用声明式异常处理，可以统一项目处理异常思路，项目更加清晰明了！</p>
+</blockquote>
+<h3 id="基于注解异常声明异常处理"><a href="#基于注解异常声明异常处理" class="headerlink" title="基于注解异常声明异常处理"></a>基于注解异常声明异常处理</h3><ol>
+<li><p>声明异常处理控制器类</p>
+</li>
+<li><p>声明异常处理handler方法</p>
+</li>
+<li><p>配置文件扫描控制器类配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestControllerAdvice</span> <span class="hljs-comment">//直接返回json</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GlobalExceptionHandler</span> &#123;<br>    <span class="hljs-meta">@ExceptionHandler(ArithmeticException.class)</span><br>    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">ArithmeticExceptionHandler</span><span class="hljs-params">(ArithmeticException arithmeticException)</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;ArithmeticException&quot;</span>);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> arithmeticException.getMessage();<br>        <span class="hljs-keyword">return</span> message; <span class="hljs-comment">//可以转发或重定向到视图页面</span><br>    &#125;<br>    <span class="hljs-meta">@ExceptionHandler(Exception.class)</span><br>    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">ExceptionHandler</span><span class="hljs-params">(Exception e)</span>&#123;<br>        <span class="hljs-keyword">return</span> e.getMessage();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="Restful规范"><a href="#Restful规范" class="headerlink" title="Restful规范"></a>Restful规范</h2><h3 id="HTTP协议请求方式要求"><a href="#HTTP协议请求方式要求" class="headerlink" title="HTTP协议请求方式要求"></a>HTTP协议请求方式要求</h3><p>REST 风格主张在项目设计、开发过程中，具体的操作符合HTTP协议定义的请求方式的语义。</p>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>请求方式</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>查询操作</td>
-<td>GET</td>
-</tr>
-<tr>
-<td>保存操作</td>
-<td>POST</td>
-</tr>
-<tr>
-<td>删除操作</td>
-<td>DELETE</td>
-</tr>
-<tr>
-<td>更新操作</td>
-<td>PUT</td>
-</tr>
-</tbody></table>
-<h3 id="URL路径风格要求"><a href="#URL路径风格要求" class="headerlink" title="URL路径风格要求"></a>URL路径风格要求</h3><p>REST风格下每个资源都应该有一个唯一的标识符，例如一个 URI（统一资源标识符）或者一个 URL（统一资源定位符）。资源的标识符应该能明确地说明该资源的信息，同时也应该是可被理解和解释的！</p>
-<p>使用URL+请求方式确定具体的动作，他也是一种标准的HTTP协议请求！</p>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>传统风格</th>
-<th>REST 风格</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>保存</td>
-<td>&#x2F;CRUD&#x2F;saveEmp</td>
-<td>URL 地址：&#x2F;CRUD&#x2F;emp 请求方式：POST</td>
-</tr>
-<tr>
-<td>删除</td>
-<td>&#x2F;CRUD&#x2F;removeEmp?empId&#x3D;2</td>
-<td>URL 地址：&#x2F;CRUD&#x2F;emp&#x2F;2 请求方式：DELETE</td>
-</tr>
-<tr>
-<td>更新</td>
-<td>&#x2F;CRUD&#x2F;updateEmp</td>
-<td>URL 地址：&#x2F;CRUD&#x2F;emp 请求方式：PUT</td>
-</tr>
-<tr>
-<td>查询</td>
-<td>&#x2F;CRUD&#x2F;editEmp?empId&#x3D;2</td>
-<td>URL 地址：&#x2F;CRUD&#x2F;emp&#x2F;2 请求方式：GET</td>
-</tr>
-</tbody></table>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
-<li>根据接口的具体动作，选择具体的HTTP协议请求方式</li>
-<li>路径设计从原来携带动标识，改成名词，对应资源的唯一标识即可！</li>
-</ol>
-<h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><ol>
-<li><p>含蓄，安全</p>
-<p> 使用问号键值对的方式给服务器传递数据太明显，容易被人利用来对系统进行破坏。使用 REST 风格携带数据不再需要明显的暴露数据的名称。</p>
-</li>
-<li><p>风格统一</p>
-<p> URL 地址整体格式统一，从前到后始终都使用斜杠划分各个单词，用简单一致的格式表达语义。</p>
-</li>
-<li><p>无状态</p>
-<p> 在调用一个接口（访问、操作资源）的时候，可以不用考虑上下文，不用考虑当前状态，极大的降低了系统设计的复杂度。</p>
-</li>
-<li><p>严谨，规范</p>
-<p> 严格按照 HTTP1.1 协议中定义的请求方式本身的语义进行操作。</p>
-</li>
-<li><p>简洁，优雅</p>
-<p> 过去增删改查需要设计4个不同的URL，而现在只需要一个即可</p>
-</li>
-</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@EnableWebMvc</span><br><span class="hljs-meta">@ComponentScan(&#123;&quot;com.jmin.controller&quot;,&quot;com.jmin.error&quot;&#125;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MvcConfig</span> &#123;<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<p><img src="/assets/image-20230920002753742.png" srcset="/img/loading.gif" lazyload alt="image-20230920002753742"></p>
+<p><img src="/assets/image-20230920002810565.png" srcset="/img/loading.gif" lazyload alt="image-20230920002810565"></p>
+</li>
+</ol>
+<h2 id="拦截器使用"><a href="#拦截器使用" class="headerlink" title="拦截器使用"></a>拦截器使用</h2><h3 id="拦截器概念"><a href="#拦截器概念" class="headerlink" title="拦截器概念"></a>拦截器概念</h3><p><img src="/assets/image-20230920004000735.png" srcset="/img/loading.gif" lazyload alt="image-20230920004000735"></p>
+<p>拦截器 Springmvc VS 过滤器 javaWeb：</p>
+<ul>
+<li>相似点<ul>
+<li>拦截：必须先把请求拦住，才能执行后续操作</li>
+<li>过滤：拦截器或过滤器存在的意义就是对请求进行统一处理</li>
+<li>放行：对请求执行了必要操作后，放请求过去，让它访问原本想要访问的资源</li>
+</ul>
+</li>
+<li>不同点<ul>
+<li>工作平台不同<ul>
+<li>过滤器工作在 Servlet 容器中</li>
+<li>拦截器工作在 SpringMVC 的基础上</li>
+</ul>
+</li>
+<li>拦截的范围<ul>
+<li>过滤器：能够拦截到的最大范围是整个 Web 应用</li>
+<li>拦截器：能够拦截到的最大范围是整个 SpringMVC 负责的请求</li>
+</ul>
+</li>
+<li>IOC 容器支持<ul>
+<li>过滤器：想得到 IOC 容器需要调用专门的工具方法，是间接的</li>
+<li>拦截器：它自己就在 IOC 容器中，所以可以直接从 IOC 容器中装配组件，也就是可以直接得到 IOC 容器的支持</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>拦截器 Springmvc VS 过滤器 javaWeb：</p>
+<ul>
+<li>相似点<ul>
+<li>拦截：必须先把请求拦住，才能执行后续操作</li>
+<li>过滤：拦截器或过滤器存在的意义就是对请求进行统一处理</li>
+<li>放行：对请求执行了必要操作后，放请求过去，让它访问原本想要访问的资源</li>
+</ul>
+</li>
+<li>不同点<ul>
+<li>工作平台不同<ul>
+<li>过滤器工作在 Servlet 容器中</li>
+<li>拦截器工作在 SpringMVC 的基础上</li>
+</ul>
+</li>
+<li>拦截的范围<ul>
+<li>过滤器：能够拦截到的最大范围是整个 Web 应用</li>
+<li>拦截器：能够拦截到的最大范围是整个 SpringMVC 负责的请求</li>
+</ul>
+</li>
+<li>IOC 容器支持<ul>
+<li>过滤器：想得到 IOC 容器需要调用专门的工具方法，是间接的</li>
+<li>拦截器：它自己就在 IOC 容器中，所以可以直接从 IOC 容器中装配组件，也就是可以直接得到 IOC 容器的支持</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>拦截器 Springmvc VS 过滤器 javaWeb：</p>
+<ul>
+<li>相似点<ul>
+<li>拦截：必须先把请求拦住，才能执行后续操作</li>
+<li>过滤：拦截器或过滤器存在的意义就是对请求进行统一处理</li>
+<li>放行：对请求执行了必要操作后，放请求过去，让它访问原本想要访问的资源</li>
+</ul>
+</li>
+<li>不同点<ul>
+<li>工作平台不同<ul>
+<li>过滤器工作在 Servlet 容器中</li>
+<li>拦截器工作在 SpringMVC 的基础上</li>
+</ul>
+</li>
+<li>拦截的范围<ul>
+<li>过滤器：能够拦截到的最大范围是整个 Web 应用</li>
+<li>拦截器：能够拦截到的最大范围是整个 SpringMVC 负责的请求</li>
+</ul>
+</li>
+<li>IOC 容器支持<ul>
+<li>过滤器：想得到 IOC 容器需要调用专门的工具方法，是间接的</li>
+<li>拦截器：它自己就在 IOC 容器中，所以可以直接从 IOC 容器中装配组件，也就是可以直接得到 IOC 容器的支持</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>选择：</p>
+<p>功能需要如果用 SpringMVC 的拦截器能够实现，就不使用过滤器。</p>
+<p><img src="/assets/image-20230920004854090.png" srcset="/img/loading.gif" lazyload alt="image-20230920004854090"></p>
+<h3 id="拦截器实现"><a href="#拦截器实现" class="headerlink" title="拦截器实现"></a>拦截器实现</h3>
                 
               </div>
             
@@ -450,8 +477,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>8_RestFul风格设计</div>
-      <div>http://elaskon.asia/2023/09/19/尚硅谷-SSM/SpringMVC/8_RestFul风格设计/</div>
+      <div>10_SpringMVC扩展</div>
+      <div>http://elaskon.asia/2023/09/19/尚硅谷-SSM/SpringMVC/10_SpringMVC扩展/</div>
     </div>
     <div class="license-meta">
       
@@ -495,18 +522,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/19/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/SpringMVC/9_RestFul%E5%AE%9E%E6%88%98/" title="9_RestFul实战">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">9_RestFul实战</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/19/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/SpringMVC/7_SpringMVC%E5%93%8D%E5%BA%94%E6%95%B0%E6%8D%AE/" title="7_SpringMVC响应数据">
-                        <span class="hidden-mobile">7_SpringMVC响应数据</span>
+                      <a href="/2023/09/19/%E5%B0%9A%E7%A1%85%E8%B0%B7-SSM/SpringMVC/9_RestFul%E5%AE%9E%E6%88%98/" title="9_RestFul实战">
+                        <span class="hidden-mobile">9_RestFul实战</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
