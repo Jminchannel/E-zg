@@ -16,27 +16,23 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="SpringMVC响应数据handler方法分析123456789101112131415161718&#x2F;** * TODO: 一个controller的方法是控制层的一个处理器,我们称为handler * TODO: handler需要使用@RequestMapping&#x2F;@GetMapping系列,声明路径,在HandlerMapping中注册,供DS查找! * TODO: handler作用总结">
+    <meta name="description" content="RestFul风格设计Restful风格概述RESTful（Representational State Transfer）是一种软件架构风格，用于设计网络应用程序和服务之间的通信。它是一种基于标准 HTTP 方法的简单和轻量级的通信协议，广泛应用于现代的Web服务开发。 通过遵循 RESTful 架构的设计原则，可以构建出易于理解、可扩展、松耦合和可重用的 Web 服务。RESTful API">
 <meta property="og:type" content="website">
-<meta property="og:title" content="7_SpringMVC响应数据">
-<meta property="og:url" content="http://elaskon.asia/7_SpringMVC%E5%93%8D%E5%BA%94%E6%95%B0%E6%8D%AE.html">
+<meta property="og:title" content="8_RestFul风格设计">
+<meta property="og:url" content="http://elaskon.asia/8_RestFul%E9%A3%8E%E6%A0%BC%E8%AE%BE%E8%AE%A1.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="SpringMVC响应数据handler方法分析123456789101112131415161718&#x2F;** * TODO: 一个controller的方法是控制层的一个处理器,我们称为handler * TODO: handler需要使用@RequestMapping&#x2F;@GetMapping系列,声明路径,在HandlerMapping中注册,供DS查找! * TODO: handler作用总结">
+<meta property="og:description" content="RestFul风格设计Restful风格概述RESTful（Representational State Transfer）是一种软件架构风格，用于设计网络应用程序和服务之间的通信。它是一种基于标准 HTTP 方法的简单和轻量级的通信协议，广泛应用于现代的Web服务开发。 通过遵循 RESTful 架构的设计原则，可以构建出易于理解、可扩展、松耦合和可重用的 Web 服务。RESTful API">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20230919101141319.png">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20230919132416221.png">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20230919140534242.png">
-<meta property="article:published_time" content="2023-09-19T00:30:00.000Z">
-<meta property="article:modified_time" content="2023-09-19T07:10:44.084Z">
+<meta property="article:published_time" content="2023-09-19T10:30:00.000Z">
+<meta property="article:modified_time" content="2023-09-19T13:14:30.257Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://elaskon.asia/assets/image-20230919101141319.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>7_SpringMVC响应数据 - E-zg小破站</title>
+  <title>8_RestFul风格设计 - E-zg小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -223,7 +219,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="7_SpringMVC响应数据"></span>
+            <span id="subtitle" data-typed-text="8_RestFul风格设计"></span>
           
         </div>
 
@@ -251,21 +247,94 @@
                 
 
 <article class="page-content">
-  <h1 id="SpringMVC响应数据"><a href="#SpringMVC响应数据" class="headerlink" title="SpringMVC响应数据"></a>SpringMVC响应数据</h1><h2 id="handler方法分析"><a href="#handler方法分析" class="headerlink" title="handler方法分析"></a>handler方法分析</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">TODO:</span> 一个controller的方法是控制层的一个处理器,我们称为handler</span><br><span class="hljs-comment"> * <span class="hljs-doctag">TODO:</span> handler需要使用<span class="hljs-doctag">@RequestMapping</span>/<span class="hljs-doctag">@GetMapping</span>系列,声明路径,在HandlerMapping中注册,供DS查找!</span><br><span class="hljs-comment"> * <span class="hljs-doctag">TODO:</span> handler作用总结:</span><br><span class="hljs-comment"> *       1.接收请求参数(param,json,pathVariable,共享域等) </span><br><span class="hljs-comment"> *       2.调用业务逻辑 </span><br><span class="hljs-comment"> *       3.响应前端数据(页面（不讲解模版页面跳转）,json,转发和重定向等)</span><br><span class="hljs-comment"> * <span class="hljs-doctag">TODO:</span> handler如何处理呢</span><br><span class="hljs-comment"> *       1.接收参数: handler(形参列表: 主要的作用就是用来接收参数)</span><br><span class="hljs-comment"> *       2.调用业务: &#123; 方法体  可以向后调用业务方法 service.xx() &#125;</span><br><span class="hljs-comment"> *       3.响应数据: return 返回结果,可以快速响应前端数据</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@GetMapping</span><br><span class="hljs-keyword">public</span> Object <span class="hljs-title function_">handler</span><span class="hljs-params">(简化请求参数接收)</span>&#123;<br>    调用业务方法<br>    返回的结果 （页面跳转，返回数据（json））<br>    <span class="hljs-keyword">return</span> 简化响应前端数据;<br>&#125;<br></code></pre></td></tr></table></figure>
+  <h1 id="RestFul风格设计"><a href="#RestFul风格设计" class="headerlink" title="RestFul风格设计"></a>RestFul风格设计</h1><h2 id="Restful风格概述"><a href="#Restful风格概述" class="headerlink" title="Restful风格概述"></a>Restful风格概述</h2><p>RESTful（Representational State Transfer）是一种软件架构风格，用于设计网络应用程序和服务之间的通信。它是一种基于标准 HTTP 方法的简单和轻量级的通信协议，广泛应用于现代的Web服务开发。</p>
+<p>通过遵循 RESTful 架构的设计原则，可以构建出易于理解、可扩展、松耦合和可重用的 Web 服务。RESTful API 的特点是简单、清晰，并且易于使用和理解，它们使用标准的 HTTP 方法和状态码进行通信，不需要额外的协议和中间件。</p>
+<p>总而言之，RESTful 是一种基于 HTTP 和标准化的设计原则的软件架构风格，用于设计和实现可靠、可扩展和易于集成的 Web 服务和应用程序！</p>
+<h2 id="Restful特点"><a href="#Restful特点" class="headerlink" title="Restful特点"></a>Restful特点</h2><ol>
+<li>每一个URI代表1种资源（URI 是名词）；</li>
+<li>客户端使用GET、POST、PUT、DELETE 4个表示操作方式的动词对服务端资源进行操作：GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源；</li>
+<li>资源的表现形式是XML或者<strong>JSON</strong>；</li>
+<li>客户端与服务端之间的交互在请求之间是无状态的，从客户端到服务端的每个请求都必须包含理解请求所必需的信息。</li>
+</ol>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-number">1</span>.对于根据id查询数据<br><span class="hljs-regexp">/user/</span><span class="hljs-keyword">find</span>?id=<span class="hljs-number">1</span>  (GET) <br><span class="hljs-regexp">/user/</span><span class="hljs-number">1</span>  GET<br><span class="hljs-number">2</span>.根据id删除数据<br><span class="hljs-regexp">/user/</span>remove?id=<span class="hljs-number">1</span> (GET)<br><span class="hljs-regexp">/user/</span><span class="hljs-number">1</span>  <span class="hljs-keyword">DELETE</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="页面跳转控制"><a href="#页面跳转控制" class="headerlink" title="页面跳转控制"></a>页面跳转控制</h2><h3 id="混合开发模式"><a href="#混合开发模式" class="headerlink" title="混合开发模式"></a>混合开发模式</h3><p><img src="/assets/image-20230919101141319.png" srcset="/img/loading.gif" lazyload alt="image-20230919101141319"></p>
-<p>指将前端和后端的代码集成在同一个项目中，共享相同的技术栈和框架。这种模式在小型项目中比较常见，可以减少学习成本和部署难度。但是，在大型项目中，这种模式会导致代码耦合性很高，维护和升级难度较大。</p>
-<p>对于混合开发，我们就需要使用动态页面技术，动态展示Java的共享域数据！！</p>
-<h3 id="前后端分离"><a href="#前后端分离" class="headerlink" title="前后端分离"></a>前后端分离</h3><p> <img src="/assets/image-20230919132416221.png" srcset="/img/loading.gif" lazyload alt="image-20230919132416221"></p>
-<h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>jakarta.servlet.jsp.jstl<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jakarta.servlet.jsp.jstl-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p><img src="/assets/image-20230919140534242.png" srcset="/img/loading.gif" lazyload alt="image-20230919140534242"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@ComponentScan(&quot;com.jmin.controller&quot;)</span><br><span class="hljs-meta">@EnableWebMvc</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MvcConfig</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">WebMvcConfigurer</span> &#123;<br><span class="hljs-comment">//    视图解析器</span><br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">configureViewResolvers</span><span class="hljs-params">(ViewResolverRegistry registry)</span> &#123;<br><span class="hljs-comment">//        registry可以快速添加前后缀</span><br>        registry.jsp(<span class="hljs-string">&quot;/WEB-INF/views/&quot;</span>,<span class="hljs-string">&quot;.jsp&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-meta">@RequestMapping(&quot;jsp&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">JSPController</span> &#123;<br>    <span class="hljs-meta">@GetMapping(&quot;index&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">index</span><span class="hljs-params">(HttpServletRequest request)</span>&#123;<br>        request.setAttribute(<span class="hljs-string">&quot;data&quot;</span>,<span class="hljs-string">&quot;hello jsp&quot;</span>);<br>        System.out.println(<span class="hljs-string">&quot;JSPController.index&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;index&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">&quot;text/html;charset=UTF-8&quot;</span> language=<span class="hljs-string">&quot;java&quot;</span> %&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>    &lt;title&gt;Title&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;h1&gt;$&#123;data&#125;&lt;/h1&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br><br></code></pre></td></tr></table></figure>
-
+<h2 id="Restful规范"><a href="#Restful规范" class="headerlink" title="Restful规范"></a>Restful规范</h2><h3 id="HTTP协议请求方式要求"><a href="#HTTP协议请求方式要求" class="headerlink" title="HTTP协议请求方式要求"></a>HTTP协议请求方式要求</h3><p>REST 风格主张在项目设计、开发过程中，具体的操作符合HTTP协议定义的请求方式的语义。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>请求方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>查询操作</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>保存操作</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>删除操作</td>
+<td>DELETE</td>
+</tr>
+<tr>
+<td>更新操作</td>
+<td>PUT</td>
+</tr>
+</tbody></table>
+<h3 id="URL路径风格要求"><a href="#URL路径风格要求" class="headerlink" title="URL路径风格要求"></a>URL路径风格要求</h3><p>REST风格下每个资源都应该有一个唯一的标识符，例如一个 URI（统一资源标识符）或者一个 URL（统一资源定位符）。资源的标识符应该能明确地说明该资源的信息，同时也应该是可被理解和解释的！</p>
+<p>使用URL+请求方式确定具体的动作，他也是一种标准的HTTP协议请求！</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>传统风格</th>
+<th>REST 风格</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>保存</td>
+<td>&#x2F;CRUD&#x2F;saveEmp</td>
+<td>URL 地址：&#x2F;CRUD&#x2F;emp 请求方式：POST</td>
+</tr>
+<tr>
+<td>删除</td>
+<td>&#x2F;CRUD&#x2F;removeEmp?empId&#x3D;2</td>
+<td>URL 地址：&#x2F;CRUD&#x2F;emp&#x2F;2 请求方式：DELETE</td>
+</tr>
+<tr>
+<td>更新</td>
+<td>&#x2F;CRUD&#x2F;updateEmp</td>
+<td>URL 地址：&#x2F;CRUD&#x2F;emp 请求方式：PUT</td>
+</tr>
+<tr>
+<td>查询</td>
+<td>&#x2F;CRUD&#x2F;editEmp?empId&#x3D;2</td>
+<td>URL 地址：&#x2F;CRUD&#x2F;emp&#x2F;2 请求方式：GET</td>
+</tr>
+</tbody></table>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>根据接口的具体动作，选择具体的HTTP协议请求方式</li>
+<li>路径设计从原来携带动标识，改成名词，对应资源的唯一标识即可！</li>
+</ol>
+<h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><ol>
+<li><p>含蓄，安全</p>
+<p> 使用问号键值对的方式给服务器传递数据太明显，容易被人利用来对系统进行破坏。使用 REST 风格携带数据不再需要明显的暴露数据的名称。</p>
+</li>
+<li><p>风格统一</p>
+<p> URL 地址整体格式统一，从前到后始终都使用斜杠划分各个单词，用简单一致的格式表达语义。</p>
+</li>
+<li><p>无状态</p>
+<p> 在调用一个接口（访问、操作资源）的时候，可以不用考虑上下文，不用考虑当前状态，极大的降低了系统设计的复杂度。</p>
+</li>
+<li><p>严谨，规范</p>
+<p> 严格按照 HTTP1.1 协议中定义的请求方式本身的语义进行操作。</p>
+</li>
+<li><p>简洁，优雅</p>
+<p> 过去增删改查需要设计4个不同的URL，而现在只需要一个即可</p>
+</li>
+</ol>
 
 
   
