@@ -16,25 +16,27 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="共享域对象操作属性（共享）域作用在 JavaWeb 中，共享域指的是在 Servlet 中存储数据，以便在同一 Web 应用程序的多个组件中进行共享和访问。常见的共享域有四种：ServletContext、HttpSession、HttpServletRequest、PageContext。  ServletContext 共享域：ServletContext 对象可以在整个 Web 应用程序中共">
+    <meta name="description" content="SpringMVC响应数据handler方法分析123456789101112131415161718&#x2F;** * TODO: 一个controller的方法是控制层的一个处理器,我们称为handler * TODO: handler需要使用@RequestMapping&#x2F;@GetMapping系列,声明路径,在HandlerMapping中注册,供DS查找! * TODO: handler作用总结">
 <meta property="og:type" content="website">
-<meta property="og:title" content="6_共享域对象操作">
-<meta property="og:url" content="http://elaskon.asia/6_%E5%85%B1%E4%BA%AB%E5%9F%9F%E5%AF%B9%E8%B1%A1%E6%93%8D%E4%BD%9C.html">
+<meta property="og:title" content="7_SpringMVC响应数据">
+<meta property="og:url" content="http://elaskon.asia/7_SpringMVC%E5%93%8D%E5%BA%94%E6%95%B0%E6%8D%AE.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="共享域对象操作属性（共享）域作用在 JavaWeb 中，共享域指的是在 Servlet 中存储数据，以便在同一 Web 应用程序的多个组件中进行共享和访问。常见的共享域有四种：ServletContext、HttpSession、HttpServletRequest、PageContext。  ServletContext 共享域：ServletContext 对象可以在整个 Web 应用程序中共">
+<meta property="og:description" content="SpringMVC响应数据handler方法分析123456789101112131415161718&#x2F;** * TODO: 一个controller的方法是控制层的一个处理器,我们称为handler * TODO: handler需要使用@RequestMapping&#x2F;@GetMapping系列,声明路径,在HandlerMapping中注册,供DS查找! * TODO: handler作用总结">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20230919094104162.png">
-<meta property="article:published_time" content="2023-09-18T17:30:00.000Z">
-<meta property="article:modified_time" content="2023-09-19T01:57:53.300Z">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230919101141319.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230919132416221.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20230919140534242.png">
+<meta property="article:published_time" content="2023-09-19T00:30:00.000Z">
+<meta property="article:modified_time" content="2023-09-19T07:10:44.084Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://elaskon.asia/assets/image-20230919094104162.png">
+<meta name="twitter:image" content="http://elaskon.asia/assets/image-20230919101141319.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>6_共享域对象操作 - E-zg小破站</title>
+  <title>7_SpringMVC响应数据 - E-zg小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -221,7 +223,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="6_共享域对象操作"></span>
+            <span id="subtitle" data-typed-text="7_SpringMVC响应数据"></span>
           
         </div>
 
@@ -249,55 +251,21 @@
                 
 
 <article class="page-content">
-  <h1 id="共享域对象操作"><a href="#共享域对象操作" class="headerlink" title="共享域对象操作"></a>共享域对象操作</h1><h2 id="属性（共享）域作用"><a href="#属性（共享）域作用" class="headerlink" title="属性（共享）域作用"></a>属性（共享）域作用</h2><p>在 JavaWeb 中，共享域指的是在 Servlet 中存储数据，以便在同一 Web 应用程序的多个组件中进行共享和访问。常见的共享域有四种：ServletContext、HttpSession、HttpServletRequest、PageContext。</p>
-<ol>
-<li><code>ServletContext</code> 共享域：<code>ServletContext</code> 对象可以在整个 Web 应用程序中共享数据，是最大的共享域。一般可以用于保存整个 Web 应用程序的全局配置信息，以及所有用户都共享的数据。在 <code>ServletContext</code> 中保存的数据是线程安全的。</li>
-<li><code>HttpSession</code> 共享域：<code>HttpSession</code> 对象可以在同一用户发出的多个请求之间共享数据，但只能在同一个会话中使用。比如，可以将用户登录状态保存在 <code>HttpSession</code> 中，让用户在多个页面间保持登录状态。</li>
-<li><code>HttpServletRequest</code> 共享域：<code>HttpServletRequest</code> 对象可以在同一个请求的多个处理器方法之间共享数据。比如，可以将请求的参数和属性存储在 <code>HttpServletRequest</code> 中，让处理器方法之间可以访问这些数据。</li>
-<li><code>PageContext</code> 共享域：<code>PageContext</code> 对象是在 JSP 页面Servlet 创建时自动创建的。它可以在 JSP 的各个作用域中共享数据，包括<code>pageScope</code>、<code>requestScope</code>、<code>sessionScope</code>、<code>applicationScope</code> 等作用域。</li>
-</ol>
-<p>共享域的作用是提供了方便实用的方式在同一 Web 应用程序的多个组件之间传递数据，并且可以将数据保存在不同的共享域中，根据需要进行选择和使用。</p>
-<p><img src="/assets/image-20230919094104162.png" srcset="/img/loading.gif" lazyload alt="image-20230919094104162"></p>
-<h2 id="Request级别共享域"><a href="#Request级别共享域" class="headerlink" title="Request级别共享域"></a>Request级别共享域</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//    springmvc提供的方法：request</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">data1</span><span class="hljs-params">(Model model, ModelMap modelMap, Map map)</span>&#123;<br>        model.addAttribute(<span class="hljs-string">&quot;key1&quot;</span>,<span class="hljs-string">&quot;value1&quot;</span>);<br>        modelMap.addAttribute(<span class="hljs-string">&quot;key2&quot;</span>,<span class="hljs-string">&quot;value2&quot;</span>);<br>        map.put(<span class="hljs-string">&quot;key3&quot;</span>,<span class="hljs-string">&quot;value3&quot;</span>);<br>        <span class="hljs-type">ModelAndView</span> <span class="hljs-variable">modelAndView</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ModelAndView</span>();<br>        modelAndView.addObject(<span class="hljs-string">&quot;key4&quot;</span>,<span class="hljs-string">&quot;value4&quot;</span>);<br>        modelAndView.setViewName(<span class="hljs-string">&quot;mAv&quot;</span>);<br>    &#125;<br></code></pre></td></tr></table></figure>
+  <h1 id="SpringMVC响应数据"><a href="#SpringMVC响应数据" class="headerlink" title="SpringMVC响应数据"></a>SpringMVC响应数据</h1><h2 id="handler方法分析"><a href="#handler方法分析" class="headerlink" title="handler方法分析"></a>handler方法分析</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">TODO:</span> 一个controller的方法是控制层的一个处理器,我们称为handler</span><br><span class="hljs-comment"> * <span class="hljs-doctag">TODO:</span> handler需要使用<span class="hljs-doctag">@RequestMapping</span>/<span class="hljs-doctag">@GetMapping</span>系列,声明路径,在HandlerMapping中注册,供DS查找!</span><br><span class="hljs-comment"> * <span class="hljs-doctag">TODO:</span> handler作用总结:</span><br><span class="hljs-comment"> *       1.接收请求参数(param,json,pathVariable,共享域等) </span><br><span class="hljs-comment"> *       2.调用业务逻辑 </span><br><span class="hljs-comment"> *       3.响应前端数据(页面（不讲解模版页面跳转）,json,转发和重定向等)</span><br><span class="hljs-comment"> * <span class="hljs-doctag">TODO:</span> handler如何处理呢</span><br><span class="hljs-comment"> *       1.接收参数: handler(形参列表: 主要的作用就是用来接收参数)</span><br><span class="hljs-comment"> *       2.调用业务: &#123; 方法体  可以向后调用业务方法 service.xx() &#125;</span><br><span class="hljs-comment"> *       3.响应数据: return 返回结果,可以快速响应前端数据</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@GetMapping</span><br><span class="hljs-keyword">public</span> Object <span class="hljs-title function_">handler</span><span class="hljs-params">(简化请求参数接收)</span>&#123;<br>    调用业务方法<br>    返回的结果 （页面跳转，返回数据（json））<br>    <span class="hljs-keyword">return</span> 简化响应前端数据;<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<h2 id="页面跳转控制"><a href="#页面跳转控制" class="headerlink" title="页面跳转控制"></a>页面跳转控制</h2><h3 id="混合开发模式"><a href="#混合开发模式" class="headerlink" title="混合开发模式"></a>混合开发模式</h3><p><img src="/assets/image-20230919101141319.png" srcset="/img/loading.gif" lazyload alt="image-20230919101141319"></p>
+<p>指将前端和后端的代码集成在同一个项目中，共享相同的技术栈和框架。这种模式在小型项目中比较常见，可以减少学习成本和部署难度。但是，在大型项目中，这种模式会导致代码耦合性很高，维护和升级难度较大。</p>
+<p>对于混合开发，我们就需要使用动态页面技术，动态展示Java的共享域数据！！</p>
+<h3 id="前后端分离"><a href="#前后端分离" class="headerlink" title="前后端分离"></a>前后端分离</h3><p> <img src="/assets/image-20230919132416221.png" srcset="/img/loading.gif" lazyload alt="image-20230919132416221"></p>
+<h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>jakarta.servlet.jsp.jstl<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jakarta.servlet.jsp.jstl-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
+<p><img src="/assets/image-20230919140534242.png" srcset="/img/loading.gif" lazyload alt="image-20230919140534242"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@ComponentScan(&quot;com.jmin.controller&quot;)</span><br><span class="hljs-meta">@EnableWebMvc</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MvcConfig</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">WebMvcConfigurer</span> &#123;<br><span class="hljs-comment">//    视图解析器</span><br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">configureViewResolvers</span><span class="hljs-params">(ViewResolverRegistry registry)</span> &#123;<br><span class="hljs-comment">//        registry可以快速添加前后缀</span><br>        registry.jsp(<span class="hljs-string">&quot;/WEB-INF/views/&quot;</span>,<span class="hljs-string">&quot;.jsp&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>接收参数</p>
-<ol>
-<li><p>路径设置<br>@RequestMapping(value&#x3D;”地址”，method&#x3D;”请求方式”) 类 | 方法<br>@GetMapping&#x2F;@PostMapping方法</p>
-</li>
-<li><p>接收参数【重点】<br>param</p>
-<ul>
-<li><p>直接接收handler(类型形参名) 形参名&#x3D;请求参数名</p>
-</li>
-<li><p>注解指定handler(@RequestParam(name&#x3D;”请求参数名”，required&#x3D;true,defaultValue&#x3D;”默认值”)</p>
-</li>
-<li><p>一名多值handler(@RequestParam List key）</p>
-</li>
-<li><p>实体接收handler(实体对象)对象的属性名&#x3D;请求参数名</p>
-</li>
-</ul>
-<p>路径参数</p>
-<ul>
-<li>设置动态路径和标识&#x2F;{key}&#x2F;info&#x2F;{key}</li>
-<li>接收路径handler(@PathVariable(动态路径key)类型形参名)<br>JSON</li>
-<li>数据接收 handler(@RequestBody 实体类 对象)</li>
-<li>准备工作：</li>
-</ul>
-<ol>
-<li>导入jacksont依赖</li>
-<li>@EnableWebMvc[加入handlerMapping加入handlerAdapter给handlerAdapteri配置json处理器]</li>
-</ol>
-</li>
-<li><p>cookie接收<br>handler(@CookieValue(“cookie的名字”)</p>
-</li>
-<li><p>请求头接收<br>handler(@RequestHeader(“cookie的名字”)</p>
-</li>
-<li><p>原生api获取<br>handler(httpServletRequest,response,session)<br>ServletContext-&gt;ioc-&gt;全局变量@Autowired</p>
-</li>
-<li><p>共享域获取<br>原生api方式即可</p>
-</li>
-</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-meta">@RequestMapping(&quot;jsp&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">JSPController</span> &#123;<br>    <span class="hljs-meta">@GetMapping(&quot;index&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">index</span><span class="hljs-params">(HttpServletRequest request)</span>&#123;<br>        request.setAttribute(<span class="hljs-string">&quot;data&quot;</span>,<span class="hljs-string">&quot;hello jsp&quot;</span>);<br>        System.out.println(<span class="hljs-string">&quot;JSPController.index&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;index&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;%@ page contentType=<span class="hljs-string">&quot;text/html;charset=UTF-8&quot;</span> language=<span class="hljs-string">&quot;java&quot;</span> %&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>    &lt;title&gt;Title&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;h1&gt;$&#123;data&#125;&lt;/h1&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br><br></code></pre></td></tr></table></figure>
+
 
 
   
