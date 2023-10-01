@@ -41,8 +41,11 @@
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231001110335219.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231001112254074.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231001112342272.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231001155108551.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231002013930510.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231002013950593.png">
 <meta property="article:published_time" content="2023-10-09T01:55:43.000Z">
-<meta property="article:modified_time" content="2023-10-01T03:28:46.575Z">
+<meta property="article:modified_time" content="2023-10-01T17:41:54.021Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://elaskon.asia/assets/image-20230930105550558.png">
@@ -267,7 +270,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.7k 字
+          9.7k 字
         
       </span>
     
@@ -278,7 +281,7 @@
         
         
         
-          56 分钟
+          81 分钟
         
       </span>
     
@@ -328,7 +331,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年10月1日 上午
+                    本文最后更新于：2023年10月2日 凌晨
                   
                 
               </p>
@@ -477,6 +480,53 @@
 <li>provide提供的简单类型的数据不是响应式的，复杂类型数据是响应式。（推荐提供复杂类型数据）</li>
 <li>子&#x2F;孙组件通过inject获取的数据，不能在自身组件内修改</li>
 </ul>
+<h2 id="v-model原理"><a href="#v-model原理" class="headerlink" title="v-model原理"></a>v-model原理</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>v-model本质上是一个语法糖。例如应用在输入框上，就是value属性 和 input事件 的合写</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;div id=&quot;app&quot; &gt;<br>    &lt;input v-model=&quot;msg&quot; type=&quot;text&quot;&gt;<br><br>    &lt;input :value=&quot;msg&quot; @input=&quot;msg = $event.target.value&quot; type=&quot;text&quot;&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h3><p>提供数据的双向绑定</p>
+<ul>
+<li>数据变，视图跟着变 :value</li>
+<li>视图变，数据跟着变 @input</li>
+</ul>
+<h3 id="注意-2"><a href="#注意-2" class="headerlink" title="注意"></a>注意</h3><p><strong>$event</strong> 用于在模板中，获取事件的形参</p>
+<h2 id="表单类组件封装"><a href="#表单类组件封装" class="headerlink" title="表单类组件封装"></a>表单类组件封装</h2><h3 id="需求目标"><a href="#需求目标" class="headerlink" title="需求目标"></a>需求目标</h3><p>实现子组件和父组件数据的双向绑定 （实现App.vue中的selectId和子组件选中的数据进行双向绑定）</p>
+<h3 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h3><p>App.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;div class=&quot;app&quot;&gt;<br>    &lt;BaseSelect v-model=&quot;selectId&quot;&gt;&lt;/BaseSelect&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;script&gt;<br>import BaseSelect from &#x27;./components/BaseSelect.vue&#x27;<br>export default &#123;<br>  data() &#123;<br>    return &#123;<br>      selectId: &#x27;102&#x27;,<br>    &#125;<br>  &#125;,<br>  components: &#123;<br>    BaseSelect,<br>  &#125;,<br>&#125;<br>&lt;/script&gt;<br><br>&lt;style&gt;<br>&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+
+<p>BaseSelect.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;div&gt;<br>    &lt;select :value=&quot;value&quot; @change=&quot;handlerChange&quot;&gt;<br>      &lt;option value=&quot;101&quot;&gt;北京&lt;/option&gt;<br>      &lt;option value=&quot;102&quot;&gt;上海&lt;/option&gt;<br>      &lt;option value=&quot;103&quot;&gt;武汉&lt;/option&gt;<br>      &lt;option value=&quot;104&quot;&gt;广州&lt;/option&gt;<br>      &lt;option value=&quot;105&quot;&gt;深圳&lt;/option&gt;<br>    &lt;/select&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br>  <br>  &lt;script&gt;<br>export default &#123;<br>  props: &#123;<br>    value: String,<br>  &#125;,<br>  methods: &#123;<br>    handlerChange(e) &#123;<br>      this.$emit(&quot;input&quot;, e.target.value);<br>    &#125;,<br>  &#125;,<br>&#125;;<br>&lt;/script&gt;<br>  <br>  &lt;style&gt;<br>&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="sync修饰符"><a href="#sync修饰符" class="headerlink" title=".sync修饰符"></a>.sync修饰符</h2><h3 id="作用-3"><a href="#作用-3" class="headerlink" title="作用"></a>作用</h3><p>可以实现 <strong>子组件</strong> 与 <strong>父组件数据</strong> 的 <strong>双向绑定</strong>，简化代码</p>
+<p>简单理解：<strong>子组件可以修改父组件传过来的props值</strong></p>
+<h3 id="场景-1"><a href="#场景-1" class="headerlink" title="场景"></a>场景</h3><p>封装弹框类的基础组件， visible属性 true显示 false隐藏</p>
+<h3 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h3><p>.sync修饰符 就是 <strong>:属性名</strong> 和 <strong>@update:属性名</strong> 合写</p>
+<h3 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h3><p>父组件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs vue">//.sync写法<br>&lt;BaseDialog :visible.sync=&quot;isShow&quot; /&gt;<br>--------------------------------------<br>//完整写法<br>&lt;BaseDialog <br>  :visible=&quot;isShow&quot; <br>  @update:visible=&quot;isShow = $event&quot; <br>/&gt;<br></code></pre></td></tr></table></figure>
+
+<p>子组件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs vue">props: &#123;<br>  visible: Boolean<br>&#125;,<br><br>this.$emit(&#x27;update:visible&#x27;, false)<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="ref和-refs"><a href="#ref和-refs" class="headerlink" title="ref和$refs"></a>ref和$refs</h2><h3 id="1-作用"><a href="#1-作用" class="headerlink" title="1.作用"></a>1.作用</h3><p>利用ref 和 $refs 可以用于 获取 dom 元素 或 组件实例</p>
+<h3 id="2-特点"><a href="#2-特点" class="headerlink" title="2.特点"></a>2.特点</h3><p>查找范围 →  当前组件内(更精确稳定)</p>
+<h3 id="3-语法"><a href="#3-语法" class="headerlink" title="3.语法"></a>3.语法</h3><p>1.给要获取的盒子添加ref属性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;chartRef&quot;</span>&gt;</span>我是渲染图表的容器<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>2.获取时通过 $refs获取  this.$refs.chartRef 获取</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html">mounted () &#123;<br>  console.log(this.$refs.chartRef)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-注意"><a href="#4-注意" class="headerlink" title="4.注意"></a>4.注意</h3><p>之前只用document.querySelect(‘.box’) 获取的是整个页面中的盒子</p>
+<h2 id="异步更新-nextTick"><a href="#异步更新-nextTick" class="headerlink" title="异步更新 &amp; $nextTick"></a>异步更新 &amp; $nextTick</h2><h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>编辑标题,  编辑框自动聚焦</p>
+<ol>
+<li>点击编辑，显示编辑框</li>
+<li>让编辑框，立刻获取焦点</li>
+</ol>
+<p><img src="/assets/image-20231001155108551.png" srcset="/img/loading.gif" lazyload alt="image-20231001155108551"></p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;div class=&quot;app&quot;&gt;<br>    &lt;div v-if=&quot;isShowEdit&quot;&gt;<br>      &lt;input type=&quot;text&quot; v-model=&quot;editValue&quot; ref=&quot;inp&quot; /&gt;<br>      &lt;button&gt;确认&lt;/button&gt;<br>    &lt;/div&gt;<br>    &lt;div v-else&gt;<br>      &lt;span&gt;&#123;&#123; title &#125;&#125;&lt;/span&gt;<br>      &lt;button @click=&quot;editFn&quot;&gt;编辑&lt;/button&gt;<br>    &lt;/div&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;script&gt;<br>export default &#123;<br>  data() &#123;<br>    return &#123;<br>      title: &#x27;大标题&#x27;,<br>      isShowEdit: false,<br>      editValue: &#x27;&#x27;,<br>    &#125;<br>  &#125;,<br>  methods: &#123;<br>    editFn() &#123;<br>        // 显示输入框<br>        this.isShowEdit = true  <br>        // 获取焦点,$nextTick等dom更新结束,立刻执行函数体<br>        this.$nextTick(()=&gt;&#123;<br>          this.$refs.inp.focus() <br>        &#125;)<br>    &#125;  &#125;,<br>&#125;<br>&lt;/script&gt; <br></code></pre></td></tr></table></figure>
+
+<h2 id="插槽"><a href="#插槽" class="headerlink" title="插槽"></a>插槽</h2><p><img src="/assets/image-20231002013930510.png" srcset="/img/loading.gif" lazyload alt="image-20231002013930510"></p>
+<p><img src="/assets/image-20231002013950593.png" srcset="/img/loading.gif" lazyload alt="image-20231002013950593"></p>
 
                 
               </div>
