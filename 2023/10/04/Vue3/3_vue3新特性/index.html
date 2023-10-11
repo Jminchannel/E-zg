@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231004011234893.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231004011722737.png">
 <meta property="article:published_time" content="2023-10-03T16:21:43.000Z">
-<meta property="article:modified_time" content="2023-10-03T17:19:22.680Z">
+<meta property="article:modified_time" content="2023-10-11T16:09:02.474Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://elaskon.asia/assets/image-20231004005431165.png">
@@ -254,7 +254,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          1.8k 字
         
       </span>
     
@@ -265,7 +265,7 @@
         
         
         
-          14 分钟
+          15 分钟
         
       </span>
     
@@ -315,7 +315,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年10月4日 凌晨
+                    本文最后更新于：2023年10月12日 凌晨
                   
                 
               </p>
@@ -332,6 +332,7 @@
 <p>如果我们要定义组件的 name 或其他自定义的属性，还是得回到最原始的用法——再添加一个普通的 <script> 标签。</p>
 <p>这样就会存在两个 <script> 标签。让人无法接受。</p>
 </blockquote>
+<p>举个例子，当我们在views/login文件夹中创建了index.vue，需要在script中标识组件名，但是setup下的script无法标识组件名，因此需要再定义一个script标签中expose default{ name:组件名 }，或者在setup下的script中定义defineOptions({ name:组件名 })</p>
 <p><img src="/assets/image-20231004005431165.png" srcset="/img/loading.gif" lazyload alt="image-20231004005431165"></p>
 <p>Vue 3.3 中新引入了 defineOptions 宏。顾名思义，主要是用来定义 Options API 的选项。可以用 defineOptions 定义任意的选项， props, emits, expose, slots 除外（因为这些可以使用 defineXXX 来做到）</p>
 <p><img src="/assets/image-20231004005745141.png" srcset="/img/loading.gif" lazyload alt="image-20231004005745141"></p>
