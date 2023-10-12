@@ -16,12 +16,12 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="vue3新特性defineOptions背景说明  有  之前，如果要定义 props, emits 可以轻而易举地添加一个与 setup 平级的属性。  但是用了  后，就没法这么干了 setup 属性已经没有了，自然无法添加与其平级的属性。  为了解决这一问题，引入了 defineProps 与 defineEmits 这两个宏。但这只解决了 props 与 emits 这两个属性。 如果我们">
+    <meta name="description" content="vue3新特性defineOptions背景说明  有 &lt;script setup&gt; 之前，如果要定义 props, emits 可以轻而易举地添加一个与 setup 平级的属性。  但是用了&lt;script setup&gt; 后，就没法这么干了 setup 属性已经没有了，自然无法添加与其平级的属性。  为了解决这一问题，引入了 defineProps 与 defineEmit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="3_vue3新特性">
 <meta property="og:url" content="http://elaskon.asia/2023/10/04/Vue3/3_vue3%E6%96%B0%E7%89%B9%E6%80%A7/index.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="vue3新特性defineOptions背景说明  有  之前，如果要定义 props, emits 可以轻而易举地添加一个与 setup 平级的属性。  但是用了  后，就没法这么干了 setup 属性已经没有了，自然无法添加与其平级的属性。  为了解决这一问题，引入了 defineProps 与 defineEmits 这两个宏。但这只解决了 props 与 emits 这两个属性。 如果我们">
+<meta property="og:description" content="vue3新特性defineOptions背景说明  有 &lt;script setup&gt; 之前，如果要定义 props, emits 可以轻而易举地添加一个与 setup 平级的属性。  但是用了&lt;script setup&gt; 后，就没法这么干了 setup 属性已经没有了，自然无法添加与其平级的属性。  为了解决这一问题，引入了 defineProps 与 defineEmit">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231004005431165.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231004005745141.png">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231004011234893.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231004011722737.png">
 <meta property="article:published_time" content="2023-10-03T16:21:43.000Z">
-<meta property="article:modified_time" content="2023-10-11T16:09:02.474Z">
+<meta property="article:modified_time" content="2023-10-12T00:32:10.115Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://elaskon.asia/assets/image-20231004005431165.png">
@@ -254,7 +254,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          1.9k 字
         
       </span>
     
@@ -265,7 +265,7 @@
         
         
         
-          15 分钟
+          16 分钟
         
       </span>
     
@@ -315,7 +315,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年10月12日 凌晨
+                    本文最后更新于：2023年10月12日 早上
                   
                 
               </p>
@@ -325,14 +325,14 @@
                 
                 <h1 id="vue3新特性"><a href="#vue3新特性" class="headerlink" title="vue3新特性"></a>vue3新特性</h1><h2 id="defineOptions"><a href="#defineOptions" class="headerlink" title="defineOptions"></a>defineOptions</h2><p>背景说明</p>
 <blockquote>
-<p>有 <script setup> 之前，如果要定义 props, emits 可以轻而易举地添加一个与 setup 平级的属性。 </p>
-<p>但是用了 <script setup> 后，就没法这么干了 setup 属性已经没有了，自然无法添加与其平级的属性。</p>
+<p>有 <code>&lt;script setup&gt;</code> 之前，如果要定义 props, emits 可以轻而易举地添加一个与 setup 平级的属性。 </p>
+<p>但是用了<code>&lt;script setup&gt;</code> 后，就没法这么干了 setup 属性已经没有了，自然无法添加与其平级的属性。</p>
 <hr>
 <p>为了解决这一问题，引入了 defineProps 与 defineEmits 这两个宏。但这只解决了 props 与 emits 这两个属性。</p>
-<p>如果我们要定义组件的 name 或其他自定义的属性，还是得回到最原始的用法——再添加一个普通的 <script> 标签。</p>
-<p>这样就会存在两个 <script> 标签。让人无法接受。</p>
+<p>如果我们要定义组件的 name 或其他自定义的属性，还是得回到最原始的用法——再添加一个普通的 <code>&lt;script&gt;</code> 标签。</p>
+<p>这样就会存在两个 <code>&lt;script&gt;</code> 标签。让人无法接受。</p>
 </blockquote>
-<p>举个例子，当我们在views/login文件夹中创建了index.vue，需要在script中标识组件名，但是setup下的script无法标识组件名，因此需要再定义一个script标签中expose default{ name:组件名 }，或者在setup下的script中定义defineOptions({ name:组件名 })</p>
+<p>举个例子，当我们在views&#x2F;login文件夹中创建了index.vue，需要在script中标识组件名，但是setup下的script无法标识组件名，因此需要再定义一个script标签中expose default{ name:组件名 }，或者在setup下的script中定义defineOptions({ name:组件名 })</p>
 <p><img src="/assets/image-20231004005431165.png" srcset="/img/loading.gif" lazyload alt="image-20231004005431165"></p>
 <p>Vue 3.3 中新引入了 defineOptions 宏。顾名思义，主要是用来定义 Options API 的选项。可以用 defineOptions 定义任意的选项， props, emits, expose, slots 除外（因为这些可以使用 defineXXX 来做到）</p>
 <p><img src="/assets/image-20231004005745141.png" srcset="/img/loading.gif" lazyload alt="image-20231004005745141"></p>
@@ -351,7 +351,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;script setup&gt;<br>import myinput from &#x27;@/components/myInput.vue&#x27;<br>import &#123;ref&#125; from &quot;vue&quot;;<br>const txt = ref(null)<br>&lt;/script&gt;<br>&lt;template&gt;<br>  &lt;div&gt;<br>    &lt;myinput v-model=&quot;txt&quot;/&gt;<br>    &#123;&#123;txt&#125;&#125;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br></code></pre></td></tr></table></figure>
 
 <p><img src="/assets/image-20231004011722737.png" srcset="/img/loading.gif" lazyload alt="image-20231004011722737"></p>
-</script></p></blockquote>
+
                 
               </div>
             
