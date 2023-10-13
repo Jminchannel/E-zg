@@ -48,7 +48,7 @@
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231005202216107.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231005202223565.png">
 <meta property="article:published_time" content="2023-10-04T23:41:43.000Z">
-<meta property="article:modified_time" content="2023-10-12T17:09:53.301Z">
+<meta property="article:modified_time" content="2023-10-13T02:10:55.097Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://elaskon.asia/assets/image-20231005083233815.png">
@@ -334,7 +334,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年10月13日 凌晨
+                    本文最后更新于：2023年10月13日 上午
                   
                 
               </p>
@@ -379,7 +379,7 @@
 </li>
 <li><p>vue组件名称多单词组成（忽略index.vue）</p>
 </li>
-<li><p>props解构（关闭）因为结构会丢失响应</p>
+<li><p>props解构（关闭）因为结构会丢失响应！！！</p>
 </li>
 </ol>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-attr">rules</span>: &#123;<br>  <span class="hljs-string">&#x27;prettier/prettier&#x27;</span>: [<br>    <span class="hljs-string">&#x27;warn&#x27;</span>,<br>    &#123;<br>      <span class="hljs-attr">singleQuote</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 单引号</span><br>      <span class="hljs-attr">semi</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 无分号</span><br>      <span class="hljs-attr">printWidth</span>: <span class="hljs-number">80</span>, <span class="hljs-comment">// 每行宽度至多80字符</span><br>      <span class="hljs-attr">trailingComma</span>: <span class="hljs-string">&#x27;none&#x27;</span>, <span class="hljs-comment">// 不加对象|数组最后逗号</span><br>      <span class="hljs-attr">endOfLine</span>: <span class="hljs-string">&#x27;auto&#x27;</span> <span class="hljs-comment">// 换行符号不限制（win mac 不一致）</span><br>    &#125;<br>  ],<br>  <span class="hljs-string">&#x27;vue/multi-word-component-names&#x27;</span>: [<br>    <span class="hljs-string">&#x27;warn&#x27;</span>,<br>    &#123;<br>      <span class="hljs-attr">ignores</span>: [<span class="hljs-string">&#x27;index&#x27;</span>] <span class="hljs-comment">// vue组件名称多单词组成（忽略index.vue）</span><br>    &#125;<br>  ],<br>  <span class="hljs-string">&#x27;vue/no-setup-props-destructure&#x27;</span>: [<span class="hljs-string">&#x27;off&#x27;</span>], <span class="hljs-comment">// 关闭 props 解构的校验</span><br>  <span class="hljs-comment">// 💡 添加未定义变量错误提示，create-vue@3.6.3 关闭，这里加上是为了支持下一个章节演示。</span><br>  <span class="hljs-string">&#x27;no-undef&#x27;</span>: <span class="hljs-string">&#x27;error&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
