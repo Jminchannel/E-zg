@@ -16,29 +16,27 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="项目准备前端环境搭建前端：移动到非中文目录下，双击 nginx.exe 即可启动 nginx 服务，访问端口号为 80  sky目录中存放了管理端的前端资源   导入springboot项目思路：导入模块，创建新模块，替换pom 后端环境搭建后端工程基于 maven 进行项目构建，并且进行分模块开发。   对工程的每个模块作用说明：    序号 名称 说明    1 sky-take-out ma">
+    <meta name="description" content="项目准备前端环境搭建前端：移动到非中文目录下，双击 nginx.exe 即可启动 nginx 服务，访问端口号为 80  sky目录中存放了管理端的前端资源   导入springboot项目思路：导入模块，创建新模块，替换pom 后端环境搭建后端工程基于 maven 进行项目构建，并且进行分模块开发。  对工程的每个模块作用说明：    序号 名称 说明    1 sky-take-out mav">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1_项目准备">
 <meta property="og:url" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/index.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="项目准备前端环境搭建前端：移动到非中文目录下，双击 nginx.exe 即可启动 nginx 服务，访问端口号为 80  sky目录中存放了管理端的前端资源   导入springboot项目思路：导入模块，创建新模块，替换pom 后端环境搭建后端工程基于 maven 进行项目构建，并且进行分模块开发。   对工程的每个模块作用说明：    序号 名称 说明    1 sky-take-out ma">
+<meta property="og:description" content="项目准备前端环境搭建前端：移动到非中文目录下，双击 nginx.exe 即可启动 nginx 服务，访问端口号为 80  sky目录中存放了管理端的前端资源   导入springboot项目思路：导入模块，创建新模块，替换pom 后端环境搭建后端工程基于 maven 进行项目构建，并且进行分模块开发。  对工程的每个模块作用说明：    序号 名称 说明    1 sky-take-out mav">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231015163832036.png">
-<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015163946622.png">
-<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015164041357.png">
-<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015164302541.png">
-<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/canqiong_takeaway/%E8%AE%B2%E4%B9%89/day01/assets/image-20221107094611987.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231016150153131.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231016150209919.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231016150227910.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231016150248991.png">
 <meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/canqiong_takeaway/%E8%AE%B2%E4%B9%89/day01/assets/image-20221107094852361.png">
-<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015164833653.png">
-<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015164943617.png">
-<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015165516246.png">
-<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015170020797.png">
-<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015170218055.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231016150323413.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231016150344096.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231016150353957.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231015170630515.png">
-<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015170802108.png">
-<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015170852206.png">
-<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015170933414.png">
-<meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015171143148.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231016150410660.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231016150420050.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231016150427568.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231016150444452.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231015225732267.png">
 <meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015233309162.png">
 <meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015231026583.png">
@@ -62,7 +60,7 @@
 <meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231016115318107.png">
 <meta property="og:image" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231016115350204.png">
 <meta property="article:published_time" content="2023-10-15T06:55:43.000Z">
-<meta property="article:modified_time" content="2023-10-16T03:55:43.995Z">
+<meta property="article:modified_time" content="2023-10-16T07:05:30.593Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://elaskon.asia/assets/image-20231015163832036.png">
@@ -348,7 +346,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年10月16日 中午
+                    本文最后更新于：2023年10月16日 下午
                   
                 
               </p>
@@ -359,12 +357,11 @@
                 <h1 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h1><h2 id="前端环境搭建"><a href="#前端环境搭建" class="headerlink" title="前端环境搭建"></a>前端环境搭建</h2><p>前端：移动到<strong>非中文目录</strong>下，双击 nginx.exe 即可启动 nginx 服务，访问端口号为 80</p>
 <p><img src="/assets/image-20231015163832036.png" srcset="/img/loading.gif" lazyload alt="image-20231015163832036"></p>
 <p><strong>sky</strong>目录中存放了管理端的前端资源</p>
-<img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015163946622.png" srcset="/img/loading.gif" lazyload alt="image-20231015163946622" style="zoom:33%;">
+<img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231016150153131.png" srcset="/img/loading.gif" lazyload alt="image-20231016150153131" style="zoom:50%;">
 
 <p>导入springboot项目思路：导入模块，创建新模块，替换pom</p>
 <h2 id="后端环境搭建"><a href="#后端环境搭建" class="headerlink" title="后端环境搭建"></a>后端环境搭建</h2><p>后端工程基于 maven 进行项目构建，并且进行分模块开发。</p>
-<img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015164041357.png" srcset="/img/loading.gif" lazyload alt="image-20231015164041357" style="zoom:50%;">
-
+<p><img src="/assets/image-20231016150209919.png" srcset="/img/loading.gif" lazyload alt="image-20231016150209919"></p>
 <p>对工程的每个模块作用说明：</p>
 <table>
 <thead>
@@ -397,7 +394,7 @@
 </tbody></table>
 <p>对项目整体结构了解后，接下来我们详细分析上述的每个子模块：</p>
 <p><strong>sky-common:</strong> 模块中存放的是一些公共类，可以供其他模块使用</p>
-<img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015164302541.png" srcset="/img/loading.gif" lazyload alt="image-20231015164302541" style="zoom:50%;">
+<img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231016150227910.png" srcset="/img/loading.gif" lazyload alt="image-20231016150227910" style="zoom:50%;">
 
 <ul>
 <li><p>分析sky-common模块的每个包的作用：</p>
@@ -443,7 +440,7 @@
 </tbody></table>
 </li>
 <li><p><strong>sky-pojo:</strong> 模块中存放的是一些 entity、DTO、VO</p>
-<img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/../canqiong_takeaway/讲义/day01/assets/image-20221107094611987.png" srcset="/img/loading.gif" lazyload alt="image-20221107094611987" style="zoom: 50%;">
+<img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231016150248991.png" srcset="/img/loading.gif" lazyload alt="image-20231016150248991" style="zoom:50%;">
 
 <p>分析sky-pojo模块的每个包的作用：</p>
 <table>
@@ -510,29 +507,21 @@
 </li>
 </ul>
 <h2 id="Git版本控制"><a href="#Git版本控制" class="headerlink" title="Git版本控制"></a>Git版本控制</h2><p>创建Git本地仓库</p>
-<p><img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015164833653.png" srcset="/img/loading.gif" lazyload alt="image-20231015164833653" style="zoom:50%;"><img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015164943617.png" srcset="/img/loading.gif" lazyload alt="image-20231015164943617" style="zoom:33%;"></p>
-<img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015165516246.png" srcset="/img/loading.gif" lazyload alt="image-20231015165516246" style="zoom:50%;">
-
+<p><img src="/assets/image-20231016150323413.png" srcset="/img/loading.gif" lazyload alt="image-20231016150323413"></p>
 <p>本地仓库创建成功。</p>
 <p>.gitignore文件是忽略推送相关文件的模板</p>
-<img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015170020797.png" srcset="/img/loading.gif" lazyload alt="image-20231015170020797" style="zoom: 33%;">
-
+<p><img src="/assets/image-20231016150344096.png" srcset="/img/loading.gif" lazyload alt="image-20231016150344096"></p>
 <p>尝试提交代码到git本地仓库</p>
-<img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015170218055.png" srcset="/img/loading.gif" lazyload alt="image-20231015170218055" style="zoom:50%;">
-
+<p><img src="/assets/image-20231016150353957.png" srcset="/img/loading.gif" lazyload alt="image-20231016150353957"></p>
 <p>gitee创建私有仓库</p>
 <p><img src="/assets/image-20231015170630515.png" srcset="/img/loading.gif" lazyload alt="image-20231015170630515"></p>
 <p><a target="_blank" rel="noopener" href="https://gitee.com/xin-sanmu-Ming/canqiong_takeout.git%E5%BE%97%E5%88%B0git%E5%9C%B0%E5%9D%80">https://gitee.com/xin-sanmu-Ming/canqiong_takeout.git得到git地址</a></p>
-<img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015170802108.png" srcset="/img/loading.gif" lazyload alt="image-20231015170802108" style="zoom:33%;">
-
-<img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015170852206.png" srcset="/img/loading.gif" lazyload alt="image-20231015170852206" style="zoom:50%;">
-
-<img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015170933414.png" srcset="/img/loading.gif" lazyload alt="image-20231015170933414" style="zoom: 50%;">
-
+<p><img src="/assets/image-20231016150410660.png" srcset="/img/loading.gif" lazyload alt="image-20231016150410660"></p>
+<p><img src="/assets/image-20231016150420050.png" srcset="/img/loading.gif" lazyload alt="image-20231016150420050"></p>
+<p><img src="/assets/image-20231016150427568.png" srcset="/img/loading.gif" lazyload alt="image-20231016150427568"></p>
 <p>推送成功！！！</p>
 <h2 id="数据库环境搭建"><a href="#数据库环境搭建" class="headerlink" title="数据库环境搭建"></a>数据库环境搭建</h2><p>数据库建表语句创建数据库表结构</p>
-<img src="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/image-20231015171143148.png" srcset="/img/loading.gif" lazyload alt="image-20231015171143148" style="zoom:50%;">
-
+<p><img src="/assets/image-20231016150444452.png" srcset="/img/loading.gif" lazyload alt="image-20231016150444452"></p>
 <h2 id="前后端联调测试"><a href="#前后端联调测试" class="headerlink" title="前后端联调测试"></a>前后端联调测试</h2><p>后端compile编译 略</p>
 <p>后端初始功能实现了登录功能</p>
 <p>思路：<img src="/assets/image-20231015225732267.png" srcset="/img/loading.gif" lazyload alt="image-20231015225732267"></p>
