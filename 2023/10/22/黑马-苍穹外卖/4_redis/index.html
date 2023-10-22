@@ -16,23 +16,31 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="数据库设计文档   序号 数据表名 中文名称    1 employee 员工表   2 category 分类表   3 dish 菜品表   4 dish_flavor 菜品口味表   5 setmeal 套餐表   6 setmeal_dish 套餐菜品关系表   7 user 用户表   8 address_book 地址表   9 shopping_cart 购物车表   10 orde">
+    <meta name="description" content="Redis基础Redis入门Redis是一个基于内存的key-value结构数据库 Mysql是以数据文件形式存储于磁盘上，而Redis处于内存存储 优势 基于内存存储，读写性能高 适合存储热点数据（热点商品，资讯，新闻）  中文网：https:&#x2F;&#x2F;www.redis.net.cn&#x2F; windows安装  Redis数据类型 解释说明：  字符串(string)：普通字符串，Redis中最简单的数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2_数据库设计文档">
-<meta property="og:url" content="http://elaskon.asia/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/2_%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:title" content="4_redis使用">
+<meta property="og:url" content="http://elaskon.asia/2023/10/22/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/4_redis/index.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="数据库设计文档   序号 数据表名 中文名称    1 employee 员工表   2 category 分类表   3 dish 菜品表   4 dish_flavor 菜品口味表   5 setmeal 套餐表   6 setmeal_dish 套餐菜品关系表   7 user 用户表   8 address_book 地址表   9 shopping_cart 购物车表   10 orde">
+<meta property="og:description" content="Redis基础Redis入门Redis是一个基于内存的key-value结构数据库 Mysql是以数据文件形式存储于磁盘上，而Redis处于内存存储 优势 基于内存存储，读写性能高 适合存储热点数据（热点商品，资讯，新闻）  中文网：https:&#x2F;&#x2F;www.redis.net.cn&#x2F; windows安装  Redis数据类型 解释说明：  字符串(string)：普通字符串，Redis中最简单的数">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-10-15T08:55:43.000Z">
-<meta property="article:modified_time" content="2023-10-15T09:39:17.514Z">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231022203112625.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231022203516570.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231022214213769.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231022221052201.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231022221058522.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231022223856427.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231022223928509.png">
+<meta property="article:published_time" content="2023-10-22T10:55:43.000Z">
+<meta property="article:modified_time" content="2023-10-22T15:12:11.730Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://elaskon.asia/assets/image-20231022203112625.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>2_数据库设计文档 - E-zg小破站</title>
+  <title>4_redis使用 - E-zg小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -225,7 +233,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="2_数据库设计文档"></span>
+            <span id="subtitle" data-typed-text="4_redis使用"></span>
           
         </div>
 
@@ -236,8 +244,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-15 16:55" pubdate>
-          2023年10月15日 下午
+        <time datetime="2023-10-22 18:55" pubdate>
+          2023年10月22日 晚上
         </time>
       </span>
     
@@ -248,7 +256,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.4k 字
+          1.6k 字
         
       </span>
     
@@ -259,7 +267,7 @@
         
         
         
-          29 分钟
+          14 分钟
         
       </span>
     
@@ -304,12 +312,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">2_数据库设计文档</h1>
+            <h1 id="seo-header">4_redis使用</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年10月15日 下午
+                    本文最后更新于：2023年10月22日 晚上
                   
                 
               </p>
@@ -317,899 +325,81 @@
             
               <div class="markdown-body">
                 
-                <h1 id="数据库设计文档"><a href="#数据库设计文档" class="headerlink" title="数据库设计文档"></a>数据库设计文档</h1><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>数据表名</th>
-<th>中文名称</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>employee</td>
-<td>员工表</td>
-</tr>
-<tr>
-<td>2</td>
-<td>category</td>
-<td>分类表</td>
-</tr>
-<tr>
-<td>3</td>
-<td>dish</td>
-<td>菜品表</td>
-</tr>
-<tr>
-<td>4</td>
-<td>dish_flavor</td>
-<td>菜品口味表</td>
-</tr>
-<tr>
-<td>5</td>
-<td>setmeal</td>
-<td>套餐表</td>
-</tr>
-<tr>
-<td>6</td>
-<td>setmeal_dish</td>
-<td>套餐菜品关系表</td>
-</tr>
-<tr>
-<td>7</td>
-<td>user</td>
-<td>用户表</td>
-</tr>
-<tr>
-<td>8</td>
-<td>address_book</td>
-<td>地址表</td>
-</tr>
-<tr>
-<td>9</td>
-<td>shopping_cart</td>
-<td>购物车表</td>
-</tr>
-<tr>
-<td>10</td>
-<td>orders</td>
-<td>订单表</td>
-</tr>
-<tr>
-<td>11</td>
-<td>order_detail</td>
-<td>订单明细表</td>
-</tr>
-</tbody></table>
-<h3 id="1-employee"><a href="#1-employee" class="headerlink" title="1. employee"></a>1. employee</h3><p>employee表为员工表，用于存储商家内部的员工信息。具体表结构如下：</p>
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>数据类型</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>bigint</td>
-<td>主键</td>
-<td>自增</td>
-</tr>
-<tr>
-<td>name</td>
-<td>varchar(32)</td>
-<td>姓名</td>
-<td></td>
-</tr>
-<tr>
-<td>username</td>
-<td>varchar(32)</td>
-<td>用户名</td>
-<td>唯一</td>
-</tr>
-<tr>
-<td>password</td>
-<td>varchar(64)</td>
-<td>密码</td>
-<td></td>
-</tr>
-<tr>
-<td>phone</td>
-<td>varchar(11)</td>
-<td>手机号</td>
-<td></td>
-</tr>
-<tr>
-<td>sex</td>
-<td>varchar(2)</td>
-<td>性别</td>
-<td></td>
-</tr>
-<tr>
-<td>id_number</td>
-<td>varchar(18)</td>
-<td>身份证号</td>
-<td></td>
-</tr>
-<tr>
-<td>status</td>
-<td>int</td>
-<td>账号状态</td>
-<td>1正常 0锁定</td>
-</tr>
-<tr>
-<td>create_time</td>
-<td>datetime</td>
-<td>创建时间</td>
-<td></td>
-</tr>
-<tr>
-<td>update_time</td>
-<td>datetime</td>
-<td>最后修改时间</td>
-<td></td>
-</tr>
-<tr>
-<td>create_user</td>
-<td>bigint</td>
-<td>创建人id</td>
-<td></td>
-</tr>
-<tr>
-<td>update_user</td>
-<td>bigint</td>
-<td>最后修改人id</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="2-category"><a href="#2-category" class="headerlink" title="2. category"></a>2. category</h3><p>category表为分类表，用于存储商品的分类信息。具体表结构如下：</p>
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>数据类型</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>bigint</td>
-<td>主键</td>
-<td>自增</td>
-</tr>
-<tr>
-<td>name</td>
-<td>varchar(32)</td>
-<td>分类名称</td>
-<td>唯一</td>
-</tr>
-<tr>
-<td>type</td>
-<td>int</td>
-<td>分类类型</td>
-<td>1菜品分类  2套餐分类</td>
-</tr>
-<tr>
-<td>sort</td>
-<td>int</td>
-<td>排序字段</td>
-<td>用于分类数据的排序</td>
-</tr>
-<tr>
-<td>status</td>
-<td>int</td>
-<td>状态</td>
-<td>1启用 0禁用</td>
-</tr>
-<tr>
-<td>create_time</td>
-<td>datetime</td>
-<td>创建时间</td>
-<td></td>
-</tr>
-<tr>
-<td>update_time</td>
-<td>datetime</td>
-<td>最后修改时间</td>
-<td></td>
-</tr>
-<tr>
-<td>create_user</td>
-<td>bigint</td>
-<td>创建人id</td>
-<td></td>
-</tr>
-<tr>
-<td>update_user</td>
-<td>bigint</td>
-<td>最后修改人id</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="3-dish"><a href="#3-dish" class="headerlink" title="3. dish"></a>3. dish</h3><p>dish表为菜品表，用于存储菜品的信息。具体表结构如下：</p>
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>数据类型</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>bigint</td>
-<td>主键</td>
-<td>自增</td>
-</tr>
-<tr>
-<td>name</td>
-<td>varchar(32)</td>
-<td>菜品名称</td>
-<td>唯一</td>
-</tr>
-<tr>
-<td>category_id</td>
-<td>bigint</td>
-<td>分类id</td>
-<td>逻辑外键</td>
-</tr>
-<tr>
-<td>price</td>
-<td>decimal(10,2)</td>
-<td>菜品价格</td>
-<td></td>
-</tr>
-<tr>
-<td>image</td>
-<td>varchar(255)</td>
-<td>图片路径</td>
-<td></td>
-</tr>
-<tr>
-<td>description</td>
-<td>varchar(255)</td>
-<td>菜品描述</td>
-<td></td>
-</tr>
-<tr>
-<td>status</td>
-<td>int</td>
-<td>售卖状态</td>
-<td>1起售 0停售</td>
-</tr>
-<tr>
-<td>create_time</td>
-<td>datetime</td>
-<td>创建时间</td>
-<td></td>
-</tr>
-<tr>
-<td>update_time</td>
-<td>datetime</td>
-<td>最后修改时间</td>
-<td></td>
-</tr>
-<tr>
-<td>create_user</td>
-<td>bigint</td>
-<td>创建人id</td>
-<td></td>
-</tr>
-<tr>
-<td>update_user</td>
-<td>bigint</td>
-<td>最后修改人id</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="4-dish-flavor"><a href="#4-dish-flavor" class="headerlink" title="4. dish_flavor"></a>4. dish_flavor</h3><p>dish_flavor表为菜品口味表，用于存储菜品的口味信息。具体表结构如下：</p>
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>数据类型</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>bigint</td>
-<td>主键</td>
-<td>自增</td>
-</tr>
-<tr>
-<td>dish_id</td>
-<td>bigint</td>
-<td>菜品id</td>
-<td>逻辑外键</td>
-</tr>
-<tr>
-<td>name</td>
-<td>varchar(32)</td>
-<td>口味名称</td>
-<td></td>
-</tr>
-<tr>
-<td>value</td>
-<td>varchar(255)</td>
-<td>口味值</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="5-setmeal"><a href="#5-setmeal" class="headerlink" title="5. setmeal"></a>5. setmeal</h3><p>setmeal表为套餐表，用于存储套餐的信息。具体表结构如下：</p>
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>数据类型</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>bigint</td>
-<td>主键</td>
-<td>自增</td>
-</tr>
-<tr>
-<td>name</td>
-<td>varchar(32)</td>
-<td>套餐名称</td>
-<td>唯一</td>
-</tr>
-<tr>
-<td>category_id</td>
-<td>bigint</td>
-<td>分类id</td>
-<td>逻辑外键</td>
-</tr>
-<tr>
-<td>price</td>
-<td>decimal(10,2)</td>
-<td>套餐价格</td>
-<td></td>
-</tr>
-<tr>
-<td>image</td>
-<td>varchar(255)</td>
-<td>图片路径</td>
-<td></td>
-</tr>
-<tr>
-<td>description</td>
-<td>varchar(255)</td>
-<td>套餐描述</td>
-<td></td>
-</tr>
-<tr>
-<td>status</td>
-<td>int</td>
-<td>售卖状态</td>
-<td>1起售 0停售</td>
-</tr>
-<tr>
-<td>create_time</td>
-<td>datetime</td>
-<td>创建时间</td>
-<td></td>
-</tr>
-<tr>
-<td>update_time</td>
-<td>datetime</td>
-<td>最后修改时间</td>
-<td></td>
-</tr>
-<tr>
-<td>create_user</td>
-<td>bigint</td>
-<td>创建人id</td>
-<td></td>
-</tr>
-<tr>
-<td>update_user</td>
-<td>bigint</td>
-<td>最后修改人id</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="6-setmeal-dish"><a href="#6-setmeal-dish" class="headerlink" title="6. setmeal_dish"></a>6. setmeal_dish</h3><p>setmeal_dish表为套餐菜品关系表，用于存储套餐和菜品的关联关系。具体表结构如下：</p>
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>数据类型</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>bigint</td>
-<td>主键</td>
-<td>自增</td>
-</tr>
-<tr>
-<td>setmeal_id</td>
-<td>bigint</td>
-<td>套餐id</td>
-<td>逻辑外键</td>
-</tr>
-<tr>
-<td>dish_id</td>
-<td>bigint</td>
-<td>菜品id</td>
-<td>逻辑外键</td>
-</tr>
-<tr>
-<td>name</td>
-<td>varchar(32)</td>
-<td>菜品名称</td>
-<td>冗余字段</td>
-</tr>
-<tr>
-<td>price</td>
-<td>decimal(10,2)</td>
-<td>菜品单价</td>
-<td>冗余字段</td>
-</tr>
-<tr>
-<td>copies</td>
-<td>int</td>
-<td>菜品份数</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="7-user"><a href="#7-user" class="headerlink" title="7. user"></a>7. user</h3><p>user表为用户表，用于存储C端用户的信息。具体表结构如下：</p>
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>数据类型</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>bigint</td>
-<td>主键</td>
-<td>自增</td>
-</tr>
-<tr>
-<td>openid</td>
-<td>varchar(45)</td>
-<td>微信用户的唯一标识</td>
-<td></td>
-</tr>
-<tr>
-<td>name</td>
-<td>varchar(32)</td>
-<td>用户姓名</td>
-<td></td>
-</tr>
-<tr>
-<td>phone</td>
-<td>varchar(11)</td>
-<td>手机号</td>
-<td></td>
-</tr>
-<tr>
-<td>sex</td>
-<td>varchar(2)</td>
-<td>性别</td>
-<td></td>
-</tr>
-<tr>
-<td>id_number</td>
-<td>varchar(18)</td>
-<td>身份证号</td>
-<td></td>
-</tr>
-<tr>
-<td>avatar</td>
-<td>varchar(500)</td>
-<td>微信用户头像路径</td>
-<td></td>
-</tr>
-<tr>
-<td>create_time</td>
-<td>datetime</td>
-<td>注册时间</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="8-address-book"><a href="#8-address-book" class="headerlink" title="8. address_book"></a>8. address_book</h3><p>address_book表为地址表，用于存储C端用户的收货地址信息。具体表结构如下：</p>
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>数据类型</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>bigint</td>
-<td>主键</td>
-<td>自增</td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>bigint</td>
-<td>用户id</td>
-<td>逻辑外键</td>
-</tr>
-<tr>
-<td>consignee</td>
-<td>varchar(50)</td>
-<td>收货人</td>
-<td></td>
-</tr>
-<tr>
-<td>sex</td>
-<td>varchar(2)</td>
-<td>性别</td>
-<td></td>
-</tr>
-<tr>
-<td>phone</td>
-<td>varchar(11)</td>
-<td>手机号</td>
-<td></td>
-</tr>
-<tr>
-<td>province_code</td>
-<td>varchar(12)</td>
-<td>省份编码</td>
-<td></td>
-</tr>
-<tr>
-<td>province_name</td>
-<td>varchar(32)</td>
-<td>省份名称</td>
-<td></td>
-</tr>
-<tr>
-<td>city_code</td>
-<td>varchar(12)</td>
-<td>城市编码</td>
-<td></td>
-</tr>
-<tr>
-<td>city_name</td>
-<td>varchar(32)</td>
-<td>城市名称</td>
-<td></td>
-</tr>
-<tr>
-<td>district_code</td>
-<td>varchar(12)</td>
-<td>区县编码</td>
-<td></td>
-</tr>
-<tr>
-<td>district_name</td>
-<td>varchar(32)</td>
-<td>区县名称</td>
-<td></td>
-</tr>
-<tr>
-<td>detail</td>
-<td>varchar(200)</td>
-<td>详细地址信息</td>
-<td>具体到门牌号</td>
-</tr>
-<tr>
-<td>label</td>
-<td>varchar(100)</td>
-<td>标签</td>
-<td>公司、家、学校</td>
-</tr>
-<tr>
-<td>is_default</td>
-<td>tinyint(1)</td>
-<td>是否默认地址</td>
-<td>1是 0否</td>
-</tr>
-</tbody></table>
-<h3 id="9-shopping-cart"><a href="#9-shopping-cart" class="headerlink" title="9. shopping_cart"></a>9. shopping_cart</h3><p>shopping_cart表为购物车表，用于存储C端用户的购物车信息。具体表结构如下：</p>
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>数据类型</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>bigint</td>
-<td>主键</td>
-<td>自增</td>
-</tr>
-<tr>
-<td>name</td>
-<td>varchar(32)</td>
-<td>商品名称</td>
-<td></td>
-</tr>
-<tr>
-<td>image</td>
-<td>varchar(255)</td>
-<td>商品图片路径</td>
-<td></td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>bigint</td>
-<td>用户id</td>
-<td>逻辑外键</td>
-</tr>
-<tr>
-<td>dish_id</td>
-<td>bigint</td>
-<td>菜品id</td>
-<td>逻辑外键</td>
-</tr>
-<tr>
-<td>setmeal_id</td>
-<td>bigint</td>
-<td>套餐id</td>
-<td>逻辑外键</td>
-</tr>
-<tr>
-<td>dish_flavor</td>
-<td>varchar(50)</td>
-<td>菜品口味</td>
-<td></td>
-</tr>
-<tr>
-<td>number</td>
-<td>int</td>
-<td>商品数量</td>
-<td></td>
-</tr>
-<tr>
-<td>amount</td>
-<td>decimal(10,2)</td>
-<td>商品单价</td>
-<td></td>
-</tr>
-<tr>
-<td>create_time</td>
-<td>datetime</td>
-<td>创建时间</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="10-orders"><a href="#10-orders" class="headerlink" title="10. orders"></a>10. orders</h3><p>orders表为订单表，用于存储C端用户的订单数据。具体表结构如下：</p>
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>数据类型</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>bigint</td>
-<td>主键</td>
-<td>自增</td>
-</tr>
-<tr>
-<td>number</td>
-<td>varchar(50)</td>
-<td>订单号</td>
-<td></td>
-</tr>
-<tr>
-<td>status</td>
-<td>int</td>
-<td>订单状态</td>
-<td>1待付款 2待接单 3已接单 4派送中 5已完成 6已取消</td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>bigint</td>
-<td>用户id</td>
-<td>逻辑外键</td>
-</tr>
-<tr>
-<td>address_book_id</td>
-<td>bigint</td>
-<td>地址id</td>
-<td>逻辑外键</td>
-</tr>
-<tr>
-<td>order_time</td>
-<td>datetime</td>
-<td>下单时间</td>
-<td></td>
-</tr>
-<tr>
-<td>checkout_time</td>
-<td>datetime</td>
-<td>付款时间</td>
-<td></td>
-</tr>
-<tr>
-<td>pay_method</td>
-<td>int</td>
-<td>支付方式</td>
-<td>1微信支付 2支付宝支付</td>
-</tr>
-<tr>
-<td>pay_status</td>
-<td>tinyint</td>
-<td>支付状态</td>
-<td>0未支付 1已支付 2退款</td>
-</tr>
-<tr>
-<td>amount</td>
-<td>decimal(10,2)</td>
-<td>订单金额</td>
-<td></td>
-</tr>
-<tr>
-<td>remark</td>
-<td>varchar(100)</td>
-<td>备注信息</td>
-<td></td>
-</tr>
-<tr>
-<td>phone</td>
-<td>varchar(11)</td>
-<td>手机号</td>
-<td></td>
-</tr>
-<tr>
-<td>address</td>
-<td>varchar(255)</td>
-<td>详细地址信息</td>
-<td></td>
-</tr>
-<tr>
-<td>user_name</td>
-<td>varchar(32)</td>
-<td>用户姓名</td>
-<td></td>
-</tr>
-<tr>
-<td>consignee</td>
-<td>varchar(32)</td>
-<td>收货人</td>
-<td></td>
-</tr>
-<tr>
-<td>cancel_reason</td>
-<td>varchar(255)</td>
-<td>订单取消原因</td>
-<td></td>
-</tr>
-<tr>
-<td>rejection_reason</td>
-<td>varchar(255)</td>
-<td>拒单原因</td>
-<td></td>
-</tr>
-<tr>
-<td>cancel_time</td>
-<td>datetime</td>
-<td>订单取消时间</td>
-<td></td>
-</tr>
-<tr>
-<td>estimated_delivery_time</td>
-<td>datetime</td>
-<td>预计送达时间</td>
-<td></td>
-</tr>
-<tr>
-<td>delivery_status</td>
-<td>tinyint</td>
-<td>配送状态</td>
-<td>1立即送出  0选择具体时间</td>
-</tr>
-<tr>
-<td>delivery_time</td>
-<td>datetime</td>
-<td>送达时间</td>
-<td></td>
-</tr>
-<tr>
-<td>pack_amount</td>
-<td>int</td>
-<td>打包费</td>
-<td></td>
-</tr>
-<tr>
-<td>tableware_number</td>
-<td>int</td>
-<td>餐具数量</td>
-<td></td>
-</tr>
-<tr>
-<td>tableware_status</td>
-<td>tinyint</td>
-<td>餐具数量状态</td>
-<td>1按餐量提供  0选择具体数量</td>
-</tr>
-</tbody></table>
-<h3 id="11-order-detail"><a href="#11-order-detail" class="headerlink" title="11. order_detail"></a>11. order_detail</h3><p>order_detail表为订单明细表，用于存储C端用户的订单明细数据。具体表结构如下：</p>
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>数据类型</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>id</td>
-<td>bigint</td>
-<td>主键</td>
-<td>自增</td>
-</tr>
-<tr>
-<td>name</td>
-<td>varchar(32)</td>
-<td>商品名称</td>
-<td></td>
-</tr>
-<tr>
-<td>image</td>
-<td>varchar(255)</td>
-<td>商品图片路径</td>
-<td></td>
-</tr>
-<tr>
-<td>order_id</td>
-<td>bigint</td>
-<td>订单id</td>
-<td>逻辑外键</td>
-</tr>
-<tr>
-<td>dish_id</td>
-<td>bigint</td>
-<td>菜品id</td>
-<td>逻辑外键</td>
-</tr>
-<tr>
-<td>setmeal_id</td>
-<td>bigint</td>
-<td>套餐id</td>
-<td>逻辑外键</td>
-</tr>
-<tr>
-<td>dish_flavor</td>
-<td>varchar(50)</td>
-<td>菜品口味</td>
-<td></td>
-</tr>
-<tr>
-<td>number</td>
-<td>int</td>
-<td>商品数量</td>
-<td></td>
-</tr>
-<tr>
-<td>amount</td>
-<td>decimal(10,2)</td>
-<td>商品单价</td>
-<td></td>
-</tr>
-</tbody></table>
+                <h1 id="Redis基础"><a href="#Redis基础" class="headerlink" title="Redis基础"></a>Redis基础</h1><h2 id="Redis入门"><a href="#Redis入门" class="headerlink" title="Redis入门"></a>Redis入门</h2><p>Redis是一个基于内存的key-value结构数据库</p>
+<p>Mysql是以数据文件形式存储于磁盘上，而Redis处于内存存储</p>
+<h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul>
+<li>基于内存存储，读写性能高</li>
+<li>适合存储热点数据（热点商品，资讯，新闻）</li>
+</ul>
+<p><strong>中文网：</strong><a target="_blank" rel="noopener" href="https://www.redis.net.cn/">https://www.redis.net.cn/</a></p>
+<h2 id="windows安装"><a href="#windows安装" class="headerlink" title="windows安装"></a>windows安装</h2><p><img src="/assets/image-20231022203112625.png" srcset="/img/loading.gif" lazyload alt="image-20231022203112625"></p>
+<p><img src="/assets/image-20231022203516570.png" srcset="/img/loading.gif" lazyload alt="image-20231022203516570"></p>
+<h2 id="Redis数据类型"><a href="#Redis数据类型" class="headerlink" title="Redis数据类型"></a>Redis数据类型</h2><p><img src="/assets/image-20231022214213769.png" srcset="/img/loading.gif" lazyload alt="image-20231022214213769"></p>
+<p><strong>解释说明：</strong></p>
+<ul>
+<li>字符串(string)：普通字符串，Redis中最简单的数据类型</li>
+<li>哈希(hash)：也叫散列，类似于Java中的HashMap结构</li>
+<li>列表(list)：按照插入顺序排序，可以有重复元素，类似于Java中的LinkedList</li>
+<li>集合(set)：无序集合，没有重复元素，类似于Java中的HashSet</li>
+<li>有序集合(sorted set&#x2F;zset)：集合中每个元素关联一个分数(score)，根据分数升序排序，没有重复元素</li>
+</ul>
+<h2 id="Redis常用命令"><a href="#Redis常用命令" class="headerlink" title="Redis常用命令"></a>Redis常用命令</h2><h3 id="字符串操作命令"><a href="#字符串操作命令" class="headerlink" title="字符串操作命令"></a>字符串操作命令</h3><p>Redis 中字符串类型常用命令：</p>
+<ul>
+<li><strong>SET</strong> key value 					         设置指定key的值</li>
+<li><strong>GET</strong> key                                        获取指定key的值</li>
+<li><strong>SETEX</strong> key seconds value         设置指定key的值，并将 key 的过期时间设为 seconds 秒</li>
+<li><strong>SETNX</strong> key value                        只有在 key    不存在时设置 key 的值</li>
+</ul>
+<p>更多命令可以参考Redis中文网：<a target="_blank" rel="noopener" href="https://www.redis.net.cn/">https://www.redis.net.cn</a></p>
+<h3 id="哈希操作命令"><a href="#哈希操作命令" class="headerlink" title="哈希操作命令"></a>哈希操作命令</h3><p>Redis hash 是一个string类型的 field 和 value 的映射表，hash特别适合用于存储对象，常用命令：</p>
+<ul>
+<li><strong>HSET</strong> key field value             将哈希表 key 中的字段 field 的值设为 value</li>
+<li><strong>HGET</strong> key field                       获取存储在哈希表中指定字段的值</li>
+<li><strong>HDEL</strong> key field                       删除存储在哈希表中的指定字段</li>
+<li><strong>HKEYS</strong> key                              获取哈希表中所有字段</li>
+<li><strong>HVALS</strong> key                              获取哈希表中所有值</li>
+</ul>
+<p><img src="/assets/image-20231022221052201.png" srcset="/img/loading.gif" lazyload alt="image-20231022221052201"></p>
+<h3 id="列表操作命令"><a href="#列表操作命令" class="headerlink" title="列表操作命令"></a>列表操作命令</h3><p>Redis 列表是简单的字符串列表，按照插入顺序排序(双向链表)，常用命令：</p>
+<ul>
+<li><strong>LPUSH</strong> key value1 [value2]         将一个或多个值插入到列表头部</li>
+<li><strong>LRANGE</strong> key start stop                获取列表指定范围内的元素 获取所有元素 <code>lrange key 0 -1</code></li>
+<li><strong>RPOP</strong> key                                       移除并获取列表最后一个元素</li>
+<li><strong>LLEN</strong> key                                        获取列表长度</li>
+<li><strong>BRPOP</strong> key1 [key2 ] timeout       移出并获取列表的最后一个元素， 如果列表没有元素会阻塞列表直到等待超    时或发现可弹出元素为止</li>
+</ul>
+<p><img src="/assets/image-20231022221058522.png" srcset="/img/loading.gif" lazyload alt="image-20231022221058522"></p>
+<h3 id="集合操作命令"><a href="#集合操作命令" class="headerlink" title="集合操作命令"></a>集合操作命令</h3><p>Redis set 是string类型的无序集合。集合成员是唯一的，这就意味着集合中不能出现重复的数据，常用命令：</p>
+<ul>
+<li><strong>SADD</strong> key member1 [member2]            向集合添加一个或多个成员</li>
+<li><strong>SMEMBERS</strong> key                                         返回集合中的所有成员</li>
+<li><strong>SCARD</strong> key                                                  获取集合的成员数</li>
+<li><strong>SINTER</strong> key1 [key2]                                   返回给定所有集合的交集</li>
+<li><strong>SUNION</strong> key1 [key2]                                 返回所有给定集合的并集</li>
+<li><strong>SREM</strong> key member1 [member2]            移除集合中一个或多个成员</li>
+</ul>
+<p><img src="/assets/image-20231022223856427.png" srcset="/img/loading.gif" lazyload alt="image-20231022223856427"></p>
+<h3 id="有序集合操作命令"><a href="#有序集合操作命令" class="headerlink" title="有序集合操作命令"></a>有序集合操作命令</h3><p>Redis有序集合是string类型元素的集合，且不允许有重复成员。每个元素都会关联一个double类型的分数。常用命令：</p>
+<p>常用命令：</p>
+<ul>
+<li><strong>ZADD</strong> key score1 member1 [score2 member2]     向有序集合添加一个或多个成员</li>
+<li><strong>ZRANGE</strong> key start stop [WITHSCORES]                     通过索引区间返回有序集合中指定区间内的成员</li>
+<li><strong>ZINCRBY</strong> key increment member                              有序集合中对指定成员的分数加上增量 increment</li>
+<li><strong>ZREM</strong> key member [member …]                                移除有序集合中的一个或多个成员</li>
+</ul>
+<p><img src="/assets/image-20231022223928509.png" srcset="/img/loading.gif" lazyload alt="image-20231022223928509"></p>
+<h3 id="通用命令"><a href="#通用命令" class="headerlink" title="通用命令"></a>通用命令</h3><p>Redis的通用命令是不分数据类型的，都可以使用的命令：</p>
+<ul>
+<li><p>KEYS pattern 		查找所有符合给定模式( pattern)的 key </p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-built_in">keys</span> *<br><span class="hljs-built_in">keys</span> *<span class="hljs-built_in">set</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>EXISTS key 		检查给定 key 是否存在</p>
+</li>
+<li><p>TYPE key 		返回 key 所储存的值的类型</p>
+</li>
+<li><p>DEL key 		该命令用于在 key 存在是删除 key</p>
+</li>
+</ul>
 
                 
               </div>
@@ -1255,8 +445,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>2_数据库设计文档</div>
-      <div>http://elaskon.asia/2023/10/15/黑马-苍穹外卖/2_数据库设计/</div>
+      <div>4_redis使用</div>
+      <div>http://elaskon.asia/2023/10/22/黑马-苍穹外卖/4_redis/</div>
     </div>
     <div class="license-meta">
       
@@ -1268,7 +458,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年10月15日</div>
+          <div>2023年10月22日</div>
         </div>
       
       
@@ -1300,18 +490,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/21/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/3_CRUD%E5%90%8E%E7%AB%AF%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" title="3_后端遇到的问题">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">3_后端遇到的问题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/15/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/1_%E9%A1%B9%E7%9B%AE%E5%87%86%E5%A4%87/" title="1_项目准备">
-                        <span class="hidden-mobile">1_项目准备</span>
+                      <a href="/2023/10/21/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/3_CRUD%E5%90%8E%E7%AB%AF%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" title="3_后端遇到的问题">
+                        <span class="hidden-mobile">3_后端遇到的问题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
