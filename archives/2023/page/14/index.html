@@ -16,25 +16,19 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="SpringTaskSpring Task介绍Spring Task 是Spring框架提供的任务调度工具，可以按照约定的时间自动执行某个代码逻辑。 定位：定时任务框架 作用：定时自动执行某段Java代码 cron表达式cron表达式其实就是一个字符串，通过cron表达式可以定义任务触发的时间 构成规则：分为6或7个域，由空格分隔开，每个域代表一个含义 每个域的含义分别为：秒、分钟、小时、日、月、">
-<meta property="og:type" content="website">
-<meta property="og:title" content="10_SpringTask">
-<meta property="og:url" content="http://elaskon.asia/10_SpringTask.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="归档">
+<meta property="og:url" content="http://elaskon.asia/archives/2023/page/14/index.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="SpringTaskSpring Task介绍Spring Task 是Spring框架提供的任务调度工具，可以按照约定的时间自动执行某个代码逻辑。 定位：定时任务框架 作用：定时自动执行某段Java代码 cron表达式cron表达式其实就是一个字符串，通过cron表达式可以定义任务触发的时间 构成规则：分为6或7个域，由空格分隔开，每个域代表一个含义 每个域的含义分别为：秒、分钟、小时、日、月、">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://elaskon.asia/image-20221218184412491.png">
-<meta property="article:published_time" content="2023-11-02T11:55:43.000Z">
-<meta property="article:modified_time" content="2023-11-02T15:59:45.360Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://elaskon.asia/image-20221218184412491.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>10_SpringTask - E-zg小破站</title>
+  <title>归档 - E-zg小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -221,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="10_SpringTask"></span>
+            <span id="subtitle" data-typed-text="归档"></span>
           
         </div>
 
@@ -248,49 +242,41 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-<article class="page-content">
-  <h1 id="SpringTask"><a href="#SpringTask" class="headerlink" title="SpringTask"></a>SpringTask</h1><h2 id="Spring-Task"><a href="#Spring-Task" class="headerlink" title="Spring Task"></a>Spring Task</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><strong>Spring Task</strong> 是Spring框架提供的任务调度工具，可以按照约定的时间自动执行某个代码逻辑。</p>
-<p><strong>定位：</strong>定时任务框架</p>
-<p><strong>作用：</strong>定时自动执行某段Java代码</p>
-<h2 id="cron表达式"><a href="#cron表达式" class="headerlink" title="cron表达式"></a>cron表达式</h2><p><strong>cron表达式</strong>其实就是一个字符串，通过cron表达式可以<strong>定义任务触发的时间</strong></p>
-<p><strong>构成规则：</strong>分为6或7个域，由空格分隔开，每个域代表一个含义</p>
-<p>每个域的含义分别为：秒、分钟、小时、日、月、周、年(可选)</p>
-<p><strong>举例：</strong></p>
-<p>2022年10月12日上午9点整 对应的cron表达式为：<strong>0 0 9 12 10 ? 2022</strong></p>
-<img src="/image-20221218184412491.png" srcset="/img/loading.gif" lazyload alt="image-20221218184412491" style="zoom:50%;"> 
-
-<p><strong>说明：</strong>一般<strong>日</strong>和<strong>周</strong>的值不同时设置，其中一个设置，另一个用？表示。</p>
-<p><strong>比如：</strong>描述2月份的最后一天，最后一天具体是几号呢？可能是28号，也有可能是29号，所以就不能写具体数字。</p>
-<p>为了描述这些信息，提供一些特殊的字符。这些具体的细节，我们就不用自己去手写，因为这个cron表达式，它其实有在线生成器。</p>
-<p>cron表达式在线生成器：<a target="_blank" rel="noopener" href="https://cron.qqe2.com/">https://cron.qqe2.com/</a></p>
-<p>可以直接在这个网站上面，只要根据自己的要求去生成corn表达式即可。所以一般就不用自己去编写这个表达式。</p>
-<p><strong>通配符：</strong></p>
-<p>* 表示所有值； </p>
-<p>? 表示未说明的值，即不关心它为何值； </p>
-<p>- 表示一个指定的范围； </p>
-<p>, 表示附加一个可能值； </p>
-<p>&#x2F; 符号前表示开始时间，符号后表示每次递增的值；</p>
-<p><strong>cron表达式案例：</strong></p>
-<p>*&#x2F;5 * * * * ? 每隔5秒执行一次</p>
-<p>0 *&#x2F;1 * * * ? 每隔1分钟执行一次</p>
-<p>0 0 5-15 * * ? 每天5-15点整点触发</p>
-<p>0 0&#x2F;3 * * * ? 每三分钟触发一次</p>
-<p>0 0-5 14 * * ? 在每天下午2点到下午2:05期间的每1分钟触发 </p>
-<p>0 0&#x2F;5 14 * * ? 在每天下午2点到下午2:55期间的每5分钟触发</p>
-<p>0 0&#x2F;5 14,18 * * ? 在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发</p>
-<p>0 0&#x2F;30 9-17 * * ? 朝九晚五工作时间内每半小时</p>
-<p>0 0 10,14,16 * * ? 每天上午10点，下午2点，4点 </p>
-<h2 id="入门案例"><a href="#入门案例" class="headerlink" title="入门案例"></a>入门案例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-meta">@EnableScheduling</span> <span class="hljs-comment">//开启SpringTask</span><br><span class="hljs-meta">@Slf4j</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SkyApplication</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        SpringApplication.run(SkyApplication.class, args);<br>        log.info(<span class="hljs-string">&quot;server started&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@Slf4j</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyTask</span> &#123;<br>    <span class="hljs-meta">@Scheduled(cron = &quot;0/5 * * * * ?&quot;)</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">executeTask</span><span class="hljs-params">()</span>&#123;<br>        log.info(<span class="hljs-string">&quot;定时任务开始&#123;&#125;&quot;</span>,<span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
+<div class="list-group">
+  <p class="h4">共计 133 篇文章</p>
+  <hr>
   
+  
+    
+      
+      <p class="h5">2023</p>
+    
+    <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/8_%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0/" class="list-group-item list-group-item-action">
+      <time>08-25</time>
+      <div class="list-group-item-title">聚合函数</div>
+    </a>
+  
+    
+    <a href="/2023/08/25/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/9_%E5%AD%90%E6%9F%A5%E8%AF%A2/%E5%AD%90%E6%9F%A5%E8%AF%A2%EF%BC%88%E5%B5%8C%E5%A5%97%E6%9F%A5%E8%AF%A2%EF%BC%89/" class="list-group-item list-group-item-action">
+      <time>08-25</time>
+      <div class="list-group-item-title">子查询（嵌套查询）</div>
+    </a>
+  
+    
+    <a href="/2023/07/04/%E5%87%AF%E7%A5%9E%E9%99%8D%E4%B8%B4/kaiGod/" class="list-group-item list-group-item-action">
+      <time>07-04</time>
+      <div class="list-group-item-title">KaiGod</div>
+    </a>
+  
+</div>
 
-</article>
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/archives/2023/page/13/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/2023/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2023/page/12/#board">12</a><a class="page-number" href="/archives/2023/page/13/#board">13</a><span class="page-number current">14</span>
+    </span>
+  </nav>
+
 
 
 

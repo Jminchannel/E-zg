@@ -17,28 +17,28 @@
   <meta name="keywords" content="">
   
     <meta name="description" content="Redis实现缓存和购物车存储缓存菜品用户端小程序展示的菜品数据都是通过查询数据库获得，如果用户端访问量过于频繁，数据库访问压力随之增大。此时需要通过redis，缓存菜品数据，减少数据库查询操作。 逻辑 每个分类下的菜品保存一份缓存数据 数据库中菜品数据有增删变更时清理所有缓存数据  举例以菜品查询为例，用户端需要根据菜品的分类id频繁查询菜品信息，先通过判断redis中是否存在相关信息，存在则返">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="8_Redis实现缓存和购物车存储">
-<meta property="og:url" content="http://elaskon.asia/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8.html">
+<meta property="og:url" content="http://elaskon.asia/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/index.html">
 <meta property="og:site_name" content="E-zg小破站">
 <meta property="og:description" content="Redis实现缓存和购物车存储缓存菜品用户端小程序展示的菜品数据都是通过查询数据库获得，如果用户端访问量过于频繁，数据库访问压力随之增大。此时需要通过redis，缓存菜品数据，减少数据库查询操作。 逻辑 每个分类下的菜品保存一份缓存数据 数据库中菜品数据有增删变更时清理所有缓存数据  举例以菜品查询为例，用户端需要根据菜品的分类id频繁查询菜品信息，先通过判断redis中是否存在相关信息，存在则返">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231028142709278.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231028175340412.png">
-<meta property="og:image" content="http://elaskon.asia/image-20221214223302651.png">
-<meta property="og:image" content="http://elaskon.asia/image-20221214223509246.png">
-<meta property="og:image" content="http://elaskon.asia/image-20221214223910840.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221214223302651.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221214223509246.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221214223910840.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20221214224409174.png">
-<meta property="og:image" content="http://elaskon.asia/image-20221214224551220.png">
-<meta property="og:image" content="http://elaskon.asia/image-20221214234038395.png">
-<meta property="og:image" content="http://elaskon.asia/image-20221215184407217.png">
-<meta property="og:image" content="http://elaskon.asia/image-20221215184446260.png">
-<meta property="og:image" content="http://elaskon.asia/image-20221215184746092.png">
-<meta property="og:image" content="http://elaskon.asia/image-20221215185152869.png">
-<meta property="og:image" content="http://elaskon.asia/image-20221215185749163.png">
-<meta property="og:image" content="http://elaskon.asia/image-20221215185833157.png">
-<meta property="og:image" content="http://elaskon.asia/image-20221215190440717.png">
-<meta property="og:image" content="http://elaskon.asia/image-20221215190525166.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221214224551220.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221214234038395.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215184407217.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215184446260.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215184746092.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215185152869.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215185749163.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215185833157.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215190440717.png">
+<meta property="og:image" content="http://elaskon.asia/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215190525166.png">
 <meta property="article:published_time" content="2023-10-28T02:55:43.000Z">
 <meta property="article:modified_time" content="2023-10-30T14:13:10.495Z">
 <meta property="article:author" content="Jmin">
@@ -54,6 +54,12 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -130,7 +136,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 60vh;">
+<div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -241,6 +247,54 @@
         </div>
 
         
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-28 10:55" pubdate>
+          2023年10月28日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          44 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
       </div>
 
       
@@ -254,17 +308,33 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<article class="page-content">
-  <h1 id="Redis实现缓存和购物车存储"><a href="#Redis实现缓存和购物车存储" class="headerlink" title="Redis实现缓存和购物车存储"></a>Redis实现缓存和购物车存储</h1><h2 id="缓存菜品"><a href="#缓存菜品" class="headerlink" title="缓存菜品"></a>缓存菜品</h2><p>用户端小程序展示的菜品数据都是通过查询数据库获得，如果用户端访问量过于频繁，数据库访问压力随之增大。此时需要通过redis，缓存菜品数据，减少数据库查询操作。</p>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">8_Redis实现缓存和购物车存储</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年10月30日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Redis实现缓存和购物车存储"><a href="#Redis实现缓存和购物车存储" class="headerlink" title="Redis实现缓存和购物车存储"></a>Redis实现缓存和购物车存储</h1><h2 id="缓存菜品"><a href="#缓存菜品" class="headerlink" title="缓存菜品"></a>缓存菜品</h2><p>用户端小程序展示的菜品数据都是通过查询数据库获得，如果用户端访问量过于频繁，数据库访问压力随之增大。此时需要通过redis，缓存菜品数据，减少数据库查询操作。</p>
 <h3 id="逻辑"><a href="#逻辑" class="headerlink" title="逻辑"></a>逻辑</h3><ul>
 <li>每个分类下的菜品保存一份缓存数据</li>
 <li>数据库中菜品数据有增删变更时清理所有缓存数据</li>
@@ -363,17 +433,17 @@
 <p>要实现微信支付就需要注册微信支付的一个商户号，这个商户号是必须要有一家企业并且有正规的营业执照。只有具备了这些资质之后，才可以去注册商户号，才能开通支付权限。</p>
 <p>个人不具备这种资质，所以我们在学习微信支付时，最重要的是了解微信支付的流程，并且能够阅读微信官方提供的接口文档，能够和第三方支付平台对接起来就可以了。</p>
 <p><strong>微信支付产品：</strong></p>
-<img src="/image-20221214223302651.png" srcset="/img/loading.gif" lazyload alt="image-20221214223302651" style="zoom:50%;"> 
+<img src="/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221214223302651.png" srcset="/img/loading.gif" lazyload alt="image-20221214223302651" style="zoom:50%;"> 
 
 <p>本项目选择<strong>小程序支付</strong></p>
 <p>参考：<a target="_blank" rel="noopener" href="https://pay.weixin.qq.com/static/product/product_index.shtml">https://pay.weixin.qq.com/static/product/product_index.shtml</a></p>
 <p><strong>微信支付接入流程：</strong></p>
-<img src="/image-20221214223509246.png" srcset="/img/loading.gif" lazyload alt="image-20221214223509246" style="zoom:50%;"> 
+<img src="/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221214223509246.png" srcset="/img/loading.gif" lazyload alt="image-20221214223509246" style="zoom:50%;"> 
 
 
 
 <p><strong>微信小程序支付时序图：</strong></p>
-<img src="/image-20221214223910840.png" srcset="/img/loading.gif" lazyload alt="image-20221214223910840" style="zoom:50%;"> 
+<img src="/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221214223910840.png" srcset="/img/loading.gif" lazyload alt="image-20221214223910840" style="zoom:50%;"> 
 
 
 
@@ -381,7 +451,7 @@
 <p><strong>JSAPI下单：</strong>商户系统调用该接口在微信支付服务后台生成预支付交易单(对应时序图的第5步)</p>
 <p><img src="/assets/image-20221214224409174.png" srcset="/img/loading.gif" lazyload alt="image-20221214224409174"></p>
 <p><strong>微信小程序调起支付：</strong>通过JSAPI下单接口获取到发起支付的必要参数prepay_id，然后使用微信支付提供的小程序方法调起小程序支付(对应时序图的第10步)</p>
-<img src="/image-20221214224551220.png" srcset="/img/loading.gif" lazyload alt="image-20221214224551220" style="zoom:50%;"> 
+<img src="/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221214224551220.png" srcset="/img/loading.gif" lazyload alt="image-20221214224551220" style="zoom:50%;"> 
 
 
 
@@ -391,7 +461,7 @@
 <p>这两个接口数据的安全性，要求其实是非常高的。</p>
 <p><strong>解决：</strong>微信提供的方式就是对数据进行加密、解密、签名多种方式。要完成数据加密解密，需要提前准备相应的一些文件，其实就是一些证书。</p>
 <p><strong>获取微信支付平台证书、商户私钥文件：</strong></p>
-<img src="/image-20221214234038395.png" srcset="/img/loading.gif" lazyload alt="image-20221214234038395" style="zoom:50%;"> 
+<img src="/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221214234038395.png" srcset="/img/loading.gif" lazyload alt="image-20221214234038395" style="zoom:50%;"> 
 
 <p>在后绪程序开发过程中，就会使用到这两个文件，需要提前把这两个文件准备好。</p>
 <h4 id="3-2-2-如何调用到商户系统？"><a href="#3-2-2-如何调用到商户系统？" class="headerlink" title="3.2.2 如何调用到商户系统？"></a>3.2.2 如何调用到商户系统？</h4><p>微信后台会调用到商户系统给推送支付的结果，在这里我们就会遇到一个问题，就是微信后台怎么就能调用到我们这个商户系统呢？因为这个调用过程，其实本质上也是一个HTTP请求。</p>
@@ -400,52 +470,213 @@
 <p><strong>cpolar软件的使用：</strong></p>
 <p><strong>1). 下载与安装</strong></p>
 <p>下载地址：<a target="_blank" rel="noopener" href="https://dashboard.cpolar.com/get-started">https://dashboard.cpolar.com/get-started</a></p>
-<img src="/image-20221215184407217.png" srcset="/img/loading.gif" lazyload alt="image-20221215184407217" style="zoom:50%;"> 
+<img src="/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215184407217.png" srcset="/img/loading.gif" lazyload alt="image-20221215184407217" style="zoom:50%;"> 
 
 <p>在资料中已提供，可无需下载。</p>
-<img src="/image-20221215184446260.png" srcset="/img/loading.gif" lazyload alt="image-20221215184446260" style="zoom:80%;"> 
+<img src="/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215184446260.png" srcset="/img/loading.gif" lazyload alt="image-20221215184446260" style="zoom:80%;"> 
 
 <p>安装过程中，一直下一步即可，不再演示。</p>
 <p><strong>2). cpolar指定authtoken</strong></p>
 <p>复制authtoken：</p>
-<img src="/image-20221215184746092.png" srcset="/img/loading.gif" lazyload alt="image-20221215184746092" style="zoom:50%;"> 
+<img src="/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215184746092.png" srcset="/img/loading.gif" lazyload alt="image-20221215184746092" style="zoom:50%;"> 
 
 <p>执行命令：</p>
-<img src="/image-20221215185152869.png" srcset="/img/loading.gif" lazyload alt="image-20221215185152869" style="zoom:50%;"> 
+<img src="/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215185152869.png" srcset="/img/loading.gif" lazyload alt="image-20221215185152869" style="zoom:50%;"> 
 
 
 
 <p><strong>3). 获取临时域名</strong></p>
 <p>执行命令：</p>
-<img src="/image-20221215185749163.png" srcset="/img/loading.gif" lazyload alt="image-20221215185749163" style="zoom:50%;"> 
+<img src="/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215185749163.png" srcset="/img/loading.gif" lazyload alt="image-20221215185749163" style="zoom:50%;"> 
 
 <p>获取域名：</p>
-<img src="/image-20221215185833157.png" srcset="/img/loading.gif" lazyload alt="image-20221215185833157" style="zoom:50%;"> 
+<img src="/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215185833157.png" srcset="/img/loading.gif" lazyload alt="image-20221215185833157" style="zoom:50%;"> 
 
 
 
 <p><strong>4). 验证临时域名有效性</strong></p>
 <p><strong>访问接口文档</strong></p>
 <p>使用localhost:8080访问</p>
-<img src="/image-20221215190440717.png" srcset="/img/loading.gif" lazyload alt="image-20221215190440717" style="zoom:50%;"> 
+<img src="/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215190440717.png" srcset="/img/loading.gif" lazyload alt="image-20221215190440717" style="zoom:50%;"> 
 
 <p>使用临时域名访问</p>
-<img src="/image-20221215190525166.png" srcset="/img/loading.gif" lazyload alt="image-20221215190525166" style="zoom:50%;"> 
+<img src="/2023/10/28/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/8_Redis%E5%AE%9E%E7%8E%B0%E7%BC%93%E5%AD%98%E5%92%8C%E8%B4%AD%E7%89%A9%E8%BD%A6%E5%AD%98%E5%82%A8/image-20221215190525166.png" srcset="/img/loading.gif" lazyload alt="image-20221215190525166" style="zoom:50%;"> 
 
 <p>证明临时域名生效。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%BB%83%E4%B9%A0/" class="category-chain-item">项目练习</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%BB%83%E4%B9%A0/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/" class="category-chain-item">苍穹外卖</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>8_Redis实现缓存和购物车存储</div>
+      <div>http://elaskon.asia/2023/10/28/黑马-苍穹外卖/8_Redis实现缓存和购物车存储/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Jmin</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年10月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/11/02/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/9_%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEapi/" title="9_百度地图api">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">9_百度地图api</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/10/25/%E9%BB%91%E9%A9%AC-%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96/7_%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" title="7_微信小程序后端开发">
+                        <span class="hidden-mobile">7_微信小程序后端开发</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
 
 
   
 
-</article>
+
+
+  
 
 
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
     
@@ -563,6 +794,99 @@
 
 
 
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
 
