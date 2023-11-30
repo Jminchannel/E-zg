@@ -28,8 +28,9 @@
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231118021628240.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231118021634748.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20231118022300412.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231118124721036.png">
 <meta property="article:published_time" content="2023-11-17T16:55:43.000Z">
-<meta property="article:modified_time" content="2023-11-17T18:24:00.865Z">
+<meta property="article:modified_time" content="2023-11-18T05:29:00.347Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://elaskon.asia/assets/image-20231118020712559.png">
@@ -254,7 +255,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.1k 字
+          4.4k 字
         
       </span>
     
@@ -265,7 +266,7 @@
         
         
         
-          35 分钟
+          38 分钟
         
       </span>
     
@@ -315,7 +316,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年11月18日 凌晨
+                    本文最后更新于：2023年11月18日 下午
                   
                 
               </p>
@@ -353,7 +354,9 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;!--      滚动组件--&gt;<br>      &lt;el-scrollbar class=&quot;scrollbar&quot;&gt;<br>&lt;!--        展示菜单--&gt;<br>        &lt;el-menu background-color=&quot;#92c5f6&quot; text-color=&quot;#ffffff&quot;&gt;<br>          &lt;el-menu-item index=&quot;1&quot;&gt;首页&lt;/el-menu-item&gt;<br>          &lt;el-menu-item index=&quot;2&quot;&gt;数据大屏&lt;/el-menu-item&gt;<br>&lt;!--          折叠菜单--&gt;<br>          &lt;el-sub-menu index=&quot;3&quot;&gt;<br>            &lt;template #title&gt;<br>              权限管理<br>            &lt;/template&gt;<br>            &lt;el-menu-item index=&quot;3-1&quot;&gt;用户管理&lt;/el-menu-item&gt;<br>            &lt;el-menu-item index=&quot;3-2&quot;&gt;角色管理&lt;/el-menu-item&gt;<br>            &lt;el-menu-item index=&quot;3-3&quot;&gt;菜单管理&lt;/el-menu-item&gt;<br>          &lt;/el-sub-menu&gt;<br>        &lt;/el-menu&gt;<br>      &lt;/el-scrollbar&gt;<br></code></pre></td></tr></table></figure>
 
 <p><img src="/assets/image-20231118022300412.png" srcset="/img/loading.gif" lazyload alt="image-20231118022300412"></p>
-
+<p><img src="/assets/image-20231118124721036.png" srcset="/img/loading.gif" lazyload alt="image-20231118124721036"></p>
+<h2 id="根据路由配置生成菜单"><a href="#根据路由配置生成菜单" class="headerlink" title="根据路由配置生成菜单"></a>根据路由配置生成菜单</h2><p>菜单组件需要根据路由动态生成，考虑到可能需要异步不建议直接引出，而是交由存储仓库（pinia）管理，因此先引出到store&#x2F;modules&#x2F;user.ts</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">// 引入常量路由</span><br><span class="hljs-keyword">import</span> &#123; constantRoute &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/router/routes.ts&quot;</span>;<br><br><span class="hljs-comment">// 小仓库存储数据的地方</span><br><span class="hljs-attr">state</span>: (): <span class="hljs-function"><span class="hljs-params">UserState</span> =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> &#123;<br>    <span class="hljs-attr">token</span>: <span class="hljs-title function_">GET_TOKEN</span>(),<br>    <span class="hljs-attr">menuRoutes</span>: constantRoute, <span class="hljs-comment">//仓库存储生成菜单需要的数组（路由）</span><br>  &#125;;<br>&#125;,<br></code></pre></td></tr></table></figure>
                 
               </div>
             
