@@ -16,30 +16,33 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="关系模型及关系运算概念模型（实体-联系）只能反映信息世界的抽象表示，还没有反应组织数据和操作数据的方式。逻辑模型完成这项任务。   逻辑模型要体现三个方面的特征：  数据结构，描述数据用什么结构组织起来。(层次，网状、关系) 数据操作，描述可以对数据进行哪些操作。（增、删，改，查） 数据约束，描述数据规则从而保证数据完整。(正确、有效、相容)  ER图 两个概念：实体（E）、联系（R） 联系有1:">
+    <meta name="description" content="ER模型及其设计概念模型概念模型是对现实世界的抽象，通过抽象得到信息实体及实体集之间的联系，所以概念模型也称为实体-联系模型。 概念模型(E-R)给出了一组基本概念，用这组概念可以刻画信息世界  实体&#x2F;实体集:可以相互区分的事物&#x2F;同类实体的集合 属性&#x2F;值域：属性是实体(或联系)所具有的特征，值域是属性的取值范围。 联系:实体集之间的相互关联 关键字&#x2F;码 型&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3_关系模型及关系运算">
-<meta property="og:url" content="http://elaskon.asia/2023/12/23/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/1_%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/3_%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97/index.html">
+<meta property="og:title" content="2_模型及其设计">
+<meta property="og:url" content="http://elaskon.asia/2023/12/23/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/2_%E6%A6%82%E5%BF%B5%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B6%E8%AE%BE%E8%AE%A1/index.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="关系模型及关系运算概念模型（实体-联系）只能反映信息世界的抽象表示，还没有反应组织数据和操作数据的方式。逻辑模型完成这项任务。   逻辑模型要体现三个方面的特征：  数据结构，描述数据用什么结构组织起来。(层次，网状、关系) 数据操作，描述可以对数据进行哪些操作。（增、删，改，查） 数据约束，描述数据规则从而保证数据完整。(正确、有效、相容)  ER图 两个概念：实体（E）、联系（R） 联系有1:">
+<meta property="og:description" content="ER模型及其设计概念模型概念模型是对现实世界的抽象，通过抽象得到信息实体及实体集之间的联系，所以概念模型也称为实体-联系模型。 概念模型(E-R)给出了一组基本概念，用这组概念可以刻画信息世界  实体&#x2F;实体集:可以相互区分的事物&#x2F;同类实体的集合 属性&#x2F;值域：属性是实体(或联系)所具有的特征，值域是属性的取值范围。 联系:实体集之间的相互关联 关键字&#x2F;码 型&amp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20240101145344472.png">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20240101145421758.png">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20240101145446436.png">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20240101145527703.png">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20240101145536258.png">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20231229002206650.png">
-<meta property="article:published_time" content="2023-12-23T14:53:43.000Z">
-<meta property="article:modified_time" content="2024-01-01T06:56:24.282Z">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231228215317850.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231228215408563.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231228215533463.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231228215616675.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231228215849775.png">
+<meta property="og:image" content="http://elaskon.asia/2023/12/23/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/2_%E6%A6%82%E5%BF%B5%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B6%E8%AE%BE%E8%AE%A1/image-20231228220225181.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231228220243187.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231228220306446.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20231228222242917.png">
+<meta property="article:published_time" content="2023-12-23T13:53:43.000Z">
+<meta property="article:modified_time" content="2024-01-01T07:01:59.071Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://elaskon.asia/assets/image-20240101145344472.png">
+<meta name="twitter:image" content="http://elaskon.asia/assets/image-20231228215317850.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>3_关系模型及关系运算 - E-zg小破站</title>
+  <title>2_模型及其设计 - E-zg小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -232,7 +235,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="3_关系模型及关系运算"></span>
+            <span id="subtitle" data-typed-text="2_模型及其设计"></span>
           
         </div>
 
@@ -243,7 +246,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-23 22:53" pubdate>
+        <time datetime="2023-12-23 21:53" pubdate>
           2023年12月23日 晚上
         </time>
       </span>
@@ -255,7 +258,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          707 字
+          900 字
         
       </span>
     
@@ -266,7 +269,7 @@
         
         
         
-          6 分钟
+          8 分钟
         
       </span>
     
@@ -311,7 +314,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">3_关系模型及关系运算</h1>
+            <h1 id="seo-header">2_模型及其设计</h1>
             
               <p class="note note-info">
                 
@@ -324,38 +327,79 @@
             
               <div class="markdown-body">
                 
-                <h1 id="关系模型及关系运算"><a href="#关系模型及关系运算" class="headerlink" title="关系模型及关系运算"></a>关系模型及关系运算</h1><p>概念模型（实体-联系）只能反映信息世界的抽象表示，还没有反应组织数据和操作数据的方式。逻辑模型完成这项任务。   逻辑模型要体现三个方面的特征：</p>
+                <h1 id="ER模型及其设计"><a href="#ER模型及其设计" class="headerlink" title="ER模型及其设计"></a>ER模型及其设计</h1><h2 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a>概念模型</h2><p>概念模型是对现实世界的抽象，通过抽象得到信息实体及实体集之间的联系，所以概念模型也称为实体-联系模型。</p>
+<p><strong>概念模型(E-R)给出了一组基本概念，用这组概念可以刻画信息世界</strong></p>
 <ul>
-<li>数据结构，描述数据用什么结构组织起来。(层次，网状、关系)</li>
-<li>数据操作，描述可以对数据进行哪些操作。（增、删，改，查）</li>
-<li>数据约束，描述数据规则从而保证数据完整。(正确、有效、相容)</li>
+<li>实体&#x2F;实体集:可以相互区分的事物&#x2F;同类实体的集合</li>
+<li>属性&#x2F;值域：属性是实体(或联系)所具有的特征，值域是属性的取值范围。</li>
+<li>联系:实体集之间的相互关联</li>
+<li>关键字&#x2F;码</li>
+<li>型&#x2F;值</li>
 </ul>
-<h2 id="ER图"><a href="#ER图" class="headerlink" title="ER图"></a>ER图</h2><ul>
-<li>两个概念：实体（E）、联系（R）</li>
-<li>联系有1:1，1:n， n:n三种</li>
-<li>E-R模型是一种概念模型表示方法</li>
+<p><img src="/assets/image-20231228215317850.png" srcset="/img/loading.gif" lazyload alt="image-20231228215317850"></p>
+<p><img src="/assets/image-20231228215408563.png" srcset="/img/loading.gif" lazyload alt="image-20231228215408563"></p>
+<h3 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h3><ul>
+<li>一对一联系(1:1)，例：学校——管理 —— 校长 </li>
+<li>一对多联系(1:n)，例：公司——聘用—— 职员</li>
+<li>多对多联系(n:n)，例：读者——借阅—— 图书</li>
 </ul>
-<h2 id="关系模型"><a href="#关系模型" class="headerlink" title="关系模型"></a>关系模型</h2><p>设计关系型数据库中，要明确给出数据库需要哪些关系（表），每个关系有哪些属性，把这些称为数据库的关系模式。逻辑模型设计阶段的任务就是设计出整个数据库的关系模式。       </p>
-<p>从概念模型设计的结果——E-R图中，可以导出关系模式，导出方法遵循两点原则：</p>
-<ol>
-<li>ER图中的每个实体，都转换成一个关系模式。</li>
-<li>ER图中的每个联系，根据联系的类型，采取不同的方法加以处理。</li>
-</ol>
-<h3 id="两实体集间1-1联系"><a href="#两实体集间1-1联系" class="headerlink" title="两实体集间1:1联系"></a>两实体集间1:1联系</h3><p>联系不单独转换为关系，有二种转换方案</p>
-<ol>
-<li>将实体集A主键放到实体集B中作为外键。</li>
-<li>将实体集B主键放到实体集A中作为外键。</li>
-</ol>
-<p><img src="/assets/image-20240101145344472.png" srcset="/img/loading.gif" lazyload alt="image-20240101145344472"></p>
-<h3 id="两实体集之间的1-n联系"><a href="#两实体集之间的1-n联系" class="headerlink" title="两实体集之间的1: n联系"></a>两实体集之间的1: n联系</h3><p>无需转换为一个关系模式。可将“1”方关系的主键纳入“N”方关系中作为外键，同时把联系的属性也一起纳入“N”方关系中。</p>
-<p><img src="/assets/image-20240101145421758.png" srcset="/img/loading.gif" lazyload alt="image-20240101145421758"></p>
-<h3 id="两实体集之间的m-n联系"><a href="#两实体集之间的m-n联系" class="headerlink" title="两实体集之间的m: n联系"></a>两实体集之间的m: n联系</h3><p>要单独建立一个关系模式，其属性至少包含双方实体的主键，若联系自身有属性，也要一起纳入“联系”关系中。即单独建表</p>
-<p><img src="/assets/image-20240101145446436.png" srcset="/img/loading.gif" lazyload alt="image-20240101145446436"></p>
-<h3 id="多个实体集间m-n联系"><a href="#多个实体集间m-n联系" class="headerlink" title="多个实体集间m: n联系"></a>多个实体集间m: n联系</h3><p>必须为“联系”单独建一个关系模式。该关系中至少应包含被它联系的实体的“主键”，若“联系”有属性，也要纳入该关系中。</p>
-<p><img src="/assets/image-20240101145527703.png" srcset="/img/loading.gif" lazyload alt="image-20240101145527703"></p>
-<p><img src="/assets/image-20240101145536258.png" srcset="/img/loading.gif" lazyload alt="image-20240101145536258"></p>
-<h2 id="关系运算"><a href="#关系运算" class="headerlink" title="关系运算"></a>关系运算</h2><p><img src="/assets/image-20231229002206650.png" srcset="/img/loading.gif" lazyload alt="image-20231229002206650"></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/vvlj/p/12750730.html">https://www.cnblogs.com/vvlj/p/12750730.html</a></p>
+<p>一对一写成1:1，一对多写成1:n，多对多写成n:n</p>
+<h3 id="候选码-关键字-、主码（主关键字）"><a href="#候选码-关键字-、主码（主关键字）" class="headerlink" title="候选码(关键字)、主码（主关键字）"></a>候选码(关键字)、主码（主关键字）</h3><p>候选码是在一个实体集（或联系集）中可以用于区分不同实体（或联系）的单个属性或若干属性的组合。唯一标识一个实体。</p>
+<p>当一个实体集中有多个候选码，可以选定其中的一个作为主码。</p>
+<p><img src="/assets/image-20231228215533463.png" srcset="/img/loading.gif" lazyload alt="image-20231228215533463"></p>
+<h3 id="型和值"><a href="#型和值" class="headerlink" title="型和值"></a>型和值</h3><p>型是实体或联系的结构描述，值是一组属性值的组合。</p>
+<p><img src="/assets/image-20231228215616675.png" srcset="/img/loading.gif" lazyload alt="image-20231228215616675"></p>
+<p>注意：联系跟实体一样也具有属性，这些属性一部分取自于与联系相关的实体，一部分是联系自身的特征。</p>
+<h3 id="实体"><a href="#实体" class="headerlink" title="实体"></a>实体</h3><p><strong>能够用一个个、一件件、一串串等重叠量词形容。</strong></p>
+<p><img src="/assets/image-20231228215849775.png" srcset="/img/loading.gif" lazyload alt="image-20231228215849775"></p>
+<ul>
+<li><p>公司（公司注册号，地址，法人代表，规模，经营范围） 这个实体可剔除</p>
+</li>
+<li><p>部门（部门名，经理）</p>
+</li>
+<li><p>员工（员工号，姓名，性别，入职日期，部门名）</p>
+</li>
+<li><p>供应商（供应商编号，名称，地址，联系人）</p>
+</li>
+<li><p>客户（客户编号，名称，地址，联系人）</p>
+</li>
+<li><p>商品（商品号，商品名，规格）</p>
+</li>
+</ul>
+<h3 id="联系-1"><a href="#联系-1" class="headerlink" title="联系"></a>联系</h3><ul>
+<li>销售（员工号，商品号，客户编号，日期，数量，单价）</li>
+<li>采购（员工号，商品号，供应商编号，日期，数量，单价</li>
+<li>部门_员工（员工号，部门名）_</li>
+<li>公司_部门（部门名，公司注册号）这个联系可剔除</li>
+</ul>
+<h2 id="概念模型的设计"><a href="#概念模型的设计" class="headerlink" title="概念模型的设计"></a>概念模型的设计</h2><p>E-R模型的几种图示表达方法</p>
+<ul>
+<li><strong>chen方法</strong></li>
+<li>Crow’s Foot方法</li>
+<li>IDEF1X方法（工程化方法）</li>
+</ul>
+<img src="/2023/12/23/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/2_%E6%A6%82%E5%BF%B5%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B6%E8%AE%BE%E8%AE%A1/image-20231228220225181.png" srcset="/img/loading.gif" lazyload alt="image-20231228220225181" style="zoom:33%;">
+
+<p><img src="/assets/image-20231228220243187.png" srcset="/img/loading.gif" lazyload alt="image-20231228220243187"></p>
+<p><img src="/assets/image-20231228220306446.png" srcset="/img/loading.gif" lazyload alt="image-20231228220306446"></p>
+<p>画E-R图步骤：</p>
+<ul>
+<li><p>第一步：理解需求，寻找实体</p>
+<ul>
+<li>E-R图建模首先要找出问题领域的实体，即找出有哪些类&#x2F;实体</li>
+<li>能够用一个个、一件件、一串串等重叠量词形容</li>
+</ul>
+</li>
+<li><p>第二步：用属性刻画每一个实体</p>
+</li>
+<li><p>第三步：确定每一个实体的关键字&#x2F;码</p>
+</li>
+<li><p>第四步：数据建模的重点是分析实体之间的联系</p>
+</li>
+<li><p>第五步：检查是否覆盖了需求</p>
+</li>
+</ul>
+<p><img src="/assets/image-20231228222242917.png" srcset="/img/loading.gif" lazyload alt="image-20231228222242917"></p>
 
                 
               </div>
@@ -374,15 +418,8 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">Mysql数据库</a>
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">数据库理论基础</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/" class="category-chain-item">数据库概述</a>
-  
-  
-
   
 
       </span>
@@ -401,8 +438,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>3_关系模型及关系运算</div>
-      <div>http://elaskon.asia/2023/12/23/数据库MYSQL/1_数据库概述/理论基础/3_关系模型及关系运算/</div>
+      <div>2_模型及其设计</div>
+      <div>http://elaskon.asia/2023/12/23/数据库理论基础/2_概念模型及其设计/</div>
     </div>
     <div class="license-meta">
       
@@ -446,7 +483,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/12/23/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/1_%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/1_%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/" title="1_数据库系统基础">
+                      <a href="/2023/12/23/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/1_%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/" title="1_数据库系统基础">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">1_数据库系统基础</span>
                         <span class="visible-mobile">上一篇</span>
@@ -456,8 +493,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/23/%E6%95%B0%E6%8D%AE%E5%BA%93MYSQL/1_%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A6%82%E8%BF%B0/%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80/2_%E6%A6%82%E5%BF%B5%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B6%E8%AE%BE%E8%AE%A1/" title="2_模型及其设计">
-                        <span class="hidden-mobile">2_模型及其设计</span>
+                      <a href="/2023/12/16/JavaSe%E5%9F%BA%E7%A1%80/File_IO%E6%B5%81/1_File%E7%B1%BB/" title="1_File类">
+                        <span class="hidden-mobile">1_File类</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
