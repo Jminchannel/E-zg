@@ -16,12 +16,12 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="二改mybaitsx代码生成器-自定义模板idea插件安装 如何使用不再赘述 模板库 domain.ftl123456789101112131415161718192021222324252627282930313233package $&amp;#123;domain.packageName&amp;#125;;import javax.validation.constraints.NotBlank;impor">
+    <meta name="description" content="二改mybaitsx代码生成器-自定义模板idea插件安装 如何使用此处不赘述 模板库 domain.ftl123456789101112131415161718192021222324252627282930313233package $&amp;#123;domain.packageName&amp;#125;;import javax.validation.constraints.NotBlank;impo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二改mybaitsx代码生成器-自定义模板">
 <meta property="og:url" content="http://elaskon.asia/2024/01/21/%E6%9D%82%E9%A1%B9%E9%85%8D%E7%BD%AE/%E4%BA%8C%E6%94%B9mybaitsx%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E6%9D%BF/index.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="二改mybaitsx代码生成器-自定义模板idea插件安装 如何使用不再赘述 模板库 domain.ftl123456789101112131415161718192021222324252627282930313233package $&amp;#123;domain.packageName&amp;#125;;import javax.validation.constraints.NotBlank;impor">
+<meta property="og:description" content="二改mybaitsx代码生成器-自定义模板idea插件安装 如何使用此处不赘述 模板库 domain.ftl123456789101112131415161718192021222324252627282930313233package $&amp;#123;domain.packageName&amp;#125;;import javax.validation.constraints.NotBlank;impo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20240121163737851.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20240121163836211.png">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://elaskon.asia/assets/image-20240121175118701.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20240121175129735.png">
 <meta property="article:published_time" content="2024-01-20T16:15:43.000Z">
-<meta property="article:modified_time" content="2024-01-21T09:52:16.854Z">
+<meta property="article:modified_time" content="2024-01-21T14:01:19.865Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://elaskon.asia/assets/image-20240121163737851.png">
@@ -257,7 +257,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.5k 字
+          4.6k 字
         
       </span>
     
@@ -268,7 +268,7 @@
         
         
         
-          38 分钟
+          39 分钟
         
       </span>
     
@@ -318,7 +318,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年1月21日 下午
+                    本文最后更新于：2024年1月21日 晚上
                   
                 
               </p>
@@ -327,11 +327,11 @@
               <div class="markdown-body">
                 
                 <h1 id="二改mybaitsx代码生成器-自定义模板"><a href="#二改mybaitsx代码生成器-自定义模板" class="headerlink" title="二改mybaitsx代码生成器-自定义模板"></a>二改mybaitsx代码生成器-自定义模板</h1><h2 id="idea插件安装"><a href="#idea插件安装" class="headerlink" title="idea插件安装"></a>idea插件安装</h2><p><img src="/assets/image-20240121163737851.png" srcset="/img/loading.gif" lazyload alt="image-20240121163737851"></p>
-<p>如何使用不再赘述</p>
+<p>如何使用此处不赘述</p>
 <h2 id="模板库"><a href="#模板库" class="headerlink" title="模板库"></a>模板库</h2><p><img src="/assets/image-20240121163836211.png" srcset="/img/loading.gif" lazyload alt="image-20240121163836211"></p>
 <h2 id="domain-ftl"><a href="#domain-ftl" class="headerlink" title="domain.ftl"></a>domain.ftl</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs ftl">package $&#123;domain.packageName&#125;;<br>import javax.validation.constraints.NotBlank;<br>import javax.validation.constraints.Size;<br>import javax.validation.constraints.NotNull;<br>import lombok.Data;<br>import java.io.Serializable;<br>&lt;#list tableClass.importList as fieldType&gt;$&#123;&quot;\n&quot;&#125;import $&#123;fieldType&#125;;&lt;/#list&gt;<br>import io.swagger.annotations.ApiModelProperty;<br><br>/**<br>* $&#123;tableClass.remark!&#125;<br>* @author JMIN<br>* @TableName $&#123;tableClass.tableName&#125;<br>*/<br>@Data<br>public class $&#123;tableClass.shortClassName&#125; implements Serializable &#123;<br><br>    private static final long serialVersionUID = 1L;<br>    &lt;#list tableClass.allFields as field&gt;<br>    /**<br>    * $&#123;field.remark!&#125;<br>    */<br>    &lt;#if !field.nullable&gt;<br>    &lt;#if field.jdbcType==&quot;VARCHAR&quot;&gt;@NotBlank(message=&quot;[$&#123;field.remark!&#125;]不能为空&quot;)&lt;#else&gt;@NotNull(message=&quot;[$&#123;field.remark!&#125;]不能为空&quot;)<br>    &lt;/#if&gt;<br>    &lt;/#if&gt;<br>    &lt;#if field.jdbcType==&quot;VARCHAR&quot;&gt;<br>    &lt;#if !field.nullable&gt;$&#123;&quot;\n&quot;&#125;&lt;/#if&gt;@Size(max= $&#123;field.columnLength?c&#125;,message=&quot;编码长度不能超过$&#123;field.columnLength?c&#125;&quot;)&lt;/#if&gt;<br>    @ApiModelProperty(&quot;$&#123;field.remark!&#125;&quot;)<br>    private $&#123;field.shortTypeName&#125; $&#123;field.fieldName&#125;;<br>    &lt;/#list&gt;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<h2 id="mapperInterface-ftl"><a href="#mapperInterface-ftl" class="headerlink" title="mapperInterface.ftl"></a>mapperInterface.ftl</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs ftl">package $&#123;mapperInterface.packageName&#125;;<br><br>import $&#123;tableClass.fullClassName&#125;;<br>&lt;#if tableClass.pkFields??&gt;<br>    &lt;#list tableClass.pkFields as field&gt;&lt;#assign pkName&gt;$&#123;field.shortTypeName&#125;&lt;/#assign&gt;&lt;/#list&gt;<br>&lt;/#if&gt;<br>import com.baomidou.mybatisplus.core.mapper.BaseMapper;<br><br>/**<br>* @author JMIN<br>* @description 针对表【$&#123;tableClass.tableName&#125;&lt;#if tableClass.remark?has_content&gt;($&#123;tableClass.remark!&#125;)&lt;/#if&gt;】的数据库操作Mapper<br>* @createDate $&#123;.now?string(&#x27;yyyy-MM-dd HH:mm:ss&#x27;)&#125;<br>* @Entity $&#123;tableClass.fullClassName&#125;<br>*/<br>public interface $&#123;mapperInterface.fileName&#125; extends BaseMapper&lt;$&#123;tableClass.shortClassName&#125;&gt; &#123;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="mapperInterface-ftl"><a href="#mapperInterface-ftl" class="headerlink" title="mapperInterface.ftl"></a>mapperInterface.ftl</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs ftl">package $&#123;mapperInterface.packageName&#125;;<br><br>import org.apache.ibatis.annotations.Mapper;<br>import $&#123;tableClass.fullClassName&#125;;<br>&lt;#if tableClass.pkFields??&gt;<br>    &lt;#list tableClass.pkFields as field&gt;&lt;#assign pkName&gt;$&#123;field.shortTypeName&#125;&lt;/#assign&gt;&lt;/#list&gt;<br>&lt;/#if&gt;<br>import com.baomidou.mybatisplus.core.mapper.BaseMapper;<br><br>/**<br>* @author JMIN<br>* @description 针对表【$&#123;tableClass.tableName&#125;&lt;#if tableClass.remark?has_content&gt;($&#123;tableClass.remark!&#125;)&lt;/#if&gt;】的数据库操作Mapper<br>* @createDate $&#123;.now?string(&#x27;yyyy-MM-dd HH:mm:ss&#x27;)&#125;<br>* @Entity $&#123;tableClass.fullClassName&#125;<br>*/<br>@Mapper<br>public interface $&#123;mapperInterface.fileName&#125; extends BaseMapper&lt;$&#123;tableClass.shortClassName&#125;&gt; &#123;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="mapperXml-ftl"><a href="#mapperXml-ftl" class="headerlink" title="mapperXml.ftl"></a>mapperXml.ftl</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs ftl">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;!DOCTYPE mapper<br>        PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;<br>        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;<br>&lt;mapper namespace=&quot;$&#123;mapperInterface.packageName&#125;.$&#123;baseInfo.fileName&#125;&quot;&gt;<br><br>&lt;/mapper&gt;<br><br></code></pre></td></tr></table></figure>
 
