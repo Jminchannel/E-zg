@@ -23,15 +23,14 @@
 <meta property="og:site_name" content="E-zg小破站">
 <meta property="og:description" content="面试准备Redis缓存 分布式锁锁，即在多线程环境下，对共享资源的访问造成的线程安全问题，通过锁的机制来实现资源访问互斥；比如Java语言有线程锁：synchronize&#x2F;Lock等； 基本思路 获取锁：setnx key value 其他线程创建key失败，则获取锁失败 设置锁的过期时间 expire key 30 防止宕机后一直锁 执行业务代码 释放锁 del key  四种redi">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20240724100253846.png">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20240724112619782.png">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20240724112700618.png">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20240724112754979.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20240724114742355.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20240724114735243.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20240724114727877.png">
 <meta property="article:published_time" content="2024-07-24T01:35:43.000Z">
-<meta property="article:modified_time" content="2024-07-24T03:30:24.245Z">
+<meta property="article:modified_time" content="2024-07-24T03:47:44.555Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://elaskon.asia/assets/image-20240724100253846.png">
+<meta name="twitter:image" content="http://elaskon.asia/assets/image-20240724114742355.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -322,7 +321,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="面试准备"><a href="#面试准备" class="headerlink" title="面试准备"></a>面试准备</h1><h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p><img src="/assets/image-20240724100253846.png" srcset="/img/loading.gif" lazyload alt="image-20240724100253846"></p>
+                <h1 id="面试准备"><a href="#面试准备" class="headerlink" title="面试准备"></a>面试准备</h1><h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p><img src="/../../assets/image-20240724114742355.png" srcset="/img/loading.gif" lazyload alt="image-20240724114742355"></p>
 <h3 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h3><p>锁，即在多线程环境下，对共享资源的访问造成的线程安全问题，通过锁的机制来实现资源访问互斥；比如Java语言有线程锁：synchronize&#x2F;Lock等；</p>
 <h4 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h4><ol>
 <li>获取锁：setnx key value 其他线程创建key失败，则获取锁失败</li>
@@ -341,8 +340,8 @@
 <li>业务代码();</li>
 <li>释放锁 lock.unlock();</li>
 </ol>
-<p><img src="/assets/image-20240724112619782.png" srcset="/img/loading.gif" lazyload alt="image-20240724112619782"></p>
-<p><img src="/assets/image-20240724112700618.png" srcset="/img/loading.gif" lazyload alt="image-20240724112700618"><img src="/assets/image-20240724112754979.png" srcset="/img/loading.gif" lazyload alt="image-20240724112754979"></p>
+<p><img src="/../../assets/image-20240724114735243.png" srcset="/img/loading.gif" lazyload alt="image-20240724114735243"></p>
+<p><img src="/../../assets/image-20240724114727877.png" srcset="/img/loading.gif" lazyload alt="image-20240724114719826"></p>
 <h4 id="Redisson实现分布式锁源代码分析"><a href="#Redisson实现分布式锁源代码分析" class="headerlink" title="Redisson实现分布式锁源代码分析"></a>Redisson实现分布式锁源代码分析</h4>
                 
               </div>
