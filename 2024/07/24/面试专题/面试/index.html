@@ -26,8 +26,19 @@
 <meta property="og:image" content="http://elaskon.asia/assets/image-20240724114742355.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20240724114735243.png">
 <meta property="og:image" content="http://elaskon.asia/assets/image-20240724114727877.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20240724154116816.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20240724154221999.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20240724154345856.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20240724154356583.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20240724154447867.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20240724154651812.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20240724154813368.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20240724154824149.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20240724160214475.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20240724160555110.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20240724160720054.png">
 <meta property="article:published_time" content="2024-07-24T01:35:43.000Z">
-<meta property="article:modified_time" content="2024-07-24T03:47:44.555Z">
+<meta property="article:modified_time" content="2024-07-24T09:40:10.531Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://elaskon.asia/assets/image-20240724114742355.png">
@@ -252,7 +263,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          339 字
+          411 字
         
       </span>
     
@@ -263,7 +274,7 @@
         
         
         
-          3 分钟
+          4 分钟
         
       </span>
     
@@ -313,7 +324,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年7月24日 中午
+                    本文最后更新于：2024年7月24日 下午
                   
                 
               </p>
@@ -342,7 +353,19 @@
 </ol>
 <p><img src="/../../assets/image-20240724114735243.png" srcset="/img/loading.gif" lazyload alt="image-20240724114735243"></p>
 <p><img src="/../../assets/image-20240724114727877.png" srcset="/img/loading.gif" lazyload alt="image-20240724114719826"></p>
-<h4 id="Redisson实现分布式锁源代码分析"><a href="#Redisson实现分布式锁源代码分析" class="headerlink" title="Redisson实现分布式锁源代码分析"></a>Redisson实现分布式锁源代码分析</h4>
+<h4 id="Redisson实现分布式锁getLock-源代码分析"><a href="#Redisson实现分布式锁getLock-源代码分析" class="headerlink" title="Redisson实现分布式锁getLock()源代码分析"></a>Redisson实现分布式锁getLock()源代码分析</h4><p><img src="/../../assets/image-20240724154116816.png" srcset="/img/loading.gif" lazyload alt="image-20240724154116816"></p>
+<p><img src="/../../assets/image-20240724154221999.png" srcset="/img/loading.gif" lazyload alt="image-20240724154221999"></p>
+<p><img src="/../../assets/image-20240724154345856.png" srcset="/img/loading.gif" lazyload alt="image-20240724154345856"></p>
+<p><img src="/../../assets/image-20240724154356583.png" srcset="/img/loading.gif" lazyload alt="image-20240724154356583"></p>
+<p><img src="/../../assets/image-20240724154447867.png" srcset="/img/loading.gif" lazyload alt="image-20240724154447867"></p>
+<p><img src="/../../assets/image-20240724154651812.png" srcset="/img/loading.gif" lazyload alt="image-20240724154651812"></p>
+<h4 id="Redisson实现分布式锁lock-源代码分析"><a href="#Redisson实现分布式锁lock-源代码分析" class="headerlink" title="Redisson实现分布式锁lock()源代码分析"></a>Redisson实现分布式锁lock()源代码分析</h4><p><img src="/../../assets/image-20240724154813368.png" srcset="/img/loading.gif" lazyload alt="image-20240724154813368"></p>
+<p><img src="/../../assets/image-20240724154824149.png" srcset="/img/loading.gif" lazyload alt="image-20240724154824149"></p>
+<p><img src="/../../assets/image-20240724160214475.png" srcset="/img/loading.gif" lazyload alt="image-20240724160214475"></p>
+<p><img src="/../../assets/image-20240724160555110.png" srcset="/img/loading.gif" lazyload alt="image-20240724160555110"></p>
+<p><img src="/../../assets/image-20240724160720054.png" srcset="/img/loading.gif" lazyload alt="image-20240724160720054"></p>
+<p>lua脚本执行，保证操作具备原子性</p>
+<h4 id="Redisson实现分布式锁续期源代码分析"><a href="#Redisson实现分布式锁续期源代码分析" class="headerlink" title="Redisson实现分布式锁续期源代码分析"></a>Redisson实现分布式锁续期源代码分析</h4>
                 
               </div>
             
@@ -424,6 +447,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/08/04/%E9%AB%98%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF/DelayQueue/" title="1_DelayQueue">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">1_DelayQueue</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
