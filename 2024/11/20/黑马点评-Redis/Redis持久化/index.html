@@ -16,26 +16,26 @@
   <meta name="author" content="Jmin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Linux查看日志的各种方案常用的日志命令有tail,cat,tac,head,echo等 tail12345678910命令格式：tail[必要参数][选择参数][文件]-f 循环读取 -q 不显示处理信息 -v 显示详细的处理信息 -c&lt;数目&gt; 显示的字节数 -n&lt;行数&gt; 显示行数 tail -n 10 test.log 查询日志尾部最后10行的日志;tail -n +">
+    <meta name="description" content="Redis持久化目前存在两种持久化方式，RDB和AOF RDB在redis运行时，RDB将内存中的数据库生成一个Snapshot快照保存到磁盘文件中，Redis重启时，RDB可通过快照文件来还原数据库的状态。它的触发方式有，save命令（同步），bgsave命令（异步）还有自动方式。 SAVE 命令一般在非常小的数据集上使用，BGSAVE 命令是更常用的方式，特别是在生产环境中，因为它不会阻塞整个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3_Linux查看日志的各种方案">
-<meta property="og:url" content="http://elaskon.asia/2024/11/11/Linux%E5%9F%BA%E7%A1%80/3_Linux%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E7%9A%84%E5%90%84%E7%A7%8D%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:title" content="Redis持久化">
+<meta property="og:url" content="http://elaskon.asia/2024/11/20/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84-Redis/Redis%E6%8C%81%E4%B9%85%E5%8C%96/index.html">
 <meta property="og:site_name" content="E-zg小破站">
-<meta property="og:description" content="Linux查看日志的各种方案常用的日志命令有tail,cat,tac,head,echo等 tail12345678910命令格式：tail[必要参数][选择参数][文件]-f 循环读取 -q 不显示处理信息 -v 显示详细的处理信息 -c&lt;数目&gt; 显示的字节数 -n&lt;行数&gt; 显示行数 tail -n 10 test.log 查询日志尾部最后10行的日志;tail -n +">
+<meta property="og:description" content="Redis持久化目前存在两种持久化方式，RDB和AOF RDB在redis运行时，RDB将内存中的数据库生成一个Snapshot快照保存到磁盘文件中，Redis重启时，RDB可通过快照文件来还原数据库的状态。它的触发方式有，save命令（同步），bgsave命令（异步）还有自动方式。 SAVE 命令一般在非常小的数据集上使用，BGSAVE 命令是更常用的方式，特别是在生产环境中，因为它不会阻塞整个">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20241111162127090.png">
-<meta property="og:image" content="http://elaskon.asia/assets/image-20241111164311876.png">
-<meta property="article:published_time" content="2024-11-11T06:15:43.000Z">
-<meta property="article:modified_time" content="2024-11-11T08:45:36.004Z">
+<meta property="og:image" content="http://elaskon.asia/assets/b6d3793f402c24f7665d3c6561508b6.png">
+<meta property="og:image" content="http://elaskon.asia/assets/image-20241120155516031.png">
+<meta property="article:published_time" content="2024-11-20T08:15:43.000Z">
+<meta property="article:modified_time" content="2024-11-20T08:08:44.788Z">
 <meta property="article:author" content="Jmin">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://elaskon.asia/assets/image-20241111162127090.png">
+<meta name="twitter:image" content="http://elaskon.asia/assets/b6d3793f402c24f7665d3c6561508b6.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>3_Linux查看日志的各种方案 - E-zg小破站</title>
+  <title>Redis持久化 - E-zg小破站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -228,7 +228,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="3_Linux查看日志的各种方案"></span>
+            <span id="subtitle" data-typed-text="Redis持久化"></span>
           
         </div>
 
@@ -239,8 +239,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-11-11 14:15" pubdate>
-          2024年11月11日 下午
+        <time datetime="2024-11-20 16:15" pubdate>
+          2024年11月20日 下午
         </time>
       </span>
     
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          1.7k 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          11 分钟
+          15 分钟
         
       </span>
     
@@ -307,12 +307,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">3_Linux查看日志的各种方案</h1>
+            <h1 id="seo-header">Redis持久化</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年11月11日 下午
+                    本文最后更新于：2024年11月20日 下午
                   
                 
               </p>
@@ -320,41 +320,36 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Linux查看日志的各种方案"><a href="#Linux查看日志的各种方案" class="headerlink" title="Linux查看日志的各种方案"></a>Linux查看日志的各种方案</h1><p>常用的日志命令有tail,cat,tac,head,echo等</p>
-<h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><figure class="highlight stan"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stan">命令格式：<span class="hljs-built_in">tail</span>[必要参数][选择参数][文件]<br>-f 循环读取 <br>-q 不显示处理信息 <br>-v 显示详细的处理信息 <br>-c&lt;数目&gt; 显示的字节数 <br>-n&lt;行数&gt; 显示行数 <br><br><span class="hljs-built_in">tail</span> -n <span class="hljs-number">10</span> test.<span class="hljs-built_in">log</span> 查询日志尾部最后<span class="hljs-number">10</span>行的日志;<br><span class="hljs-built_in">tail</span> -n +<span class="hljs-number">10</span> test.<span class="hljs-built_in">log</span> 查询<span class="hljs-number">10</span>行之后的所有日志;<br><span class="hljs-built_in">tail</span> -fn <span class="hljs-number">10</span> test.<span class="hljs-built_in">log</span> 循环实时查看最后<span class="hljs-number">10</span>行记录(最常用的)<br></code></pre></td></tr></table></figure>
+                <h1 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h1><p><strong>目前存在两种持久化方式，RDB和AOF</strong></p>
+<h2 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h2><p>在redis运行时，RDB将内存中的数据库生成一个Snapshot快照保存到磁盘文件中，Redis重启时，RDB可通过快照文件来还原数据库的状态。它的触发方式有，<strong>save命令</strong>（同步），<strong>bgsave命令</strong>（异步）还有<strong>自动方式</strong>。</p>
+<p>SAVE 命令一般在非常小的数据集上使用，BGSAVE 命令是更常用的方式，特别是在生产环境中，因为它不会阻塞整个 Redis 服务。 </p>
+<p><img src="/../../assets/b6d3793f402c24f7665d3c6561508b6.png" srcset="/img/loading.gif" lazyload alt="b6d3793f402c24f7665d3c6561508b6"></p>
+<p><img src="/../../assets/image-20241120155516031.png" srcset="/img/loading.gif" lazyload alt="image-20241120155516031"></p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tap">配置时间策略具体的意思：<br>-<span class="hljs-number"> 3600 </span>秒内有一个 key 变化<br>-<span class="hljs-number"> 300 </span>秒内<span class="hljs-number"> 100 </span>个 key 变化<br>-<span class="hljs-number"> 60 </span>秒内有<span class="hljs-number"> 10000 </span>个 key 发生变化<br></code></pre></td></tr></table></figure>
 
-<p>tail -fn 10 test.log 循环实时查看最后10行记录(最常用的)，一般还会配合着grep搜索用比如</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">tail -fn <span class="hljs-number">1000</span> test.<span class="hljs-built_in">log</span> | <span class="hljs-keyword">grep</span> <span class="hljs-string">&#x27;关键字&#x27;</span><br></code></pre></td></tr></table></figure>
-
-<p><img src="/../../assets/image-20241111162127090.png" srcset="/img/loading.gif" lazyload alt="image-20241111162127090"></p>
-<h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><p>跟tail是相反的head是看前多少行日志</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">head</span> -n <span class="hljs-number">10</span> test.log 查询日志文件中的头<span class="hljs-number">10</span>行日志;<br><span class="hljs-attribute">head</span> -n -<span class="hljs-number">10</span> test.log 查询日志文件除了最后<span class="hljs-number">10</span>行的其他所有日志;<br></code></pre></td></tr></table></figure>
-
-<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><p>cat 是由第一行到最后一行连续显示在屏幕上</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs stata">一次显示整个文件:<br><span class="hljs-keyword">cat</span> filename<br><br>从键盘创建一个文件:<br><span class="hljs-keyword">cat</span> &gt; filename<br><br>将几个文件合并为一个文件:<br><span class="hljs-keyword">cat</span> file1 file2 &gt; <span class="hljs-keyword">file</span> 只能创建新文件,不能编辑已有文件<br><br>将一个日志文件的内容追加到另外一个:<br><span class="hljs-keyword">cat</span> -<span class="hljs-keyword">n</span> textfile1 &gt; textfile2<br><br>清空一个日志文件<br><span class="hljs-keyword">cat</span> : &gt;textfile2<br></code></pre></td></tr></table></figure>
-
-<p>&gt; 意思是创建，&gt;&gt;是追加。千万不要弄混了</p>
-<h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><p>more命令是一个基于vi编辑器文本过滤器，它以全屏幕的方式按页显示文本文件的内容，支持vi中的关键字定位操作。more名单中内置了若干快捷键，常用的有H（获得帮助信息），Enter（向下翻滚一行），空格（向下滚动一屏），Q（退出命令）。more命令从前向后读取文件，因此在启动时就加载整个文件。</p>
-<p>该命令一次显示一屏文本，满屏后停下来，并且在屏幕的底部出现一个提示信息，给出至今己显示的该文件的百分比：–More–（XX%）</p>
-<ul>
-<li>more的语法：more 文件名</li>
-<li>Enter 向下n行，需要定义，默认为1行</li>
-<li>Ctrl f 向下滚动一屏</li>
-<li>空格键 向下滚动一屏</li>
-<li>Ctrl b 返回上一屏</li>
-<li>&#x3D; 输出当前行的行号</li>
-<li>:f 输出文件名和当前行的行号</li>
-<li>v 调用vi编辑器</li>
-<li>!命令 调用Shell，并执行命令</li>
-<li>q退出more</li>
-</ul>
-<h2 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h2><p>查找日志文件特定的一段 , 根据时间的一个范围查询，可以按照行号和时间范围查询按照行号</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs 1c">按照行号<br>sed -n &#x27;5,10p&#x27; filename 这样可以只查看文件的第<span class="hljs-number">5</span>行到第<span class="hljs-number">10</span>行。<br>按照时间段<br>sed -n &#x27;/<span class="hljs-number">2024-11-11</span> 16:17:20/,/<span class="hljs-number">2024-11-11</span> 16:17:36/p&#x27; test.<span class="hljs-built_in">log</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">less nohup.out<br><span class="hljs-keyword">shift+G </span>到文件尾部然后输入？加上需要搜索的关键字 ?<span class="hljs-keyword">java</span><br><span class="hljs-keyword"></span>按N向上查找关键字 <span class="hljs-keyword">shift+N </span>向下查找关键字<br></code></pre></td></tr></table></figure>
-
-<p><img src="/../../assets/image-20241111164311876.png" srcset="/img/loading.gif" lazyload alt="image-20241111164311876"></p>
-<p>使用less可以随意浏览文件，而more仅能向前移动，不能向后移动，而且 less 在查看之前不会加载整个文件。</p>
+<p>如果存在老的 RDB 文件，那么会生成一个临时文件，然后新生成的文件就会替换老的 RDB 文件。</p>
+<p>有时候没有执行 save，bgsave 命令或者配置文件设置 RDB 自动生成方式时候也会生成RDB文件，因为可能主从之间会有全量复制导致生成的，主节点会自动生成 RDB 文件。</p>
+<h2 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h2><p>客户端每执行一条命令都会被记录在 AOF 文件中。当 Redis 服务器宕机后，Redis 可以从 AOF 文件中恢复数据。Redis 在执行写入 AOF 日志文件的时候不是直接去写入文件中，而是先记录在硬盘的缓冲区，缓冲区会根据一些刷新策略来决定什么时候刷新到磁盘中，这样会提高写入的效率。</p>
+<p>always（暴力写入磁盘，效率高但性能差吞吐量低）</p>
+<p>everysec（每秒将缓冲中的数据 fsync 到磁盘）</p>
+<p>no（关闭自动写入磁盘）</p>
+<p><strong>AOF重写</strong>是将过期的，没有用的，重复的命令，以及一些可以优化的命令都进行一个精简，来缩小 AOF 文件的体积，减少对磁盘的占用量。同时文件体积缩小也可以加速Redis恢复的速度。</p>
+<h2 id="二者选择"><a href="#二者选择" class="headerlink" title="二者选择"></a>二者选择</h2><p>RDB（Redis DataBase）和 AOF（Append Only File）是两种不同的持久化机制，它们各自有一些优势和劣势。下面是它们之间的一些对比：</p>
+<h3 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h3><p>RDB： 生成的是二进制的快照文件，包含了 Redis 在某个时间点上的所有数据。这种格式非常紧凑，适合用于备份和恢复。</p>
+<p>AOF： 以文本格式追加写操作的日志文件，记录了每个写命令。这使得 AOF 文件相对容易阅读和人工修复。</p>
+<h3 id="恢复速度"><a href="#恢复速度" class="headerlink" title="恢复速度"></a>恢复速度</h3><p>RDB： 恢复速度一般比 AOF 快，因为它是一个完整的数据快照，只需读取 RDB 文件并加载到内存中即可。</p>
+<p>AOF： 恢复速度可能比较慢，特别是对于大型 AOF 文件，因为需要逐行执行写操作来还原数据。</p>
+<h3 id="数据丢失"><a href="#数据丢失" class="headerlink" title="数据丢失"></a>数据丢失</h3><p>RDB： 在两次 RDB 文件生成之间的写操作可能会丢失，因为 RDB 是定期生成的。</p>
+<p>AOF： 数据丢失的程度通常比较小，因为 AOF 记录了每个写操作。在发生故障时，只有最后一次写操作之后的数据可能会丢失。</p>
+<h3 id="文件大小"><a href="#文件大小" class="headerlink" title="文件大小"></a>文件大小</h3><p>RDB： 通常比较小，因为它是一个完整的数据快照。</p>
+<p>AOF： 可能比较大，特别是对于频繁写入的系统，因为它记录了每个写命令。</p>
+<h3 id="随机访问性"><a href="#随机访问性" class="headerlink" title="随机访问性"></a>随机访问性</h3><p>RDB： 适合大规模数据集的恢复，因为它是一个二进制文件，支持快速的随机访问。</p>
+<p>AOF： 由于是文本文件，随机访问性相对较差。</p>
+<h3 id="系统稳定性"><a href="#系统稳定性" class="headerlink" title="系统稳定性"></a>系统稳定性</h3><p>RDB： 在生成 RDB 文件期间会有一段时间的阻塞，因为 Redis 在生成 RDB 文件时执行 fork 操作。在这个时间段内，不能执行写操作。</p>
+<p>AOF： AOF 在追加写操作时是非阻塞的，因此不会影响系统的响应性。</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>RDB： 适合用于备份和定期快照，对于大型数据集的快速恢复。</p>
+<p>AOF： 适合对数据的持久化要求更高，能够容忍一些性能开销，以及需要更精细的数据恢复场景。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通常情况下，可以同时使用 RDB 和 AOF，以兼顾数据恢复的速度和可靠性。<br>如果需要在故障时最小化数据丢失，并且对于恢复速度有较高的要求，可以使用 AOF 持久化。如果可以忍受一小段时间内数据的丢失，毫无疑问使用 RDB 是最好的，定时生成 RDB 快照（snapshot）非常便于进行数据库备份， 并且 RDB 恢复数据集的速度也要比 AOF 恢复的速度要快，而且使用 RDB 还可以避免 AOF 一些隐藏的 bug；否则就使用 AOF 重写。但是一般情况下建议不要单独使用某一种持久化机制，而是应该两种一起用，在这种情况下,当redis重启的时候会优先载入AOF文件来恢复原始的数据，因为在通常情况下AOF文件保存的数据集要比RDB文件保存的数据集要完整。Redis后期官方可能都有将两种持久化方式整合为一种持久化模型。</p>
 
                 
               </div>
@@ -373,7 +368,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  <a href="/categories/Redis/" class="category-chain-item">Redis</a>
   
   
 
@@ -393,8 +388,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>3_Linux查看日志的各种方案</div>
-      <div>http://elaskon.asia/2024/11/11/Linux基础/3_Linux查看日志的各种方案/</div>
+      <div>Redis持久化</div>
+      <div>http://elaskon.asia/2024/11/20/黑马点评-Redis/Redis持久化/</div>
     </div>
     <div class="license-meta">
       
@@ -406,7 +401,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年11月11日</div>
+          <div>2024年11月20日</div>
         </div>
       
       
@@ -438,18 +433,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/11/11/Git/1/" title="">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/08/04/%E9%AB%98%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF/DelayQueue/" title="1_DelayQueue">
-                        <span class="hidden-mobile">1_DelayQueue</span>
+                      <a href="/2024/11/11/Git/1/" title="">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
