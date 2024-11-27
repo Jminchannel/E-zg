@@ -253,6 +253,60 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/2024/11/27/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84-Redis/Redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" target="_self">
+          Redis实现分布式锁
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/11/27/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84-Redis/Redis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" target="_self">
+        <div>
+          Redis实现分布式锁Redis本身可以被任意JVM实例访问，同时Redis中的setnx命令具备互斥性，因此符合分布式锁的需求。不过实现分布式锁的时候还有一些细节需要考虑，绝不仅仅是setnx这么简单。 基本原理
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-11-27 18:15" pubdate>
+              2024-11-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Redis/" class="category-chain-item">Redis</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/2024/11/20/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84-Redis/Redis%E6%8C%81%E4%B9%85%E5%8C%96/" target="_self">
           Redis持久化
         </a>
@@ -697,60 +751,6 @@
       <span class="category-chain">
         
   <a href="/categories/Redis/" class="category-chain-item">Redis</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/03/07/%E6%9D%82%E9%A1%B9%E9%85%8D%E7%BD%AE/%E5%85%A8%E5%B1%80ID%E7%94%9F%E6%88%90%E5%99%A8/" target="_self">
-          全局ID生成器
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/03/07/%E6%9D%82%E9%A1%B9%E9%85%8D%E7%BD%AE/%E5%85%A8%E5%B1%80ID%E7%94%9F%E6%88%90%E5%99%A8/" target="_self">
-        <div>
-          全局ID生成器全局ID生成器，是一种在分布式系统下用来生成全局唯一ID的工具：【唯一性，高可用，递增性，安全性，高性能】 拼接Redis自增数值 ID的组成部分：符号位：1bit，永远为0时间戳：31bt，以秒为单位，可以使用69年序列号：32bit，秒内的计数器，支持每秒产生2的 32个不同ID 12345678910111213141516171819202122232425262728293
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-03-07 00:15" pubdate>
-              2024-03-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%9D%82%E9%A1%B9%E9%85%8D%E7%BD%AE/" class="category-chain-item">杂项配置</a>
   
   
 
